@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+kodcode_processed/
+kodcode_dataset/data/
+.venv/
+*.parquet
+HANDOFF.md
