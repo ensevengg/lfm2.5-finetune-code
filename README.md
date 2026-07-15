@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 ![Python 3.12+](https://img.shields.io/badge/python-3.12%2B-blue)
-[![HF Dataset](https://img.shields.io/badge/🤗_Dataset-enseven/kodcode--lfm2.5-blue)](https://huggingface.co/datasets/enseven/kodcode-lfm2.5)
+[![HF Dataset](https://img.shields.io/badge/🤗_Dataset-enseven/kodcode-lfm2.5)](https://huggingface.co/datasets/enseven/kodcode-lfm2.5)
 
 ## Table of Contents
 - [Overview](#overview)
