@@ -2,8 +2,8 @@
 Phase 1: Preprocess KodCode-V1-SFT-R1 for LFM2.5-1.2B-Thinking fine-tuning.
 
 Strategy: store formatted text strings (not pre-tokenized IDs).
-The training script (SFTTrainer with dataset_text_field="text") handles tokenization
-on-the-fly, which is both faster and more memory-efficient.
+The training script converts them to prompt/completion pairs and handles tokenization
+on-the-fly, including completion-only loss masking.
 
 1. Load 11 train shards
 2. Build formatted chat strings for code-only and CoT variants
@@ -38,17 +38,18 @@ HF_TOKEN = os.environ.get("HF_TOKEN", None)
 # At mean ratio 3.53, 15000/3.53 = 4249 tok — some > 4096.
 # At P75 ratio ~3.7, 15000/3.7 = 4054 tok — fits.
 # So about 50-55% of CoT texts at 15000 char limit will fit in 4096 tok.
-# We accept false positives (will be truncated during training).
+# This is only a sampling heuristic. The Kaggle trainer applies an exact
+# tokenizer-length filter, so false positives are dropped rather than truncated.
 COT_CHAR_LIMIT = 15000
 
 # Chat template strings (no tokenization needed)
-BOS = "<|startoftext|>"
 IM_START = "<|im_start|>"
 IM_END = "<|im_end|>"
 
 
 def format_chat(question: str, answer: str) -> str:
-    return f"{BOS}{IM_START}user\n{question}{IM_END}\n{IM_START}assistant\n{answer}{IM_END}\n"
+    # The tokenizer inserts BOS and SFTTrainer verifies the final EOS itself.
+    return f"{IM_START}user\n{question}{IM_END}\n{IM_START}assistant\n{answer}{IM_END}"
 
 
 # ── Processing ──────────────────────────────────────────────────────────

@@ -15,7 +15,7 @@ import os
 import re
 from glob import glob
 
-os.environ["TOKENIZERS_PARALLELISM"] = "true"
+os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
 
 
 def check_gpu():
@@ -37,8 +37,8 @@ def parse_args():
                         help="Column name containing formatted text")
     parser.add_argument("--max-seq-length", type=int, default=4096,
                         help="Truncate/pack sequences to this length")
-    parser.add_argument("--packing", action="store_true", default=True,
-                        help="Pack multiple short examples into one sequence")
+    parser.add_argument("--packing", action="store_true", default=False,
+                        help="Pack only when a verified FlashAttention backend is enabled")
     parser.add_argument("--no-packing", action="store_false", dest="packing")
 
     # Model
@@ -100,9 +100,8 @@ def main():
     from transformers import (
         AutoModelForCausalLM,
         AutoTokenizer,
-        TrainingArguments,
     )
-    from trl import SFTTrainer
+    from trl import SFTConfig, SFTTrainer
     from peft import LoraConfig
     from datasets import load_dataset, load_from_disk
 
@@ -128,9 +127,10 @@ def main():
     model = AutoModelForCausalLM.from_pretrained(
         args.model_name,
         torch_dtype=torch.bfloat16 if args.bf16 else torch.float32,
-        device_map="auto",
+        device_map={"": 0},
         trust_remote_code=True,
     )
+    model.config.use_cache = False
     print(f"  Parameters: {model.num_parameters():,}", flush=True)
 
     tokenizer = AutoTokenizer.from_pretrained(
@@ -173,9 +173,10 @@ def main():
 
     # ── Training args ───────────────────────────────────────────────────
     push_hub = args.hub_output and not args.no_hub
-    training_args = TrainingArguments(
+    training_args = SFTConfig(
         output_dir=args.output_dir,
         per_device_train_batch_size=args.batch_size,
+        per_device_eval_batch_size=args.batch_size,
         gradient_accumulation_steps=args.grad_accum,
         learning_rate=args.lr,
         lr_scheduler_type=args.lr_scheduler_type,
@@ -194,10 +195,20 @@ def main():
         push_to_hub=push_hub,
         hub_model_id=args.hub_output,
         hub_token=args.hub_token,
-        hub_strategy="every_save",
-        remove_unused_columns=False,
+        hub_strategy="checkpoint",
+        save_only_model=False,
+        load_best_model_at_end=bool(eval_dataset),
+        metric_for_best_model="eval_loss" if eval_dataset else None,
+        greater_is_better=False if eval_dataset else None,
+        dataset_text_field=args.dataset_text_field,
+        max_length=args.max_seq_length,
+        packing=args.packing,
+        eval_packing=False,
+        eos_token=tokenizer.eos_token,
         ddp_find_unused_parameters=False,
         dataloader_num_workers=4,
+        seed=42,
+        data_seed=42,
     )
 
     effective_batch = args.batch_size * args.grad_accum
@@ -211,13 +222,10 @@ def main():
     # ── Trainer ─────────────────────────────────────────────────────────
     trainer = SFTTrainer(
         model=model,
-        tokenizer=tokenizer,
         args=training_args,
         train_dataset=train_dataset,
         eval_dataset=eval_dataset,
-        dataset_text_field=args.dataset_text_field,
-        max_seq_length=args.max_seq_length,
-        packing=args.packing,
+        processing_class=tokenizer,
         peft_config=lora_config,
     )
 

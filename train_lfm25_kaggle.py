@@ -1,11 +1,15 @@
 """
 LoRA fine-tune LFM2.5-1.2B-Thinking on Kaggle (T4 GPU, free tier)
-Uses QLoRA (4-bit) + fp16 for T4 compatibility.
+Uses QLoRA (4-bit) + fp16 compute with no AMP scaler (avoids T4 bf16 kernel bug).
 Resumes from Hub checkpoint saved by the Lightning run.
 
-Usage (Kaggle Notebook):
+Usage (Kaggle Notebook — T4 x2, drag in only the .py file):
     !pip install --upgrade transformers bitsandbytes trl peft datasets accelerate sentencepiece wandb
-    !python train_lfm25_kaggle.py --resume-from-hub enseven/lfm-2.5-think-code
+    !torchrun --nproc_per_node=2 train_lfm25_kaggle.py
+
+Usage (resume after disconnect):
+    !torchrun --nproc_per_node=2 train_lfm25_kaggle.py \\
+        --resume-from-hub-checkpoint enseven/lfm-2.5-think-code
 """
 
 import argparse
@@ -13,7 +17,14 @@ import os
 import re
 from glob import glob
 
-os.environ["TOKENIZERS_PARALLELISM"] = "true"
+os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
+os.environ["ACCELERATE_MIXED_PRECISION"] = "no"
+
+LOCAL_RANK = int(os.environ.get("LOCAL_RANK", "0"))
+
+
+ASSISTANT_HEADER = "<|im_start|>assistant\n"
+BOS_TOKEN = "<|startoftext|>"
 
 
 def check_gpu():
@@ -26,6 +37,46 @@ def check_gpu():
     print(f"GPU: {name} | VRAM: {mem:.0f} GB | CUDA: {torch.version.cuda}", flush=True)
 
 
+def setup_kaggle_secrets():
+    try:
+        from kaggle_secrets import UserSecretsClient
+        user_secrets = UserSecretsClient()
+        token = user_secrets.get_secret("HF_TOKEN")
+        if token:
+            os.environ["HF_TOKEN"] = token
+        wandb_key = user_secrets.get_secret("WANDB_API_KEY")
+        if wandb_key:
+            os.environ["WANDB_API_KEY"] = wandb_key
+    except ImportError:
+        pass
+
+
+def to_prompt_completion(example, index, text_field):
+    """Convert the legacy flat chat string into TRL's loss-masked dataset format."""
+    text = example[text_field]
+    if not isinstance(text, str):
+        raise ValueError(f"Row {index} has a non-string {text_field!r} value")
+
+    prompt, marker, completion = text.rpartition(ASSISTANT_HEADER)
+    if not marker or not prompt or not completion:
+        raise ValueError(
+            f"Row {index} does not match the expected LFM chat format. "
+            f"Expected one final {ASSISTANT_HEADER!r} marker."
+        )
+    # SFTTrainer adds the tokenizer's BOS and EOS itself. The legacy format
+    # already contains both, so retaining them would duplicate those tokens.
+    if prompt.startswith(BOS_TOKEN):
+        prompt = prompt[len(BOS_TOKEN):]
+    completion = completion.rstrip()
+    return {"prompt": prompt + marker, "completion": completion}
+
+
+def fits_within_context(example, tokenizer, max_length):
+    # Match SFTTrainer's standard prompt-completion tokenization before packing.
+    input_ids = tokenizer(example["prompt"] + example["completion"])["input_ids"]
+    return len(input_ids) <= max_length
+
+
 def parse_args():
     parser = argparse.ArgumentParser()
     # Data
@@ -35,8 +86,14 @@ def parse_args():
                         help="Column name containing formatted text")
     parser.add_argument("--max-seq-length", type=int, default=2048,
                         help="Truncate/pack sequences (2048 for T4 memory)")
-    parser.add_argument("--packing", action="store_true", default=True)
+    parser.add_argument("--packing", action="store_true", default=False,
+                        help="Pack examples only when using a verified FlashAttention backend")
     parser.add_argument("--no-packing", action="store_false", dest="packing")
+    parser.add_argument("--filter-overlong", action="store_true", default=True,
+                        help="Drop rows that would truncate any completion token")
+    parser.add_argument("--no-filter-overlong", action="store_false", dest="filter_overlong")
+    parser.add_argument("--dataset-num-proc", type=int, default=1,
+                        help="Workers for deterministic dataset preprocessing")
 
     # Model
     parser.add_argument("--model-name", type=str,
@@ -49,6 +106,8 @@ def parse_args():
     parser.add_argument("--output-dir", type=str, default="./lfm25-kodcode-lora")
     parser.add_argument("--batch-size", type=int, default=2,
                         help="T4 has 15 GB VRAM, keep this low")
+    parser.add_argument("--eval-batch-size", type=int, default=2,
+                        help="Keep evaluation within the same T4 VRAM budget")
     parser.add_argument("--grad-accum", type=int, default=4)
     parser.add_argument("--lr", type=float, default=1e-4)
     parser.add_argument("--lr-scheduler-type", type=str, default="cosine")
@@ -58,7 +117,10 @@ def parse_args():
     parser.add_argument("--logging-steps", type=int, default=10)
     parser.add_argument("--save-steps", type=int, default=250)
     parser.add_argument("--save-total-limit", type=int, default=3)
-    parser.add_argument("--max-grad-norm", type=float, default=1.0)
+    parser.add_argument("--max-grad-norm", type=float, default=0.0,
+                        help="Set to 0 to disable (avoids GradScaler bf16 bug on T4)")
+    parser.add_argument("--optim", type=str, default="adamw_torch",
+                        help="Optimizer (adamw_torch avoids bf16 gradient scaler issues on T4)")
     parser.add_argument("--seed", type=int, default=42)
 
     # Resume
@@ -67,12 +129,15 @@ def parse_args():
     parser.add_argument("--resume-from", type=str, default=None,
                         help="Local path to checkpoint")
     parser.add_argument("--resume-from-hub", type=str, default=None,
-                        help="HF repo ID to load adapter from (cross-platform resume)")
+                        help="HF repo ID to continue adapter weights from (optimizer starts fresh)")
+    parser.add_argument("--resume-from-hub-checkpoint", type=str, default=None,
+                        help="HF repo ID whose last-checkpoint should be resumed with optimizer/RNG state")
 
     # Hub
     parser.add_argument("--hub-output", type=str, default="enseven/lfm-2.5-think-code",
                         help="HF repo to push model")
-    parser.add_argument("--hub-token", type=str, default=None)
+    parser.add_argument("--hub-token", type=str, default=None,
+                        help="HF write token (falls back to HF_TOKEN env var)")
     parser.add_argument("--no-hub", action="store_true", default=False)
 
     # Tracking
@@ -85,16 +150,42 @@ def parse_args():
 def main():
     args = parse_args()
     check_gpu()
+    setup_kaggle_secrets()
+
+    if args.hub_token is None:
+        args.hub_token = os.environ.get("HF_TOKEN")
+    if args.hub_token is None and args.hub_output and not args.no_hub:
+        print("WARNING: --hub-output is set but no HF_TOKEN found. Push will fail.", flush=True)
+
+    world_size = int(os.environ.get("WORLD_SIZE", "1"))
+    print(f"Rank {LOCAL_RANK}/{world_size - 1} — device CUDA:{LOCAL_RANK}", flush=True)
 
     import torch
     from transformers import (
         AutoModelForCausalLM,
         AutoTokenizer,
-        TrainingArguments,
+        BitsAndBytesConfig,
     )
-    from trl import SFTTrainer
-    from peft import LoraConfig, PeftModel
+    from trl import SFTConfig, SFTTrainer
+    from peft import LoraConfig, PeftModel, get_peft_model, prepare_model_for_kbit_training
     from datasets import load_dataset, load_from_disk
+
+    resume_sources = sum(
+        bool(value)
+        for value in (args.resume, args.resume_from, args.resume_from_hub, args.resume_from_hub_checkpoint)
+    )
+    if resume_sources > 1:
+        raise ValueError("Choose only one of --resume, --resume-from, --resume-from-hub, or --resume-from-hub-checkpoint")
+
+    tokenizer = AutoTokenizer.from_pretrained(
+        args.model_name,
+        trust_remote_code=True,
+    )
+    if tokenizer.eos_token is None:
+        raise ValueError("The tokenizer must define an EOS token for SFT.")
+    if tokenizer.pad_token is None:
+        tokenizer.pad_token = tokenizer.eos_token
+    tokenizer.padding_side = "right"
 
     # ── Load dataset ────────────────────────────────────────────────────
     print(f"Loading dataset from {args.dataset} ...", flush=True)
@@ -102,6 +193,36 @@ def main():
         dataset = load_dataset(args.dataset, split="train")
     else:
         dataset = load_from_disk(args.dataset)
+
+    if {"prompt", "completion"}.issubset(dataset.column_names):
+        print("  Using prompt/completion fields with completion-only loss.", flush=True)
+    elif args.dataset_text_field in dataset.column_names:
+        dataset = dataset.map(
+            to_prompt_completion,
+            with_indices=True,
+            fn_kwargs={"text_field": args.dataset_text_field},
+            remove_columns=dataset.column_names,
+            num_proc=args.dataset_num_proc,
+            desc="Converting legacy chat strings to prompt/completion",
+        )
+        print("  Converted legacy chat strings to prompt/completion fields.", flush=True)
+    else:
+        raise ValueError(
+            f"Dataset must contain prompt/completion or {args.dataset_text_field!r}; "
+            f"found {dataset.column_names}"
+        )
+
+    if args.filter_overlong:
+        before = len(dataset)
+        dataset = dataset.filter(
+            fits_within_context,
+            fn_kwargs={"tokenizer": tokenizer, "max_length": args.max_seq_length},
+            num_proc=args.dataset_num_proc,
+            desc=f"Filtering rows longer than {args.max_seq_length} tokens",
+        )
+        if not len(dataset):
+            raise ValueError("All rows exceed --max-seq-length. Increase it or inspect the dataset.")
+        print(f"  Kept {len(dataset):,}/{before:,} rows without completion truncation.", flush=True)
 
     if args.eval_split > 0:
         split = dataset.train_test_split(test_size=args.eval_split, seed=args.seed)
@@ -113,33 +234,51 @@ def main():
         eval_dataset = None
         print(f"  {len(train_dataset)} rows (no eval split)", flush=True)
 
-    # ── Load model with QLoRA (4-bit + fp16 for T4) ─────────────────────
-    print(f"Loading model {args.model_name} with QLoRA (4-bit, fp16) ...", flush=True)
-    model = AutoModelForCausalLM.from_pretrained(
-        args.model_name,
-        torch_dtype=torch.float16,
+    # ── Load model with QLoRA (4-bit + fp16 compute, no AMP scaler) ─────
+    print(f"Loading model {args.model_name} with QLoRA (4-bit, no AMP) ...", flush=True)
+    quantization_config = BitsAndBytesConfig(
         load_in_4bit=True,
         bnb_4bit_compute_dtype=torch.float16,
         bnb_4bit_use_double_quant=True,
         bnb_4bit_quant_type="nf4",
-        device_map="auto",
+    )
+    model = AutoModelForCausalLM.from_pretrained(
+        args.model_name,
+        torch_dtype=torch.float16,
+        quantization_config=quantization_config,
+        device_map={"": LOCAL_RANK},
         trust_remote_code=True,
+    )
+    model.config.use_cache = False
+    model.config.pad_token_id = tokenizer.pad_token_id
+    model = prepare_model_for_kbit_training(
+        model,
+        use_gradient_checkpointing=True,
+        gradient_checkpointing_kwargs={"use_reentrant": False},
     )
     print(f"  Parameters: {model.num_parameters():,}", flush=True)
-
-    tokenizer = AutoTokenizer.from_pretrained(
-        args.model_name,
-        trust_remote_code=True,
-    )
-    if tokenizer.pad_token is None:
-        tokenizer.pad_token = tokenizer.eos_token
 
     # ── Resume adapter from Hub (cross-platform) ────────────────────────
     resume_checkpoint = None
     if args.resume_from_hub:
         print(f"Loading pretrained adapter from Hub: {args.resume_from_hub}", flush=True)
-        model = PeftModel.from_pretrained(model, args.resume_from_hub)
+        model = PeftModel.from_pretrained(model, args.resume_from_hub, is_trainable=True)
         print("  Adapter weights loaded. Optimizer state starts fresh.", flush=True)
+    elif args.resume_from_hub_checkpoint:
+        from huggingface_hub import snapshot_download
+
+        snapshot_dir = snapshot_download(
+            repo_id=args.resume_from_hub_checkpoint,
+            allow_patterns="last-checkpoint/*",
+            token=args.hub_token,
+        )
+        resume_checkpoint = os.path.join(snapshot_dir, "last-checkpoint")
+        if not os.path.isfile(os.path.join(resume_checkpoint, "trainer_state.json")):
+            raise FileNotFoundError(
+                f"No complete last-checkpoint found in {args.resume_from_hub_checkpoint}. "
+                "Run with hub_strategy='checkpoint' first."
+            )
+        print(f"Resuming complete state from Hub checkpoint: {resume_checkpoint}", flush=True)
     elif args.resume_from:
         resume_checkpoint = args.resume_from
         print(f"Resuming from explicit checkpoint: {resume_checkpoint}", flush=True)
@@ -166,8 +305,8 @@ def main():
             bias="none",
             task_type="CAUSAL_LM",
         )
-    else:
-        lora_config = None  # already loaded from Hub
+        model = get_peft_model(model, lora_config)
+    model.print_trainable_parameters()
 
     print(
         f"LoRA: r={args.lora_r}, alpha={args.lora_alpha}, "
@@ -175,8 +314,8 @@ def main():
         flush=True,
     )
 
-    # ── Reporting (W&B) ────────────────────────────────────────────────
-    if args.wandb_project:
+    # ── Reporting (W&B) — rank 0 only in DDP ─────────────────────────────
+    if args.wandb_project and LOCAL_RANK == 0:
         try:
             import wandb
             wandb.init(project=args.wandb_project)
@@ -187,11 +326,12 @@ def main():
     else:
         report_to = ["none"]
 
-    # ── Training args (fp16, not bf16 — T4 limitation) ─────────────────
+    # ── Training args (no grad clip — avoids GradScaler bf16 kernel bug) ─
     push_hub = args.hub_output and not args.no_hub
-    training_args = TrainingArguments(
+    training_args = SFTConfig(
         output_dir=args.output_dir,
         per_device_train_batch_size=args.batch_size,
+        per_device_eval_batch_size=args.eval_batch_size,
         gradient_accumulation_steps=args.grad_accum,
         learning_rate=args.lr,
         lr_scheduler_type=args.lr_scheduler_type,
@@ -203,7 +343,8 @@ def main():
         eval_strategy="steps" if eval_dataset else "no",
         eval_steps=args.save_steps,
         max_grad_norm=args.max_grad_norm,
-        fp16=True,
+        optim=args.optim,
+        fp16=False,
         bf16=False,
         gradient_checkpointing=True,
         gradient_checkpointing_kwargs={"use_reentrant": False},
@@ -211,11 +352,22 @@ def main():
         push_to_hub=push_hub,
         hub_model_id=args.hub_output,
         hub_token=args.hub_token,
-        hub_strategy="every_save",
-        remove_unused_columns=False,
+        hub_strategy="checkpoint",
+        save_only_model=False,
+        load_best_model_at_end=bool(eval_dataset),
+        metric_for_best_model="eval_loss" if eval_dataset else None,
+        greater_is_better=False if eval_dataset else None,
+        completion_only_loss=True,
+        dataset_num_proc=args.dataset_num_proc,
+        eos_token=tokenizer.eos_token,
+        max_length=args.max_seq_length,
+        packing=args.packing,
+        eval_packing=False,
+        ddp_backend="nccl",
         ddp_find_unused_parameters=False,
         dataloader_num_workers=2,
         seed=args.seed,
+        data_seed=args.seed,
     )
 
     effective_batch = args.batch_size * args.grad_accum
@@ -229,14 +381,10 @@ def main():
     # ── Trainer ─────────────────────────────────────────────────────────
     trainer = SFTTrainer(
         model=model,
-        tokenizer=tokenizer,
         args=training_args,
         train_dataset=train_dataset,
         eval_dataset=eval_dataset,
-        dataset_text_field=args.dataset_text_field,
-        max_seq_length=args.max_seq_length,
-        packing=args.packing,
-        peft_config=lora_config,
+        processing_class=tokenizer,
     )
 
     # ── Train ───────────────────────────────────────────────────────────
