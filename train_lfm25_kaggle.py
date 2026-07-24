@@ -131,7 +131,7 @@ def parse_args():
     parser.add_argument("--resume-from-hub", type=str, default=None,
                         help="HF repo ID to continue adapter weights from (optimizer starts fresh)")
     parser.add_argument("--resume-from-hub-checkpoint", type=str, default=None,
-                        help="HF repo ID whose last-checkpoint should be resumed with optimizer/RNG state")
+                        help="'namespace/repo' or 'namespace/repo/checkpoint-NNN' — full resume (weights + optimizer + step)")
 
     # Hub
     parser.add_argument("--hub-output", type=str, default="enseven/lfm-2.5-think-code",
@@ -261,24 +261,55 @@ def main():
     # ── Resume adapter from Hub (cross-platform) ────────────────────────
     resume_checkpoint = None
     if args.resume_from_hub:
-        print(f"Loading pretrained adapter from Hub: {args.resume_from_hub}", flush=True)
-        model = PeftModel.from_pretrained(model, args.resume_from_hub, is_trainable=True)
+        # Adapter files are at the root of the Hub repo (no checkpoint subdirectories).
+        # Strip any trailing /checkpoint-NNN suffix if present.
+        repo_id = "/".join(args.resume_from_hub.split("/", 2)[:2])
+        print(f"Loading pretrained adapter from Hub: {repo_id}", flush=True)
+        model = PeftModel.from_pretrained(model, repo_id, is_trainable=True)
         print("  Adapter weights loaded. Optimizer state starts fresh.", flush=True)
     elif args.resume_from_hub_checkpoint:
-        from huggingface_hub import snapshot_download
+        from huggingface_hub import HfApi, hf_hub_download
 
-        snapshot_dir = snapshot_download(
-            repo_id=args.resume_from_hub_checkpoint,
-            allow_patterns="last-checkpoint/*",
-            token=args.hub_token,
-        )
-        resume_checkpoint = os.path.join(snapshot_dir, "last-checkpoint")
-        if not os.path.isfile(os.path.join(resume_checkpoint, "trainer_state.json")):
-            raise FileNotFoundError(
-                f"No complete last-checkpoint found in {args.resume_from_hub_checkpoint}. "
-                "Run with hub_strategy='checkpoint' first."
+        # Accept "namespace/repo" or "namespace/repo/checkpoint-NNN"
+        parts = args.resume_from_hub_checkpoint.split("/", 2)
+        repo_id = f"{parts[0]}/{parts[1]}"
+        explicit_subfolder = parts[2] if len(parts) == 3 else None
+
+        api = HfApi(token=args.hub_token)
+        all_files = api.list_repo_files(repo_id)
+
+        # Find the checkpoint subfolder to resume from
+        if explicit_subfolder:
+            subfolder = explicit_subfolder
+        else:
+            # Collect all top-level directories from the repo file listing
+            all_dirs = set(f.split("/")[0] for f in all_files if "/" in f)
+            checkpoint_dirs = sorted(
+                [d for d in all_dirs if re.match(r"^checkpoint-\d+$", d)],
+                key=lambda x: int(x.split("-")[1]),
             )
-        print(f"Resuming complete state from Hub checkpoint: {resume_checkpoint}", flush=True)
+            if checkpoint_dirs:
+                subfolder = checkpoint_dirs[-1]
+            elif "last-checkpoint" in all_dirs:
+                subfolder = "last-checkpoint"
+            else:
+                raise FileNotFoundError(
+                    f"No checkpoint directories found in {repo_id}. "
+                    "Train with hub_strategy='checkpoint' first."
+                )
+
+        # Download every file — local_dir is the output root so the
+        # subfolder prefix is preserved (e.g. last-checkpoint/optimizer.pt).
+        os.makedirs(args.output_dir, exist_ok=True)
+        for f in all_files:
+            if f.startswith(subfolder + "/"):
+                hf_hub_download(
+                    repo_id=repo_id, filename=f,
+                    local_dir=args.output_dir, token=args.hub_token,
+                )
+
+        resume_checkpoint = os.path.join(args.output_dir, subfolder)
+        print(f"Resuming full state from {repo_id}/{subfolder} → {resume_checkpoint}", flush=True)
     elif args.resume_from:
         resume_checkpoint = args.resume_from
         print(f"Resuming from explicit checkpoint: {resume_checkpoint}", flush=True)
