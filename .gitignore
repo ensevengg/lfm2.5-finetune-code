@@ -5,3 +5,7 @@ kodcode_dataset/data/
 .venv/
 *.parquet
 HANDOFF.md
+/artifacts/
+/lfm2.5-model-merged/
+/vendor/
+reports/**/*.log
