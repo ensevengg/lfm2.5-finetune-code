@@ -1,0 +1,38 @@
+{
+    "schema_version":  1,
+    "generated_at_utc":  "2026-07-29T22:08:58.1020396Z",
+    "passed":  true,
+    "started_at_utc":  "2026-07-29T22:08:34.1529127Z",
+    "duration_seconds":  23.949,
+    "source_model":  {
+                         "path":  "D:\\code\\model_training\\lfm2.5-finetune\\lfm2.5-model-merged",
+                         "manifest_path":  "D:\\code\\model_training\\lfm2.5-finetune\\reports\\phase0\\merged-checkpoint-manifest.json",
+                         "manifest_sha256":  "e98b9261193f4fb7e509913694bfc7c67824b27abe96e669f18d5665e0f49543"
+                     },
+    "toolchain":  {
+                      "image_tag":  "lfm25/llama-cpp:3018a11e-cuda128-sm120",
+                      "image_id":  "sha256:550d53ae97c4d83a6c0fba17cd8f532aa6f775e9498d2452fa6f04e33707b4b0",
+                      "llama_cpp_commit":  "3018a11e79e489b657dbb77c95694889ccff92df"
+                  },
+    "conversion":  {
+                       "outtype":  "bf16",
+                       "model_name":  "LFM2.5-1.2B-Thinking-KodCode-Merged",
+                       "tokenizer_compatibility_override":  {
+                                                                "path":  "D:\\code\\model_training\\lfm2.5-finetune\\configs\\phase1-tokenizer-config.json",
+                                                                "sha256":  "12129289404c901980b0a372cffd475adcdf59bbd9938c9a60faba984b270996",
+                                                                "source_tokenizer_config_unchanged":  true,
+                                                                "tokenizer_class":  "PreTrainedTokenizerFast",
+                                                                "reason":  "Transformers 4.57.6 does not expose the Transformers 5 TokenizersBackend class name."
+                                                            },
+                       "network":  "none",
+                       "root_filesystem":  "read-only",
+                       "input_mount":  "read-only",
+                       "output_mount":  "artifacts/gguf only"
+                   },
+    "output":  {
+                   "path":  "D:\\code\\model_training\\lfm2.5-finetune\\artifacts\\gguf\\lfm2.5-1.2b-thinking-kodcode-bf16.gguf",
+                   "file_name":  "lfm2.5-1.2b-thinking-kodcode-bf16.gguf",
+                   "size_bytes":  2343326048,
+                   "sha256":  "3e39c292be1f2b2740c3e05a2cb9081260439033e1b05f601117c72c8a73b8e6"
+               }
+}

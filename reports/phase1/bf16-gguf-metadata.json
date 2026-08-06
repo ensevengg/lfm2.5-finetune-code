@@ -1,0 +1,57 @@
+{
+  "gates": {
+    "all_weight_tensors_are_bf16_or_f32": true,
+    "architecture_is_lfm2": true,
+    "attention_head_count_matches_source": true,
+    "block_count_matches_source": true,
+    "chat_template_matches_source": true,
+    "context_length_matches_source": true,
+    "embedding_length_matches_source": true,
+    "file_type_is_mostly_bf16": true,
+    "special_token_ids_match_source": true,
+    "tensor_count_matches_source": true
+  },
+  "generated_at_utc": "2026-07-29T22:09:39.922306+00:00",
+  "gguf": "/gguf/lfm2.5-1.2b-thinking-kodcode-bf16.gguf",
+  "metadata": {
+    "general.architecture": "lfm2",
+    "general.file_type": 32,
+    "general.name": "LFM2.5-1.2B-Thinking-KodCode-Merged",
+    "lfm2.attention.head_count": 32,
+    "lfm2.attention.head_count_kv": [
+      0,
+      0,
+      8,
+      0,
+      0,
+      8,
+      0,
+      0,
+      8,
+      0,
+      8,
+      0,
+      8,
+      0,
+      8,
+      0
+    ],
+    "lfm2.block_count": 16,
+    "lfm2.context_length": 128000,
+    "lfm2.embedding_length": 2048,
+    "lfm2.rope.freq_base": 1000000.0,
+    "tokenizer.chat_template": "{{- bos_token -}}\n{%- set keep_past_thinking = keep_past_thinking | default(false) -%}\n{%- set ns = namespace(system_prompt=\"\") -%}\n{%- if messages[0][\"role\"] == \"system\" -%}\n    {%- set ns.system_prompt = messages[0][\"content\"] -%}\n    {%- set messages = messages[1:] -%}\n{%- endif -%}\n{%- if tools -%}\n    {%- set ns.system_prompt = ns.system_prompt + (\"\\n\" if ns.system_prompt else \"\") + \"List of tools: [\" -%}\n    {%- for tool in tools -%}\n        {%- if tool is not string -%}\n            {%- set tool = tool | tojson -%}\n        {%- endif -%}\n        {%- set ns.system_prompt = ns.system_prompt + tool -%}\n        {%- if not loop.last -%}\n            {%- set ns.system_prompt = ns.system_prompt + \", \" -%}\n        {%- endif -%}\n    {%- endfor -%}\n    {%- set ns.system_prompt = ns.system_prompt + \"]\" -%}\n{%- endif -%}\n{%- if ns.system_prompt -%}\n    {{- \"<|im_start|>system\\n\" + ns.system_prompt + \"<|im_end|>\\n\" -}}\n{%- endif -%}\n{%- set ns.last_assistant_index = -1 -%}\n{%- for message in messages -%}\n    {%- if message[\"role\"] == \"assistant\" -%}\n        {%- set ns.last_assistant_index = loop.index0 -%}\n    {%- endif -%}\n{%- endfor -%}\n{%- for message in messages -%}\n    {{- \"<|im_start|>\" + message[\"role\"] + \"\\n\" -}}\n    {%- set content = message[\"content\"] -%}\n    {%- if content is not string -%}\n        {%- set content = content | tojson -%}\n    {%- endif -%}\n    {%- if message[\"role\"] == \"assistant\" and not keep_past_thinking and loop.index0 != ns.last_assistant_index -%}\n        {%- if \"</think>\" in content -%}\n            {%- set content = content.split(\"</think>\")[-1] | trim -%}\n        {%- endif -%}\n    {%- endif -%}\n    {{- content + \"<|im_end|>\\n\" -}}\n{%- endfor -%}\n{%- if add_generation_prompt -%}\n    {{- \"<|im_start|>assistant\\n\" -}}\n{%- endif -%}",
+    "tokenizer.ggml.bos_token_id": 1,
+    "tokenizer.ggml.eos_token_id": 7,
+    "tokenizer.ggml.model": "gpt2",
+    "tokenizer.ggml.padding_token_id": 0
+  },
+  "passed": true,
+  "schema_version": 1,
+  "source_config": "/hf-model/config.json",
+  "tensor_count": 148,
+  "tensor_types": {
+    "BF16": 93,
+    "F32": 55
+  }
+}
