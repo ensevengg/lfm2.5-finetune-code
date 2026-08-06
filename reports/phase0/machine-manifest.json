@@ -1,0 +1,175 @@
+{
+  "container_readiness_evidence": {
+    "docker": {
+      "cgroup_version": "2",
+      "client_version": "29.6.2",
+      "cpu_quota_supported": true,
+      "default_runtime": "runc",
+      "desktop_version": "Docker Desktop 4.83.0 (234302)",
+      "kernel_version": "6.6.87.2-microsoft-standard-WSL2",
+      "memory_limit_supported": true,
+      "pids_limit_supported": true,
+      "runtimes": [
+        "io.containerd.runc.v2",
+        "nvidia",
+        "runc"
+      ],
+      "security_options": [
+        "name=seccomp,profile=builtin",
+        "name=cgroupns"
+      ],
+      "server_architecture": "amd64",
+      "server_os": "linux",
+      "server_version": "29.6.2",
+      "swap_limit_supported": true
+    },
+    "gpu_observed_in_container": "NVIDIA GeForce RTX 5060 Laptop GPU, GPU-ffee0354-f4d0-556d-edb8-3aed2accaada, 8151 MiB, 610.74, 12.0",
+    "passed": true,
+    "report_path": "D:\\code\\model_training\\lfm2.5-finetune\\reports\\phase0\\container-readiness.json",
+    "report_sha256": "3f97defb100639392d2db5ee039afe3b79d05ddc3da9dff70add1cf556924781"
+  },
+  "docker_client": {
+    "command": [
+      "docker",
+      "version",
+      "--format",
+      "{{json .Client}}"
+    ],
+    "duration_seconds": 0.176,
+    "exit_code": 1,
+    "stderr": "permission denied while trying to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine",
+    "stdout": "{\"Version\":\"29.6.2\",\"ApiVersion\":\"1.55\",\"DefaultAPIVersion\":\"1.55\",\"GitCommit\":\"dfc4efb\",\"GoVersion\":\"go1.26.5\",\"Os\":\"windows\",\"Arch\":\"amd64\",\"BuildTime\":\"Thu Jul 16 16:14:59 2026\",\"Context\":\"desktop-linux\"}"
+  },
+  "docker_info": {
+    "command": [
+      "docker",
+      "info",
+      "--format",
+      "{{json .}}"
+    ],
+    "duration_seconds": 0.875,
+    "exit_code": 1,
+    "stderr": "permission denied while trying to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine",
+    "stdout": "{\"ID\":\"\",\"Containers\":0,\"ContainersRunning\":0,\"ContainersPaused\":0,\"ContainersStopped\":0,\"Images\":0,\"Driver\":\"\",\"DriverStatus\":null,\"Plugins\":{\"Volume\":null,\"Network\":null,\"Authorization\":null,\"Log\":null},\"MemoryLimit\":false,\"SwapLimit\":false,\"CpuCfsPeriod\":false,\"CpuCfsQuota\":false,\"CPUShares\":false,\"CPUSet\":false,\"PidsLimit\":false,\"IPv4Forwarding\":false,\"Debug\":false,\"NFd\":0,\"OomKillDisable\":false,\"NGoroutines\":0,\"SystemTime\":\"\",\"LoggingDriver\":\"\",\"CgroupDriver\":\"\",\"NEventsListener\":0,\"KernelVersion\":\"\",\"OperatingSystem\":\"\",\"OSVersion\":\"\",\"OSType\":\"\",\"Architecture\":\"\",\"IndexServerAddress\":\"\",\"RegistryConfig\":null,\"NCPU\":0,\"MemTotal\":0,\"GenericResources\":null,\"DockerRootDir\":\"\",\"HttpProxy\":\"\",\"HttpsProxy\":\"\",\"NoProxy\":\"\",\"Name\":\"\",\"Labels\":null,\"ExperimentalBuild\":false,\"ServerVersion\":\"\",\"Runtimes\":null,\"DefaultRuntime\":\"\",\"Swarm\":{\"NodeID\":\"\",\"NodeAddr\":\"\",\"LocalNodeState\":\"\",\"ControlAvailable\":false,\"Error\":\"\",\"RemoteManagers\":null},\"LiveRestoreEnabled\":false,\"Isolation\":\"\",\"InitBinary\":\"\",\"ContainerdCommit\":{\"ID\":\"\"},\"RuncCommit\":{\"ID\":\"\"},\"InitCommit\":{\"ID\":\"\"},\"SecurityOptions\":null,\"CDISpecDirs\":null,\"Warnings\":null,\"ClientInfo\":{\"Debug\":false,\"Version\":\"29.6.2\",\"DefaultAPIVersion\":\"1.55\",\"GitCommit\":\"dfc4efb\",\"GoVersion\":\"go1.26.5\",\"Os\":\"windows\",\"Arch\":\"amd64\",\"BuildTime\":\"Thu Jul 16 16:14:59 2026\",\"Context\":\"desktop-linux\",\"Plugins\":[{\"SchemaVersion\":\"0.1.0\",\"Vendor\":\"Docker Inc.\",\"Version\":\"v1.103.0\",\"ShortDescription\":\"Docker AI Agent Runner\",\"Name\":\"agent\",\"Path\":\"C:\\\\Program Files\\\\Docker\\\\cli-plugins\\\\docker-agent.exe\"},{\"SchemaVersion\":\"0.1.0\",\"Vendor\":\"Docker Inc.\",\"Version\":\"v1.27.0\",\"ShortDescription\":\"Docker AI Agent - Ask Gordon\",\"Name\":\"ai\",\"Path\":\"C:\\\\Program Files\\\\Docker\\\\cli-plugins\\\\docker-ai.exe\"},{\"SchemaVersion\":\"0.1.0\",\"Vendor\":\"Docker Inc.\",\"Version\":\"v0.35.0-desktop.2\",\"ShortDescription\":\"Docker Buildx\",\"Name\":\"buildx\",\"Path\":\"C:\\\\Program Files\\\\Docker\\\\cli-plugins\\\\docker-buildx.exe\"},{\"SchemaVersion\":\"0.1.0\",\"Vendor\":\"Docker Inc.\",\"Version\":\"v5.3.1\",\"ShortDescription\":\"Docker Compose\",\"Name\":\"compose\",\"Path\":\"C:\\\\Program Files\\\\Docker\\\\cli-plugins\\\\docker-compose.exe\"},{\"SchemaVersion\":\"0.1.0\",\"Vendor\":\"Docker Inc.\",\"Version\":\"0.0.47\",\"ShortDescription\":\"Get a shell into any image or container\",\"Name\":\"debug\",\"Path\":\"C:\\\\Program Files\\\\Docker\\\\cli-plugins\\\\docker-debug.exe\"},{\"SchemaVersion\":\"0.1.0\",\"Vendor\":\"Docker Inc.\",\"Version\":\"v0.4.2\",\"ShortDescription\":\"Docker Desktop commands\",\"Name\":\"desktop\",\"Path\":\"C:\\\\Program Files\\\\Docker\\\\cli-plugins\\\\docker-desktop.exe\"},{\"SchemaVersion\":\"0.1.0\",\"Vendor\":\"Docker Inc.\",\"Version\":\"v0.0.7\",\"ShortDescription\":\"CLI for managing Docker Hardened Images\",\"Name\":\"dhi\",\"Path\":\"C:\\\\Users\\\\manan\\\\.docker\\\\cli-plugins\\\\docker-dhi.exe\",\"ShadowedPaths\":[\"C:\\\\Program Files\\\\Docker\\\\cli-plugins\\\\docker-dhi.exe\"]},{\"SchemaVersion\":\"0.1.0\",\"Vendor\":\"Docker Inc.\",\"Version\":\"v0.2.31\",\"ShortDescription\":\"Manages Docker extensions\",\"Name\":\"extension\",\"Path\":\"C:\\\\Program Files\\\\Docker\\\\cli-plugins\\\\docker-extension.exe\"},{\"SchemaVersion\":\"0.1.0\",\"Vendor\":\"Docker Inc.\",\"Version\":\"v1.4.0\",\"ShortDescription\":\"Creates Docker-related starter files for your project\",\"Name\":\"init\",\"Path\":\"C:\\\\Program Files\\\\Docker\\\\cli-plugins\\\\docker-init.exe\"},{\"SchemaVersion\":\"0.1.0\",\"Vendor\":\"Docker Inc.\",\"Version\":\"v0.43.1\",\"ShortDescription\":\"Docker MCP Plugin\",\"Name\":\"mcp\",\"Path\":\"C:\\\\Program Files\\\\Docker\\\\cli-plugins\\\\docker-mcp.exe\"},{\"SchemaVersion\":\"0.1.0\",\"Vendor\":\"Docker Inc.\",\"Version\":\"v1.2.6\",\"ShortDescription\":\"Docker Model Runner\",\"Name\":\"model\",\"Path\":\"C:\\\\Program Files\\\\Docker\\\\cli-plugins\\\\docker-model.exe\"},{\"SchemaVersion\":\"0.1.0\",\"Vendor\":\"Docker Inc.\",\"Version\":\"v0.6.9\",\"ShortDescription\":\"Docker Offload\",\"Name\":\"offload\",\"Path\":\"C:\\\\Program Files\\\\Docker\\\\cli-plugins\\\\docker-offload.exe\"},{\"SchemaVersion\":\"0.1.0\",\"Vendor\":\"Docker Inc.\",\"Version\":\"v0.2.0\",\"ShortDescription\":\"Docker Pass Secrets Manager Plugin (beta)\",\"Name\":\"pass\",\"Path\":\"C:\\\\Program Files\\\\Docker\\\\cli-plugins\\\\docker-pass.exe\"},{\"SchemaVersion\":\"0.1.0\",\"Vendor\":\"Docker Inc.\",\"Version\":\"v0.13.0\",\"ShortDescription\":\"\\\"docker sandbox\\\" is deprecated, use Docker Sandboxes instead\",\"URL\":\"https://www.docker.com/products/docker-sandboxes\",\"Hidden\":true,\"Name\":\"sandbox\",\"Path\":\"C:\\\\Program Files\\\\Docker\\\\cli-plugins\\\\docker-sandbox.exe\"},{\"SchemaVersion\":\"0.1.0\",\"Vendor\":\"Docker Inc.\",\"Version\":\"v1.23.1\",\"ShortDescription\":\"Docker Scout\",\"Name\":\"scout\",\"Path\":\"C:\\\\Program Files\\\\Docker\\\\cli-plugins\\\\docker-scout.exe\"}],\"Warnings\":null}}"
+  },
+  "docker_server": {
+    "command": [
+      "docker",
+      "version",
+      "--format",
+      "{{json .Server}}"
+    ],
+    "duration_seconds": 0.174,
+    "exit_code": 1,
+    "stderr": "permission denied while trying to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine",
+    "stdout": "null"
+  },
+  "generated_at_utc": "2026-07-29T21:07:48.279093+00:00",
+  "git_head": {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "duration_seconds": 0.117,
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "d1272a74dbd216146e99516cdd1545c511d6f8de"
+  },
+  "git_status": {
+    "command": [
+      "git",
+      "status",
+      "--short"
+    ],
+    "duration_seconds": 0.119,
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "M README.md\n?? article.html\n?? configs/\n?? docs/\n?? lfm2.5-model-merged/\n?? merge_model.py\n?? reports/\n?? scripts/"
+  },
+  "memory": {
+    "available_bytes": 15376044032,
+    "total_bytes": 33605840896
+  },
+  "nvidia_smi": {
+    "command": [
+      "nvidia-smi",
+      "--query-gpu=index,name,uuid,memory.total,driver_version,compute_cap,pstate,temperature.gpu",
+      "--format=csv,noheader,nounits"
+    ],
+    "duration_seconds": 0.084,
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "0, NVIDIA GeForce RTX 5060 Laptop GPU, GPU-ffee0354-f4d0-556d-edb8-3aed2accaada, 8151, 610.74, 12.0, P8, 58"
+  },
+  "packages": {
+    "accelerate": "1.14.0",
+    "bitsandbytes": "0.49.2",
+    "huggingface-hub": "1.22.0",
+    "numpy": "2.5.0",
+    "peft": "0.19.1",
+    "safetensors": "0.8.0",
+    "torch": "2.11.0+cu128",
+    "transformers": "5.13.0",
+    "trl": "1.7.0"
+  },
+  "platform": {
+    "logical_cpu_count": 16,
+    "machine": "AMD64",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+    "release": "11",
+    "system": "Windows",
+    "version": "10.0.26200"
+  },
+  "python": {
+    "executable": "D:\\code\\model_training\\lfm2.5-finetune\\.venv\\Scripts\\python.exe",
+    "version": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+  },
+  "schema_version": 1,
+  "torch": {
+    "cuda_available": true,
+    "cuda_build_version": "12.8",
+    "cudnn_version": 91900,
+    "device_count": 1,
+    "devices": [
+      {
+        "capability": [
+          12,
+          0
+        ],
+        "index": 0,
+        "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+        "total_memory_bytes": 8546484224
+      }
+    ],
+    "version": "2.11.0+cu128"
+  },
+  "workspace": "D:\\code\\model_training\\lfm2.5-finetune",
+  "workspace_drive": {
+    "free_bytes": 1427636662272,
+    "total_bytes": 2000384159744,
+    "used_bytes": 572747497472
+  },
+  "wsl_distributions": {
+    "command": [
+      "wsl",
+      "--list",
+      "--verbose"
+    ],
+    "duration_seconds": 0.11,
+    "exit_code": 4294967295,
+    "stderr": "",
+    "stdout": "A\u0000c\u0000c\u0000e\u0000s\u0000s\u0000 \u0000i\u0000s\u0000 \u0000d\u0000e\u0000n\u0000i\u0000e\u0000d\u0000.\u0000 \u0000\n\u0000\n\u0000E\u0000r\u0000r\u0000o\u0000r\u0000 \u0000c\u0000o\u0000d\u0000e\u0000:\u0000 \u0000W\u0000s\u0000l\u0000/\u0000E\u0000n\u0000u\u0000m\u0000e\u0000r\u0000a\u0000t\u0000e\u0000D\u0000i\u0000s\u0000t\u0000r\u0000o\u0000s\u0000/\u0000S\u0000e\u0000r\u0000v\u0000i\u0000c\u0000e\u0000/\u0000E\u0000_\u0000A\u0000C\u0000C\u0000E\u0000S\u0000S\u0000D\u0000E\u0000N\u0000I\u0000E\u0000D\u0000\n\u0000\n\u0000"
+  },
+  "wsl_status": {
+    "command": [
+      "wsl",
+      "--status"
+    ],
+    "duration_seconds": 0.114,
+    "exit_code": 4294967295,
+    "stderr": "",
+    "stdout": "A\u0000c\u0000c\u0000e\u0000s\u0000s\u0000 \u0000i\u0000s\u0000 \u0000d\u0000e\u0000n\u0000i\u0000e\u0000d\u0000.\u0000 \u0000\n\u0000\n\u0000E\u0000r\u0000r\u0000o\u0000r\u0000 \u0000c\u0000o\u0000d\u0000e\u0000:\u0000 \u0000W\u0000s\u0000l\u0000/\u0000E\u0000n\u0000u\u0000m\u0000e\u0000r\u0000a\u0000t\u0000e\u0000D\u0000i\u0000s\u0000t\u0000r\u0000o\u0000s\u0000/\u0000S\u0000e\u0000r\u0000v\u0000i\u0000c\u0000e\u0000/\u0000E\u0000_\u0000A\u0000C\u0000C\u0000E\u0000S\u0000S\u0000D\u0000E\u0000N\u0000I\u0000E\u0000D\u0000\n\u0000\n\u0000"
+  }
+}

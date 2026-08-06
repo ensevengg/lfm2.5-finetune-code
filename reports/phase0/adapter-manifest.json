@@ -1,0 +1,30 @@
+{
+  "config_summary": null,
+  "file_count": 2,
+  "files": [
+    {
+      "path": "adapter_config.json",
+      "sha256": "61e19b324d121e77bdcf9a602567b429269ffe72b7daa70cd40f6a63fa62bc71",
+      "size_bytes": 1119
+    },
+    {
+      "path": "adapter_model.safetensors",
+      "safetensors": {
+        "parameter_count": 22216704,
+        "parameters_by_dtype": {
+          "F32": 22216704
+        },
+        "tensor_count": 184
+      },
+      "sha256": "31342273fb602a0e10624e2c9852841a2091a5260f85fb0f0a0089eb3262870b",
+      "size_bytes": 88891320
+    }
+  ],
+  "generated_at_utc": "2026-07-29T21:07:48.244024+00:00",
+  "logical_name": "lora_adapter",
+  "repo_id": "enseven/lfm-2.5-think-code",
+  "revision": "e01354fecc52e62b9ca86399da10e9e40ebf51e9",
+  "schema_version": 1,
+  "source_directory": "D:\\hf_models\\models--enseven--lfm-2.5-think-code\\snapshots\\e01354fecc52e62b9ca86399da10e9e40ebf51e9",
+  "total_size_bytes": 88892439
+}

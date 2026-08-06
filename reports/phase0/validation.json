@@ -1,0 +1,2226 @@
+{
+  "base_inference": {
+    "all_first_step_logits_finite": true,
+    "checkpoint_directory": "D:\\hf_models\\models--LiquidAI--LFM2.5-1.2B-Thinking\\snapshots\\95053d21d8e0b7ca99421a2127ae39c64f685ff3",
+    "device": "cuda",
+    "dtype": "torch.bfloat16",
+    "generation_seconds": 5.655,
+    "load_seconds": 1.199,
+    "logical_name": "original_thinking",
+    "model_device": "cuda:0",
+    "outputs": [
+      {
+        "completion": "<think> Okay, I need to write a Python function called two_sum that takes nums and target, and returns the two indices where the sum of the elements at those indices equals the target. Hmm, how should I approach this?\n\nWell, the straightforward way is to check every possible pair of indices",
+        "completion_token_count": 64,
+        "completion_token_ids": [
+          64400,
+          9095,
+          892,
+          521,
+          859,
+          1595,
+          811,
+          5773,
+          768,
+          22017,
+          1947,
+          2588,
+          1547,
+          4294,
+          900,
+          896,
+          5674,
+          1646,
+          592,
+          810,
+          4558,
+          521,
+          810,
+          12116,
+          779,
+          1547,
+          29998,
+          1695,
+          779,
+          10133,
+          803,
+          779,
+          5906,
+          963,
+          2025,
+          29998,
+          30322,
+          779,
+          4558,
+          523,
+          904,
+          5399,
+          521,
+          1531,
+          1753,
+          859,
+          4355,
+          1033,
+          540,
+          509,
+          17310,
+          521,
+          779,
+          8828,
+          20980,
+          1959,
+          856,
+          811,
+          3999,
+          1973,
+          3023,
+          9256,
+          803,
+          29998
+        ],
+        "completion_token_ids_sha256": "863866d4650e9fb3376067e8a7aa8a361a80a10d07359d49d65b867f596cce4a",
+        "duration_seconds": 1.24,
+        "first_step_logits": {
+          "all_finite": true,
+          "inf_count": 0,
+          "maximum": 28.875,
+          "minimum": -13.8125,
+          "nan_count": 0
+        },
+        "prompt": "Write a Python function `two_sum(nums, target)` that returns the two indices. Return only code.",
+        "prompt_token_count": 33
+      },
+      {
+        "completion": "<think> Okay, let's see what the problem is here. The user wants me to fix this Python function and explain the bug briefly. The function is called is_even(n), and it returns n % 2 == 1. Wait, that doesn't sound right. Because if n is even, n %",
+        "completion_token_count": 64,
+        "completion_token_ids": [
+          64400,
+          9095,
+          892,
+          521,
+          2944,
+          1090,
+          2130,
+          1620,
+          779,
+          3220,
+          856,
+          2712,
+          523,
+          941,
+          5196,
+          11467,
+          1123,
+          811,
+          9837,
+          1033,
+          22017,
+          1947,
+          810,
+          7487,
+          779,
+          23785,
+          21923,
+          523,
+          941,
+          1947,
+          856,
+          2588,
+          856,
+          15270,
+          1831,
+          8447,
+          1109,
+          810,
+          936,
+          12116,
+          817,
+          3562,
+          730,
+          527,
+          3969,
+          730,
+          526,
+          523,
+          35190,
+          521,
+          896,
+          5535,
+          1901,
+          5490,
+          2084,
+          523,
+          8157,
+          1288,
+          817,
+          856,
+          1919,
+          521,
+          817,
+          3562
+        ],
+        "completion_token_ids_sha256": "7ba41ba723728e7c4adb146ae4487840a610baf29b370c7f968899ef9ac97d92",
+        "duration_seconds": 0.888,
+        "first_step_logits": {
+          "all_finite": true,
+          "inf_count": 0,
+          "maximum": 29.625,
+          "minimum": -12.8125,
+          "nan_count": 0
+        },
+        "prompt": "Fix this Python function and explain the bug briefly:\n\ndef is_even(n):\n    return n % 2 == 1",
+        "prompt_token_count": 35
+      },
+      {
+        "completion": "<think> Okay, I need to write a binary search function in Python that returns -1 if the target isn't found. Let me think about how binary search works. \n\nFirst, binary search requires a sorted list. The function should take the array and the target. The basic idea is to repeatedly divide the search",
+        "completion_token_count": 64,
+        "completion_token_ids": [
+          64400,
+          9095,
+          892,
+          521,
+          859,
+          1595,
+          811,
+          5773,
+          768,
+          18112,
+          5510,
+          1947,
+          797,
+          22017,
+          896,
+          12116,
+          1141,
+          526,
+          1288,
+          779,
+          4558,
+          7404,
+          1901,
+          1833,
+          523,
+          6635,
+          1123,
+          2539,
+          1337,
+          1531,
+          18112,
+          5510,
+          4117,
+          523,
+          730,
+          509,
+          9578,
+          521,
+          18112,
+          5510,
+          6835,
+          768,
+          38577,
+          2316,
+          523,
+          941,
+          1947,
+          1753,
+          2337,
+          779,
+          6947,
+          810,
+          779,
+          4558,
+          523,
+          941,
+          5975,
+          4588,
+          856,
+          811,
+          25006,
+          20791,
+          779,
+          5510
+        ],
+        "completion_token_ids_sha256": "1e3eeeaf2327fb92695f83bdc51abcce0760564c321b981e8dde6c7e577fad51",
+        "duration_seconds": 0.882,
+        "first_step_logits": {
+          "all_finite": true,
+          "inf_count": 0,
+          "maximum": 31.375,
+          "minimum": -13.5,
+          "nan_count": 0
+        },
+        "prompt": "Implement binary search in Python. Return -1 when the target is absent.",
+        "prompt_token_count": 24
+      },
+      {
+        "completion": "<think> Okay, I need to write a Python function that returns the length of the longest increasing subsequence. Hmm, right, the longest increasing subsequence problem. Let me think about how to approach this.\n\nFirst, what's a subsequence? Oh right, a subsequence is a sequence that can be",
+        "completion_token_count": 64,
+        "completion_token_ids": [
+          64400,
+          9095,
+          892,
+          521,
+          859,
+          1595,
+          811,
+          5773,
+          768,
+          22017,
+          1947,
+          896,
+          12116,
+          779,
+          5397,
+          803,
+          779,
+          26716,
+          5153,
+          8539,
+          1088,
+          523,
+          904,
+          5399,
+          521,
+          2084,
+          521,
+          779,
+          26716,
+          5153,
+          8539,
+          1088,
+          3220,
+          523,
+          6635,
+          1123,
+          2539,
+          1337,
+          1531,
+          811,
+          4355,
+          1033,
+          523,
+          509,
+          9578,
+          521,
+          1620,
+          1090,
+          768,
+          8539,
+          1088,
+          540,
+          8993,
+          2084,
+          521,
+          768,
+          8539,
+          1088,
+          856,
+          768,
+          8556,
+          896,
+          1011,
+          874
+        ],
+        "completion_token_ids_sha256": "2fb544b4311a14c11c3d6a5e950769d7a4143520339a8f58a14d1440fd82b608",
+        "duration_seconds": 0.876,
+        "first_step_logits": {
+          "all_finite": true,
+          "inf_count": 0,
+          "maximum": 29.5,
+          "minimum": -11.8125,
+          "nan_count": 0
+        },
+        "prompt": "Write a Python function that returns the length of the longest increasing subsequence.",
+        "prompt_token_count": 24
+      },
+      {
+        "completion": "<think> Okay, I need to figure out how to detect a cycle in a directed graph using Python. Hmm, cycles in directed graphs can be tricky because you have to track paths carefully. I remember that one common approach is using Depth-First Search (DFS) with some kind of visited or recursion",
+        "completion_token_count": 64,
+        "completion_token_ids": [
+          64400,
+          9095,
+          892,
+          521,
+          859,
+          1595,
+          811,
+          7341,
+          1230,
+          1531,
+          811,
+          7990,
+          768,
+          8192,
+          797,
+          768,
+          10879,
+          6219,
+          1993,
+          22017,
+          523,
+          904,
+          5399,
+          521,
+          18964,
+          797,
+          10879,
+          27496,
+          1011,
+          874,
+          45424,
+          1929,
+          1010,
+          1052,
+          811,
+          5254,
+          20236,
+          13019,
+          523,
+          859,
+          6848,
+          896,
+          1235,
+          2624,
+          4355,
+          856,
+          1993,
+          4069,
+          881,
+          4896,
+          1380,
+          18860,
+          843,
+          7094,
+          560,
+          518,
+          916,
+          1429,
+          3746,
+          803,
+          15596,
+          933,
+          1460,
+          43022
+        ],
+        "completion_token_ids_sha256": "a055e419f2cda697cd4de7c4baf2057abd62c27d5be72b02a8427c3f1ed54e42",
+        "duration_seconds": 0.882,
+        "first_step_logits": {
+          "all_finite": true,
+          "inf_count": 0,
+          "maximum": 30.125,
+          "minimum": -13.375,
+          "nan_count": 0
+        },
+        "prompt": "Given a directed graph, explain how to detect a cycle and provide a Python implementation.",
+        "prompt_token_count": 26
+      },
+      {
+        "completion": "<think> Okay, let's see. I need to write a Python function called is_prime(n) that checks if a number is prime, and handle all integer edge cases. Hmm. First, what are the edge cases? Well, primes are numbers greater than 1 that have no divisors other than",
+        "completion_token_count": 64,
+        "completion_token_ids": [
+          64400,
+          9095,
+          892,
+          521,
+          2944,
+          1090,
+          2130,
+          523,
+          859,
+          1595,
+          811,
+          5773,
+          768,
+          22017,
+          1947,
+          2588,
+          856,
+          572,
+          15283,
+          8447,
+          518,
+          896,
+          25749,
+          1288,
+          768,
+          2080,
+          856,
+          9125,
+          521,
+          810,
+          9936,
+          1113,
+          21378,
+          9028,
+          3841,
+          523,
+          904,
+          5399,
+          523,
+          5707,
+          521,
+          1620,
+          938,
+          779,
+          9028,
+          3841,
+          540,
+          12022,
+          521,
+          1002,
+          1860,
+          938,
+          5743,
+          5574,
+          1399,
+          730,
+          526,
+          896,
+          1052,
+          1295,
+          27594,
+          1189,
+          1312,
+          1399
+        ],
+        "completion_token_ids_sha256": "37341ef5f7ccd1a3e0050505aab0bb475d4f2418cc01bf2bc2b1c978922852eb",
+        "duration_seconds": 0.884,
+        "first_step_logits": {
+          "all_finite": true,
+          "inf_count": 0,
+          "maximum": 30.75,
+          "minimum": -13.0625,
+          "nan_count": 0
+        },
+        "prompt": "Return only Python code for a function `is_prime(n)` that handles all integer edge cases.",
+        "prompt_token_count": 30
+      }
+    ],
+    "passed": true,
+    "peak_cuda_allocated_bytes": 2354385920,
+    "peak_cuda_reserved_bytes": 2371878912
+  },
+  "container_readiness": {
+    "passed": true,
+    "report_path": "D:\\code\\model_training\\lfm2.5-finetune\\reports\\phase0\\container-readiness.json",
+    "report_sha256": "3f97defb100639392d2db5ee039afe3b79d05ddc3da9dff70add1cf556924781"
+  },
+  "gates": {
+    "adapter_revision_recovered": true,
+    "base_revision_recovered": true,
+    "docker_linux_engine_reachable": true,
+    "merge_changed_weight_tensors": true,
+    "merged_first_step_logits_are_finite": true,
+    "merged_parameter_count_is_1_170_340_608": true,
+    "offline_merged_load_and_generation": true,
+    "offline_original_load_and_generation": true,
+    "original_and_merged_tensor_sets_match": true,
+    "original_first_step_logits_are_finite": true,
+    "restricted_cuda_container_smoke_passed": true,
+    "smoke_outputs_show_behavior_change": true,
+    "token_ids_and_chat_template_match_original": true
+  },
+  "generated_at_utc": "2026-07-29T21:07:59.300514+00:00",
+  "generation_comparison": {
+    "case_count": 6,
+    "cases": [
+      {
+        "base_completion_sha256": "863866d4650e9fb3376067e8a7aa8a361a80a10d07359d49d65b867f596cce4a",
+        "completion_token_ids_equal": false,
+        "merged_completion_sha256": "28d02b7cef93df4619bcaa23bae39b0928cff0d57ade0c8edf7c0eab8c27c61d",
+        "prompt": "Write a Python function `two_sum(nums, target)` that returns the two indices. Return only code."
+      },
+      {
+        "base_completion_sha256": "7ba41ba723728e7c4adb146ae4487840a610baf29b370c7f968899ef9ac97d92",
+        "completion_token_ids_equal": false,
+        "merged_completion_sha256": "2f1f01fe61e165b98e78c9a8bb054828e4d2a5a06b3bbab57f02554e1e125651",
+        "prompt": "Fix this Python function and explain the bug briefly:\n\ndef is_even(n):\n    return n % 2 == 1"
+      },
+      {
+        "base_completion_sha256": "1e3eeeaf2327fb92695f83bdc51abcce0760564c321b981e8dde6c7e577fad51",
+        "completion_token_ids_equal": false,
+        "merged_completion_sha256": "37eaafa07d7f0f8c7341164c5d1a62187eaaf5e394429e583481f7e1725df178",
+        "prompt": "Implement binary search in Python. Return -1 when the target is absent."
+      },
+      {
+        "base_completion_sha256": "2fb544b4311a14c11c3d6a5e950769d7a4143520339a8f58a14d1440fd82b608",
+        "completion_token_ids_equal": false,
+        "merged_completion_sha256": "30636bbfedc0c209075de86021bda54a07ed16213a064b28ebb54340db4ec319",
+        "prompt": "Write a Python function that returns the length of the longest increasing subsequence."
+      },
+      {
+        "base_completion_sha256": "a055e419f2cda697cd4de7c4baf2057abd62c27d5be72b02a8427c3f1ed54e42",
+        "completion_token_ids_equal": false,
+        "merged_completion_sha256": "c1a39223b13a8a59dc2fc7954d257cfffcc66217821254427f00b65a293a2875",
+        "prompt": "Given a directed graph, explain how to detect a cycle and provide a Python implementation."
+      },
+      {
+        "base_completion_sha256": "37341ef5f7ccd1a3e0050505aab0bb475d4f2418cc01bf2bc2b1c978922852eb",
+        "completion_token_ids_equal": false,
+        "merged_completion_sha256": "30524ce4cdb3cf4cbbdb9349159d7ba1b49065452b8206a470651a0bda78e130",
+        "prompt": "Return only Python code for a function `is_prime(n)` that handles all integer edge cases."
+      }
+    ],
+    "differing_completion_count": 6,
+    "proves_behavior_changed_on_smoke_set": true
+  },
+  "inference_error": null,
+  "inference_skipped": false,
+  "merged_inference": {
+    "all_first_step_logits_finite": true,
+    "checkpoint_directory": "D:\\code\\model_training\\lfm2.5-finetune\\lfm2.5-model-merged",
+    "device": "cuda",
+    "dtype": "torch.bfloat16",
+    "generation_seconds": 4.619,
+    "load_seconds": 0.938,
+    "logical_name": "merged_finetune",
+    "model_device": "cuda:0",
+    "outputs": [
+      {
+        "completion": "def two_sum(nums, target):\n    seen = {}\n    for index, num in enumerate(nums):\n        complement = target - num\n        if complement in seen:\n            return [seen[complement], index]\n        seen[num] = index<|im_end|>",
+        "completion_token_count": 55,
+        "completion_token_ids": [
+          3663,
+          1547,
+          4294,
+          900,
+          8447,
+          6399,
+          521,
+          4558,
+          5174,
+          861,
+          4003,
+          1051,
+          25209,
+          861,
+          875,
+          6436,
+          521,
+          1646,
+          797,
+          915,
+          22039,
+          8447,
+          6399,
+          5174,
+          964,
+          20060,
+          1051,
+          4558,
+          1141,
+          1646,
+          708,
+          964,
+          1288,
+          20060,
+          797,
+          4003,
+          1334,
+          1121,
+          1789,
+          1607,
+          42629,
+          568,
+          1305,
+          4334,
+          5086,
+          6436,
+          2848,
+          964,
+          4003,
+          568,
+          21087,
+          570,
+          1051,
+          6436,
+          7
+        ],
+        "completion_token_ids_sha256": "28d02b7cef93df4619bcaa23bae39b0928cff0d57ade0c8edf7c0eab8c27c61d",
+        "duration_seconds": 0.794,
+        "first_step_logits": {
+          "all_finite": true,
+          "inf_count": 0,
+          "maximum": 22.25,
+          "minimum": -8.5,
+          "nan_count": 0
+        },
+        "prompt": "Write a Python function `two_sum(nums, target)` that returns the two indices. Return only code.",
+        "prompt_token_count": 33
+      },
+      {
+        "completion": "def is_even(n):\n    return n % 2 == 0<|im_end|>",
+        "completion_token_count": 16,
+        "completion_token_ids": [
+          3663,
+          856,
+          15270,
+          1831,
+          8447,
+          5174,
+          861,
+          1789,
+          817,
+          3562,
+          730,
+          527,
+          3969,
+          730,
+          525,
+          7
+        ],
+        "completion_token_ids_sha256": "2f1f01fe61e165b98e78c9a8bb054828e4d2a5a06b3bbab57f02554e1e125651",
+        "duration_seconds": 0.241,
+        "first_step_logits": {
+          "all_finite": true,
+          "inf_count": 0,
+          "maximum": 21.75,
+          "minimum": -8.1875,
+          "nan_count": 0
+        },
+        "prompt": "Fix this Python function and explain the bug briefly:\n\ndef is_even(n):\n    return n % 2 == 1",
+        "prompt_token_count": 35
+      },
+      {
+        "completion": "def binary_search(arr, target):\n    low = 0\n    high = len(arr) - 1\n    while low <= high:\n        mid = (low + high) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] <",
+        "completion_token_count": 64,
+        "completion_token_ids": [
+          3663,
+          18112,
+          572,
+          14482,
+          517,
+          3720,
+          521,
+          4558,
+          5174,
+          861,
+          2920,
+          1051,
+          730,
+          525,
+          708,
+          861,
+          1569,
+          1051,
+          16373,
+          517,
+          3720,
+          518,
+          1141,
+          730,
+          526,
+          708,
+          861,
+          2158,
+          2920,
+          26116,
+          1569,
+          1334,
+          964,
+          5964,
+          1051,
+          843,
+          10531,
+          2011,
+          1569,
+          518,
+          2029,
+          730,
+          527,
+          708,
+          964,
+          1288,
+          3261,
+          568,
+          11465,
+          570,
+          3969,
+          4558,
+          1334,
+          1121,
+          1789,
+          5964,
+          708,
+          964,
+          42286,
+          3261,
+          568,
+          11465,
+          570,
+          1428
+        ],
+        "completion_token_ids_sha256": "37eaafa07d7f0f8c7341164c5d1a62187eaaf5e394429e583481f7e1725df178",
+        "duration_seconds": 0.897,
+        "first_step_logits": {
+          "all_finite": true,
+          "inf_count": 0,
+          "maximum": 22.375,
+          "minimum": -8.875,
+          "nan_count": 0
+        },
+        "prompt": "Implement binary search in Python. Return -1 when the target is absent.",
+        "prompt_token_count": 24
+      },
+      {
+        "completion": "import bisect\n\ndef length_of_lis(nums):\n    tails = []\n    for num in nums:\n        idx = bisect.bisect_left(tails, num)\n        if idx == len(tails):\n            tails.append(num)\n        else:\n            tails[idx] = num\n   ",
+        "completion_token_count": 64,
+        "completion_token_ids": [
+          2781,
+          3901,
+          1012,
+          509,
+          3663,
+          5397,
+          31091,
+          8183,
+          783,
+          8447,
+          6399,
+          5174,
+          861,
+          50390,
+          1051,
+          34790,
+          861,
+          875,
+          1646,
+          797,
+          1646,
+          592,
+          1334,
+          964,
+          37852,
+          1051,
+          3901,
+          1012,
+          6975,
+          783,
+          1012,
+          572,
+          3320,
+          4676,
+          6492,
+          521,
+          1646,
+          1015,
+          964,
+          1288,
+          37852,
+          3969,
+          16373,
+          4676,
+          6492,
+          5174,
+          1121,
+          50390,
+          15865,
+          8447,
+          900,
+          1015,
+          964,
+          3581,
+          1334,
+          1121,
+          50390,
+          568,
+          53322,
+          570,
+          1051,
+          1646,
+          708,
+          861
+        ],
+        "completion_token_ids_sha256": "30636bbfedc0c209075de86021bda54a07ed16213a064b28ebb54340db4ec319",
+        "duration_seconds": 0.901,
+        "first_step_logits": {
+          "all_finite": true,
+          "inf_count": 0,
+          "maximum": 22.125,
+          "minimum": -10.9375,
+          "nan_count": 0
+        },
+        "prompt": "Write a Python function that returns the length of the longest increasing subsequence.",
+        "prompt_token_count": 24
+      },
+      {
+        "completion": "def has_cycle(graph):\n    \"\"\"\n    Detects if a directed graph contains a cycle.\n    \n    Args:\n        graph (dict): A dictionary representing the adjacency list of the graph.\n    \n    Returns:\n        bool: True if the graph contains a cycle, False otherwise.\n    \"\"\"\n   ",
+        "completion_token_count": 64,
+        "completion_token_ids": [
+          3663,
+          1178,
+          572,
+          19742,
+          21465,
+          1730,
+          5174,
+          861,
+          16335,
+          861,
+          7708,
+          1012,
+          592,
+          1288,
+          768,
+          10879,
+          6219,
+          6034,
+          768,
+          8192,
+          819,
+          8369,
+          861,
+          1508,
+          6398,
+          1334,
+          964,
+          6219,
+          843,
+          50006,
+          3271,
+          835,
+          23858,
+          15553,
+          779,
+          11025,
+          907,
+          3302,
+          2316,
+          803,
+          779,
+          6219,
+          819,
+          8369,
+          861,
+          18865,
+          1334,
+          964,
+          10494,
+          535,
+          16280,
+          1288,
+          779,
+          6219,
+          6034,
+          768,
+          8192,
+          521,
+          23708,
+          9141,
+          819,
+          861,
+          16335,
+          861
+        ],
+        "completion_token_ids_sha256": "c1a39223b13a8a59dc2fc7954d257cfffcc66217821254427f00b65a293a2875",
+        "duration_seconds": 0.891,
+        "first_step_logits": {
+          "all_finite": true,
+          "inf_count": 0,
+          "maximum": 21.375,
+          "minimum": -8.5625,
+          "nan_count": 0
+        },
+        "prompt": "Given a directed graph, explain how to detect a cycle and provide a Python implementation.",
+        "prompt_token_count": 26
+      },
+      {
+        "completion": "import math\n\ndef is_prime(n):\n    if n < 2:\n        return False\n    if n == 2:\n        return True\n    if n % 2 == 0:\n        return False\n    max_divisor = math.isqrt(n)\n    for i in range(",
+        "completion_token_count": 64,
+        "completion_token_ids": [
+          2781,
+          10343,
+          509,
+          3663,
+          856,
+          572,
+          15283,
+          8447,
+          5174,
+          861,
+          1288,
+          817,
+          1428,
+          730,
+          527,
+          1334,
+          964,
+          1789,
+          23708,
+          708,
+          861,
+          1288,
+          817,
+          3969,
+          730,
+          527,
+          1334,
+          964,
+          1789,
+          16280,
+          708,
+          861,
+          1288,
+          817,
+          3562,
+          730,
+          527,
+          3969,
+          730,
+          525,
+          1334,
+          964,
+          1789,
+          23708,
+          708,
+          861,
+          4632,
+          572,
+          3015,
+          783,
+          777,
+          1051,
+          10343,
+          10317,
+          590,
+          5624,
+          8447,
+          1015,
+          861,
+          875,
+          1224,
+          797,
+          3795,
+          517
+        ],
+        "completion_token_ids_sha256": "30524ce4cdb3cf4cbbdb9349159d7ba1b49065452b8206a470651a0bda78e130",
+        "duration_seconds": 0.893,
+        "first_step_logits": {
+          "all_finite": true,
+          "inf_count": 0,
+          "maximum": 21.125,
+          "minimum": -9.1875,
+          "nan_count": 0
+        },
+        "prompt": "Return only Python code for a function `is_prime(n)` that handles all integer edge cases.",
+        "prompt_token_count": 30
+      }
+    ],
+    "passed": true,
+    "peak_cuda_allocated_bytes": 2354385920,
+    "peak_cuda_reserved_bytes": 2378170368
+  },
+  "offline_environment": {
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1"
+  },
+  "passed": true,
+  "schema_version": 1,
+  "tensor_comparison": {
+    "base_file": "D:\\hf_models\\models--LiquidAI--LFM2.5-1.2B-Thinking\\snapshots\\95053d21d8e0b7ca99421a2127ae39c64f685ff3\\model.safetensors",
+    "base_file_sha256": "112fba7db6c4544d9944002fcfe1c21e23e03d8fc0a0c7e2b6655de6c738583d",
+    "base_only_tensors": [],
+    "base_tensor_count": 148,
+    "changed_tensor_bytes": 2071986176,
+    "changed_tensor_count": 92,
+    "changed_tensors": [
+      {
+        "base_sha256": "d0bc3350680570eea6aff7ab8cb92719563a1656d764fb9561bb688b9d74097d",
+        "dtype": "BF16",
+        "merged_sha256": "1bbd61ee2efebef16cf9351e0f34de843a408e29d5414a6b66774965c25abd79",
+        "metadata_equal": true,
+        "name": "model.layers.0.conv.in_proj.weight",
+        "shape": [
+          6144,
+          2048
+        ],
+        "size_bytes": 25165824
+      },
+      {
+        "base_sha256": "deff9855f8b76f0f020c774b9ef5a45ae2a8df90b846cafc0697aff1ad3bdbdd",
+        "dtype": "BF16",
+        "merged_sha256": "3a1f05f0bee4f464fa51254cc7e6db0886bee408cfb3343dc7d38c73a9be69cf",
+        "metadata_equal": true,
+        "name": "model.layers.0.conv.out_proj.weight",
+        "shape": [
+          2048,
+          2048
+        ],
+        "size_bytes": 8388608
+      },
+      {
+        "base_sha256": "56fb441bde32c8be272e905ec4f5ea5ae822935ee7eaaec7795af300ff9f12b4",
+        "dtype": "BF16",
+        "merged_sha256": "93311afc0ecd0ef8a734e811211b1002293bc7a275365ce4e89f12dcffbb2c9b",
+        "metadata_equal": true,
+        "name": "model.layers.0.feed_forward.w1.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "15c615336c1457bbfbc7093b5703aeb0afd69c86446621cfeca29f4646dbf199",
+        "dtype": "BF16",
+        "merged_sha256": "d196c07a7b6cc7f9c177210bbed32948a34b403da4377af6eb3ea872b87a98a9",
+        "metadata_equal": true,
+        "name": "model.layers.0.feed_forward.w2.weight",
+        "shape": [
+          2048,
+          8192
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "bfd44978d9564e1f82424956925cf81b119eebef420bd40ab3a8bcb4f1bae217",
+        "dtype": "BF16",
+        "merged_sha256": "2cf308558f351dcb39b4417a98f6d58656060a4afb2361513d11f80802d1a782",
+        "metadata_equal": true,
+        "name": "model.layers.0.feed_forward.w3.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "3f00b933892ea0484e9c4df1956d11567e4c7f16b46f44293920564303267de2",
+        "dtype": "BF16",
+        "merged_sha256": "5def7f75f5472fb197ae30d7430baa99361ab8d69fedc5b5bcc61cc442efdaa7",
+        "metadata_equal": true,
+        "name": "model.layers.1.conv.in_proj.weight",
+        "shape": [
+          6144,
+          2048
+        ],
+        "size_bytes": 25165824
+      },
+      {
+        "base_sha256": "9b6aa29f75fb8663a1ade9fefbfa12908826a8b397cc34998c1434137d74162b",
+        "dtype": "BF16",
+        "merged_sha256": "5914b6bddcfe90dca9bae7faacffacae98246ca1a1eaf7b0c2f231b71dd51a79",
+        "metadata_equal": true,
+        "name": "model.layers.1.conv.out_proj.weight",
+        "shape": [
+          2048,
+          2048
+        ],
+        "size_bytes": 8388608
+      },
+      {
+        "base_sha256": "4568e5127df0745c6b92f0811ff27fdbab5d9787926444144505eeea5c3e3b0f",
+        "dtype": "BF16",
+        "merged_sha256": "f8370382296763c6f0ee582cc9507f9467077e9953e0164e0812e179ca3ee6df",
+        "metadata_equal": true,
+        "name": "model.layers.1.feed_forward.w1.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "97c034201039ccef49ab77ba833d4dfed9af12aeb278e3e3407b46f5e41138ed",
+        "dtype": "BF16",
+        "merged_sha256": "602391d72cdd2eaa42196ad5aaa7015b03168f2cb84113b9001c7a941c8eeea1",
+        "metadata_equal": true,
+        "name": "model.layers.1.feed_forward.w2.weight",
+        "shape": [
+          2048,
+          8192
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "9fb8b69b04886d8405639a7f0146ad3367198962025bae4e16f577b3706c2799",
+        "dtype": "BF16",
+        "merged_sha256": "ed7a55ce7c6ee0a6a65a00c1cbf1869a1422dd756b0f90b8d590c013e48ae22d",
+        "metadata_equal": true,
+        "name": "model.layers.1.feed_forward.w3.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "9db05c2c990572606a860b8d235534ad6f379a7792578613b039ca7199c119a2",
+        "dtype": "BF16",
+        "merged_sha256": "07a72033bbb73fd20d29fb11b568fdfc7b93423affd39849e4bd36b92270a6d1",
+        "metadata_equal": true,
+        "name": "model.layers.10.feed_forward.w1.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "570d93e96ece2a1fe9d47ba1235fed43b15149fe6d11fd6980480147e82d1748",
+        "dtype": "BF16",
+        "merged_sha256": "5b0d6685ed1dc128324ff267ecfe55e0fe106d02ed3f7534c6f28078fab2af52",
+        "metadata_equal": true,
+        "name": "model.layers.10.feed_forward.w2.weight",
+        "shape": [
+          2048,
+          8192
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "17df6ae7c4c3545f345e3abff576559ab2854f97fc04c919a1885513cb2f1d12",
+        "dtype": "BF16",
+        "merged_sha256": "b96b6451a771969e50bac8850cd871991a23f2cd90c01ae5515ea09c729c9fc9",
+        "metadata_equal": true,
+        "name": "model.layers.10.feed_forward.w3.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "fb86cedaf1dd926350c079e046736b99c5a3d4165e7f697afc736e9bf09726bf",
+        "dtype": "BF16",
+        "merged_sha256": "a031596def95ee61f4d68c1bb877c7891709adc4856a73d5bb70c002c9802907",
+        "metadata_equal": true,
+        "name": "model.layers.10.self_attn.k_proj.weight",
+        "shape": [
+          512,
+          2048
+        ],
+        "size_bytes": 2097152
+      },
+      {
+        "base_sha256": "7d24f718e42b56ff9666a154546b4dfdd34178ec790d70d37248180e7ffab130",
+        "dtype": "BF16",
+        "merged_sha256": "fa71a713a949bf435bbe1153cd27573a07ea10a7bea21e2a325c753eface3d03",
+        "metadata_equal": true,
+        "name": "model.layers.10.self_attn.out_proj.weight",
+        "shape": [
+          2048,
+          2048
+        ],
+        "size_bytes": 8388608
+      },
+      {
+        "base_sha256": "eecb86c198d5d4837bc7fbf43e3764c1afc445c0cdbba22f6d0bfeebcca02a24",
+        "dtype": "BF16",
+        "merged_sha256": "b9b7beb5183a9c4c1540c732fefaa470b69014c27e46433a22c82062265d601f",
+        "metadata_equal": true,
+        "name": "model.layers.10.self_attn.q_proj.weight",
+        "shape": [
+          2048,
+          2048
+        ],
+        "size_bytes": 8388608
+      },
+      {
+        "base_sha256": "6607409fdd821abca6a5f89a6fcc114d2338c1be69fd50ecdaba4a913fc18962",
+        "dtype": "BF16",
+        "merged_sha256": "5c5d6ce0ce013aed39d57f3ac1d4fd2feffd7ccabf8f0207bd999b3e94f134f2",
+        "metadata_equal": true,
+        "name": "model.layers.10.self_attn.v_proj.weight",
+        "shape": [
+          512,
+          2048
+        ],
+        "size_bytes": 2097152
+      },
+      {
+        "base_sha256": "b5a85edcd2bc9905b0c05528485c7815d828122a55dec299d4e2f1d47ddff2d6",
+        "dtype": "BF16",
+        "merged_sha256": "1e590521bb89ceecbee917a1ef71738237981823dc4da581292485fec8217349",
+        "metadata_equal": true,
+        "name": "model.layers.11.conv.in_proj.weight",
+        "shape": [
+          6144,
+          2048
+        ],
+        "size_bytes": 25165824
+      },
+      {
+        "base_sha256": "64c2374eba509df5067b0fbcef531ffcf88006d19d7ca475cab8b29a9b5b00c2",
+        "dtype": "BF16",
+        "merged_sha256": "43db4567cee824c18010930330669d4036dc5724769b61e8077e212334647606",
+        "metadata_equal": true,
+        "name": "model.layers.11.conv.out_proj.weight",
+        "shape": [
+          2048,
+          2048
+        ],
+        "size_bytes": 8388608
+      },
+      {
+        "base_sha256": "7919213c9e1813ce04f51e77a1dc4edbedd37d134ae77ad745c1a9dda8dcd038",
+        "dtype": "BF16",
+        "merged_sha256": "6e4c54ba3f3e3aae64e430632035d523f5ef51d29efd3e6b408db57568670f2a",
+        "metadata_equal": true,
+        "name": "model.layers.11.feed_forward.w1.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "edd47c5154391b89d96311cc5486cc57e141339eef629076d6debdb2631f871c",
+        "dtype": "BF16",
+        "merged_sha256": "dce8a6a537aacae7643e7d45834ed1b21f1f740007ff2bb4425a334b808d1932",
+        "metadata_equal": true,
+        "name": "model.layers.11.feed_forward.w2.weight",
+        "shape": [
+          2048,
+          8192
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "6c97fa74a6ca8d52e96529195a8686e2eb4b08c56d378dc5345c3d2cdcfaaddc",
+        "dtype": "BF16",
+        "merged_sha256": "dd70e12153d91608c65fbc26ba855ede645a8963f5825ffc5eb9a257fd1fb6bd",
+        "metadata_equal": true,
+        "name": "model.layers.11.feed_forward.w3.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "e866573d2f60a536164e69c2ddc5cd7c4caed2b8855681c579c4295fdc2f1757",
+        "dtype": "BF16",
+        "merged_sha256": "6ca5ca8d60bc51d208a198484861ce694e5ff058713a1b2b3ea51cc49f50abda",
+        "metadata_equal": true,
+        "name": "model.layers.12.feed_forward.w1.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "9601b0ad81454f55cf30a529abc8171551ce8f364785f3d617d923b19ffff095",
+        "dtype": "BF16",
+        "merged_sha256": "c9b83352e9aec1412e7b1ab9924c0d0247f1cc8a304eeb8786deaab9aa4913e2",
+        "metadata_equal": true,
+        "name": "model.layers.12.feed_forward.w2.weight",
+        "shape": [
+          2048,
+          8192
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "36b3e15457db1f1028311304d3349420fe47dacf06287e71c76c2f3d2664d2d6",
+        "dtype": "BF16",
+        "merged_sha256": "4c4ca496a7772f07c628490a0ead53bc7987f5d0f04d082f92b4afde896cc18e",
+        "metadata_equal": true,
+        "name": "model.layers.12.feed_forward.w3.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "25fd5ffbef51a1d055ce3106da03ede1db723f337eefca09d888c25535dbcdf9",
+        "dtype": "BF16",
+        "merged_sha256": "d408e7117a29dd581cfca3f561f5d4442a3002ef26192c585f70b440f7180fb1",
+        "metadata_equal": true,
+        "name": "model.layers.12.self_attn.k_proj.weight",
+        "shape": [
+          512,
+          2048
+        ],
+        "size_bytes": 2097152
+      },
+      {
+        "base_sha256": "3fa1eb59dc608d15487c9e89accbfba73ddaacc6bdfc8cb01b73e33d7a321a06",
+        "dtype": "BF16",
+        "merged_sha256": "0e9ea722c8b290532c48a568dcbd1bf3b6cc8bbd617940ad910ff72e3cb52de4",
+        "metadata_equal": true,
+        "name": "model.layers.12.self_attn.out_proj.weight",
+        "shape": [
+          2048,
+          2048
+        ],
+        "size_bytes": 8388608
+      },
+      {
+        "base_sha256": "63c28daede234a89ca21d77f0e12f13a0dca54771d9aed19305920f4fdd67e71",
+        "dtype": "BF16",
+        "merged_sha256": "b172e2666f0180ec1f618ae4f94ca5f14dd5a715795a64b293ee853bf888ca65",
+        "metadata_equal": true,
+        "name": "model.layers.12.self_attn.q_proj.weight",
+        "shape": [
+          2048,
+          2048
+        ],
+        "size_bytes": 8388608
+      },
+      {
+        "base_sha256": "057c2d56f6651be21bebf298efdbb484b5388d44257214178812ae26a07c4bde",
+        "dtype": "BF16",
+        "merged_sha256": "3147f4af5613a419c0fa33a611ab032895fe803b9c8014422956c89f0ba532b9",
+        "metadata_equal": true,
+        "name": "model.layers.12.self_attn.v_proj.weight",
+        "shape": [
+          512,
+          2048
+        ],
+        "size_bytes": 2097152
+      },
+      {
+        "base_sha256": "3edce652f433e23945ffae2d27ca3ab8ff818a640156e214596a46c1ae4f28d2",
+        "dtype": "BF16",
+        "merged_sha256": "1201968f375c82d6099655b5049916151172293a931e8ecc201757a8511286a1",
+        "metadata_equal": true,
+        "name": "model.layers.13.conv.in_proj.weight",
+        "shape": [
+          6144,
+          2048
+        ],
+        "size_bytes": 25165824
+      },
+      {
+        "base_sha256": "9e8bd41a45d07ad49b8a5936a55c07128d28b3d13ae784f189cfe20172545c06",
+        "dtype": "BF16",
+        "merged_sha256": "9059dcee378f40e0365692f67aedc69096bf3135cd9212766572e2995027bca4",
+        "metadata_equal": true,
+        "name": "model.layers.13.conv.out_proj.weight",
+        "shape": [
+          2048,
+          2048
+        ],
+        "size_bytes": 8388608
+      },
+      {
+        "base_sha256": "c6202e9af1704ddb86746592dea9c05ef4bc48ef764b8bb2c5322a5fb03489a6",
+        "dtype": "BF16",
+        "merged_sha256": "84b30549101d66e5b49f0725c10f8296f4317266a9e8c11e4cdb6081d7231adf",
+        "metadata_equal": true,
+        "name": "model.layers.13.feed_forward.w1.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "f61db6ff03504a6926fcd6e0fb3b318af4f7d3bc8789cd93426ba30486eb639e",
+        "dtype": "BF16",
+        "merged_sha256": "6c1171de256f590de888bc7ce3c1f7f8788a005a713853f5c0fa78ec6d22c315",
+        "metadata_equal": true,
+        "name": "model.layers.13.feed_forward.w2.weight",
+        "shape": [
+          2048,
+          8192
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "2f59989bc6f25736069efd9cd416af5b90a065665ec49d762b8a8bd3371e268f",
+        "dtype": "BF16",
+        "merged_sha256": "95a401fa386ec1d320ecd786e489b8295fc61f70616303a6c332e22938e9c4e4",
+        "metadata_equal": true,
+        "name": "model.layers.13.feed_forward.w3.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "2b3ca19682d31004d25ebac3ca84d5a3d5848b65300dde3d509b9e9371b8d07f",
+        "dtype": "BF16",
+        "merged_sha256": "6dc801a12ed1a46141119fd374e8c4121596cba9240c58e169134e6474430ec6",
+        "metadata_equal": true,
+        "name": "model.layers.14.feed_forward.w1.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "1fa153f43ab39e4cd8de1f6b51db66b84b900590396f3441cfda1f9a227ceebf",
+        "dtype": "BF16",
+        "merged_sha256": "6f3521b2642f66d08d94f8e73ca5273d2fb10e833775483541bf464abfdeb043",
+        "metadata_equal": true,
+        "name": "model.layers.14.feed_forward.w2.weight",
+        "shape": [
+          2048,
+          8192
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "0e36adc088446201909b5e62ef9cafc1fcd5f875a179278a3c009bf2c9cf26dc",
+        "dtype": "BF16",
+        "merged_sha256": "9a9cce05826b1d608dee77bf11981063dbf651199f7859e2e81d63b1d46e012c",
+        "metadata_equal": true,
+        "name": "model.layers.14.feed_forward.w3.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "d3028abdde76680ebf2590edaf741e01be8cf501758e71d514118e9f3965c789",
+        "dtype": "BF16",
+        "merged_sha256": "9914a056e83ca3eb93a1ac699aba3ac45a9a9d72fde38fa6831c575911f95adc",
+        "metadata_equal": true,
+        "name": "model.layers.14.self_attn.k_proj.weight",
+        "shape": [
+          512,
+          2048
+        ],
+        "size_bytes": 2097152
+      },
+      {
+        "base_sha256": "c7431aa95292a077ec689b4937f587f946974749566f0ae44e03b056cab824ba",
+        "dtype": "BF16",
+        "merged_sha256": "d4c0191df9b9cbbe3999b8dcb1af0ef7450e9aed4126a4b68314c2b195cfddf7",
+        "metadata_equal": true,
+        "name": "model.layers.14.self_attn.out_proj.weight",
+        "shape": [
+          2048,
+          2048
+        ],
+        "size_bytes": 8388608
+      },
+      {
+        "base_sha256": "fc266d23594e701f02b002ebf3c3217757b3898bea75da3cb713c0bdab77cbe5",
+        "dtype": "BF16",
+        "merged_sha256": "63c368e0d3b33c579db147b749ca46384990b96e2103b9775573423a2e866c8c",
+        "metadata_equal": true,
+        "name": "model.layers.14.self_attn.q_proj.weight",
+        "shape": [
+          2048,
+          2048
+        ],
+        "size_bytes": 8388608
+      },
+      {
+        "base_sha256": "a150e849466c3592a538dbf35bfcf82d408f07aa9fe0a0dd7703bc7c53c8a99e",
+        "dtype": "BF16",
+        "merged_sha256": "8a83a86823a86f433a8c3c60c43e27b7a03f35f68fc2c1f371bcdba6a205d95d",
+        "metadata_equal": true,
+        "name": "model.layers.14.self_attn.v_proj.weight",
+        "shape": [
+          512,
+          2048
+        ],
+        "size_bytes": 2097152
+      },
+      {
+        "base_sha256": "8aa5c165a7c0fffbcd76f876d0e99dba12e9a2ef5de8ff2a730257989b93a030",
+        "dtype": "BF16",
+        "merged_sha256": "3d492de4d64190c57a21d10ba5ecae9249309e039fdb2ab4dab6575b9915ed61",
+        "metadata_equal": true,
+        "name": "model.layers.15.conv.in_proj.weight",
+        "shape": [
+          6144,
+          2048
+        ],
+        "size_bytes": 25165824
+      },
+      {
+        "base_sha256": "8f11ed6719dfdd23dd881d6a3a12a02cf7713ff70439cff46dab46882f984c43",
+        "dtype": "BF16",
+        "merged_sha256": "9093448a3134bf9596365903b2b0b97fcc60547739c968ddc6f4674251fbc643",
+        "metadata_equal": true,
+        "name": "model.layers.15.conv.out_proj.weight",
+        "shape": [
+          2048,
+          2048
+        ],
+        "size_bytes": 8388608
+      },
+      {
+        "base_sha256": "8b33829e52b906f0e6f158daed6eb027f0bce21e4821617f60b6e8ad729933b6",
+        "dtype": "BF16",
+        "merged_sha256": "8476c0ac0bbf2e7788b674ce60f6aad728434752be84b9edcfe5ca15357ff669",
+        "metadata_equal": true,
+        "name": "model.layers.15.feed_forward.w1.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "142b63ba6227c1bf77be8e14a4ba68325e5a68ce2e385a6c6c7cfbf7134ccb2f",
+        "dtype": "BF16",
+        "merged_sha256": "966333d7beca8b683406e03fe9a23e9f3773765b410ad764900b703102e31563",
+        "metadata_equal": true,
+        "name": "model.layers.15.feed_forward.w2.weight",
+        "shape": [
+          2048,
+          8192
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "7254f927bc3cd11ea138c7c38e7226af538855ef569a8de6bd61e7b0dd887564",
+        "dtype": "BF16",
+        "merged_sha256": "f601c9de27ccca573cbe9411f192723d2ffd9fae75237a0364c208c411c65cd0",
+        "metadata_equal": true,
+        "name": "model.layers.15.feed_forward.w3.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "3b9055fd69aa9e0ace291c8396bfe7e58460075ef9bf17da1dc98c153b346a5e",
+        "dtype": "BF16",
+        "merged_sha256": "eff196662573125de90d5fb9fba4688036bf23854cf54b8a34b2921d3551dd92",
+        "metadata_equal": true,
+        "name": "model.layers.2.feed_forward.w1.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "5cd4d28949bdccd992ecae1036f1d3ca60e4934fd20de7576e7b0c97685f04bd",
+        "dtype": "BF16",
+        "merged_sha256": "ff4a36d71143de10020c85299fc3cadecd4994802f1fa990e2403c59bf5c22e3",
+        "metadata_equal": true,
+        "name": "model.layers.2.feed_forward.w2.weight",
+        "shape": [
+          2048,
+          8192
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "fc9be3648929b7f4da3703385e27a909799e0d70f6ec48146b0a1fe2b528b8d8",
+        "dtype": "BF16",
+        "merged_sha256": "6744ccb42a421ff4469a35d7cd6a7df4acb9146cc7ed98267253e57b6c9982d1",
+        "metadata_equal": true,
+        "name": "model.layers.2.feed_forward.w3.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "0c150421c32a17f79cdd3f9e8b2a32c37902484dc43a45cecb92b225a48d1f7d",
+        "dtype": "BF16",
+        "merged_sha256": "03ee2b1c992be1700cddde2d95f4d6f6cff1467b08b1b668a5d0ceb932ba6327",
+        "metadata_equal": true,
+        "name": "model.layers.2.self_attn.k_proj.weight",
+        "shape": [
+          512,
+          2048
+        ],
+        "size_bytes": 2097152
+      },
+      {
+        "base_sha256": "d1f59170409143a76661d26f2e48652be1b9d432178c3a8bf89af22116f15c27",
+        "dtype": "BF16",
+        "merged_sha256": "ea34320bd26a175352838a23f95069a85335970a7d32cb6a90fd184bb57c584c",
+        "metadata_equal": true,
+        "name": "model.layers.2.self_attn.out_proj.weight",
+        "shape": [
+          2048,
+          2048
+        ],
+        "size_bytes": 8388608
+      },
+      {
+        "base_sha256": "88990bbd670472825952d5867dcbe751478431eacfba7749d64a61996f16bdc7",
+        "dtype": "BF16",
+        "merged_sha256": "d100597d68a52b33a66105b1c1183aa2b65258af242f45b81c00700634e67a68",
+        "metadata_equal": true,
+        "name": "model.layers.2.self_attn.q_proj.weight",
+        "shape": [
+          2048,
+          2048
+        ],
+        "size_bytes": 8388608
+      },
+      {
+        "base_sha256": "ab73856a5cf9fc08762bc5c4e64ff91643291e21b550e0ca0cc31a5e99bbc823",
+        "dtype": "BF16",
+        "merged_sha256": "81929ce00a7b7ff459435b44d3c1e6118c6a4f68a99332e92e246ef1bfbea738",
+        "metadata_equal": true,
+        "name": "model.layers.2.self_attn.v_proj.weight",
+        "shape": [
+          512,
+          2048
+        ],
+        "size_bytes": 2097152
+      },
+      {
+        "base_sha256": "6e827e8ae75b712e00b8645273edd1f89da62ec6fd969164978721425185175b",
+        "dtype": "BF16",
+        "merged_sha256": "070492fd206c7c9ea70de8a784e92a1a62240af8726248ef902924df185b5c72",
+        "metadata_equal": true,
+        "name": "model.layers.3.conv.in_proj.weight",
+        "shape": [
+          6144,
+          2048
+        ],
+        "size_bytes": 25165824
+      },
+      {
+        "base_sha256": "95bcd535bd014612ff3eec0ffa0c8a2002e3ca832f04bf490b9fc14b33dbb8d8",
+        "dtype": "BF16",
+        "merged_sha256": "430080b6b7bda2911930d1f326ec2acb2e56a5796aa34463ca0fcef4d5c31b7b",
+        "metadata_equal": true,
+        "name": "model.layers.3.conv.out_proj.weight",
+        "shape": [
+          2048,
+          2048
+        ],
+        "size_bytes": 8388608
+      },
+      {
+        "base_sha256": "cb331ff71870a26b8f67d2f60e11dfaecd49d98a4e30ec80a606cec7ea37f292",
+        "dtype": "BF16",
+        "merged_sha256": "9a4c0c4288f548be9bcfa55199f5abe64b90d1c624961ea21ca4c332262e920b",
+        "metadata_equal": true,
+        "name": "model.layers.3.feed_forward.w1.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "78112dff7b212a9c0ba3a913ad499f88c8b37b95c506eef00b4735ba460c0068",
+        "dtype": "BF16",
+        "merged_sha256": "d69f5ff7ed2513b8a58606bb6d104401256efbcc213a78b5bd796100034dabb7",
+        "metadata_equal": true,
+        "name": "model.layers.3.feed_forward.w2.weight",
+        "shape": [
+          2048,
+          8192
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "e299687d7973973da0f56a3817a5e78a3c74adc8be366d145f0ca10fa61948b0",
+        "dtype": "BF16",
+        "merged_sha256": "30ff4521418c0af3cf995d9ece1a2ce1178963c60094e9168375d967b0721e5c",
+        "metadata_equal": true,
+        "name": "model.layers.3.feed_forward.w3.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "ed2f225fd1eebf46223c27af95f743dd8a0e0a043a4814b748550efd87240478",
+        "dtype": "BF16",
+        "merged_sha256": "b178d0bd3f211dd657ae42970fd8a4c964a9ac95982326402716855047914ef1",
+        "metadata_equal": true,
+        "name": "model.layers.4.conv.in_proj.weight",
+        "shape": [
+          6144,
+          2048
+        ],
+        "size_bytes": 25165824
+      },
+      {
+        "base_sha256": "9bd4210b3e8aa22f0796b5c751db2dfc42a87f2d8d68097415c567d1f12cf3b7",
+        "dtype": "BF16",
+        "merged_sha256": "bac11c1cf1b0733681c8ca337dc99e8590d0a92abfff6456cba7a093c0cc084a",
+        "metadata_equal": true,
+        "name": "model.layers.4.conv.out_proj.weight",
+        "shape": [
+          2048,
+          2048
+        ],
+        "size_bytes": 8388608
+      },
+      {
+        "base_sha256": "03cdce467d3b030bde5f3767d9bfdbbb76c472591797bdf095b43ef9ed15189f",
+        "dtype": "BF16",
+        "merged_sha256": "9d76a3725dee055c747e8fc18e75e77d9134b99a7e8fd6c64ccfc0337d442b65",
+        "metadata_equal": true,
+        "name": "model.layers.4.feed_forward.w1.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "a6735240192f318b730ee08ca2b3ff9b94c025bdfee1103b72ee385c555b585d",
+        "dtype": "BF16",
+        "merged_sha256": "415c9c7bf94c0040cb38fe5a9573bae6884360cb6ab538c7aaeb83f3f7386f00",
+        "metadata_equal": true,
+        "name": "model.layers.4.feed_forward.w2.weight",
+        "shape": [
+          2048,
+          8192
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "a1b7fe370c3af4061179943187e2a87d51d9b755172ce297a09b2ba78247612b",
+        "dtype": "BF16",
+        "merged_sha256": "4ccfeb62533f2480693b063a515badfa9d219ad06b09d95f655a5c08ebc89e2e",
+        "metadata_equal": true,
+        "name": "model.layers.4.feed_forward.w3.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "5a6fc7485fd3b0da881f5e3d81e0150ba010d7be4fb7414d38ae96d85a1ac1d0",
+        "dtype": "BF16",
+        "merged_sha256": "08d2c7a70c4a6ffac84bc9e6a842abd6ece42e19d3a965c214d755d7ce067d70",
+        "metadata_equal": true,
+        "name": "model.layers.5.feed_forward.w1.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "e06e9a2ef733ab7cacce81ed125fcbea2e3e1082d54ce2817b13a7d368ebd7d3",
+        "dtype": "BF16",
+        "merged_sha256": "5e83ce18f5543f291a481210a89ded87aae7a9fccc4956990612e907add27842",
+        "metadata_equal": true,
+        "name": "model.layers.5.feed_forward.w2.weight",
+        "shape": [
+          2048,
+          8192
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "07660b1eb0b6760c31d963ee04a6b9bc0d4161d6f391a380d9ba0519a72347bf",
+        "dtype": "BF16",
+        "merged_sha256": "13c30d83724d795b32f6b2609e17d6fa208321a8c76e34dd97bdb1de0b594549",
+        "metadata_equal": true,
+        "name": "model.layers.5.feed_forward.w3.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "e2f8d77fd69107b5aaf01b49dfa60138dc353ac1c6603e80ce04034a6d42665a",
+        "dtype": "BF16",
+        "merged_sha256": "d50118a625f5e6d51b0770184c0f781ee7a5d0309d970ee9b5f4f4c93efdadf3",
+        "metadata_equal": true,
+        "name": "model.layers.5.self_attn.k_proj.weight",
+        "shape": [
+          512,
+          2048
+        ],
+        "size_bytes": 2097152
+      },
+      {
+        "base_sha256": "4f3c72de48174cad0e39448b0ae2438c09df92941b63850790e861b1b24043bb",
+        "dtype": "BF16",
+        "merged_sha256": "5fa7e42cc0814e5b8edf71245216d70029a5173883301604ef715af64212c075",
+        "metadata_equal": true,
+        "name": "model.layers.5.self_attn.out_proj.weight",
+        "shape": [
+          2048,
+          2048
+        ],
+        "size_bytes": 8388608
+      },
+      {
+        "base_sha256": "08e4aba4d19ebd865276e382cee954f24d9568239c346c26201a092c4927e3d1",
+        "dtype": "BF16",
+        "merged_sha256": "1d2d3bfaa054e62fe49fe3288502e6498d3e6004e05090831b9f43bb8208e3b3",
+        "metadata_equal": true,
+        "name": "model.layers.5.self_attn.q_proj.weight",
+        "shape": [
+          2048,
+          2048
+        ],
+        "size_bytes": 8388608
+      },
+      {
+        "base_sha256": "aa10e13374e25504b1b799ae9d0793646d80429349051f226337eb1d4fbea65a",
+        "dtype": "BF16",
+        "merged_sha256": "8cbc533ec3a9c030bacf12ee0b48c49600cf770611ab4209d2901fa2713fd6ca",
+        "metadata_equal": true,
+        "name": "model.layers.5.self_attn.v_proj.weight",
+        "shape": [
+          512,
+          2048
+        ],
+        "size_bytes": 2097152
+      },
+      {
+        "base_sha256": "2da2c4b1453b03af3037ab66dc99f0aeb1797337849c7ed0cde8135a141d3dc0",
+        "dtype": "BF16",
+        "merged_sha256": "9a91c000335fc23e4f8ecde35a20ff13bfeeb02551de6ff433162546df30d45b",
+        "metadata_equal": true,
+        "name": "model.layers.6.conv.in_proj.weight",
+        "shape": [
+          6144,
+          2048
+        ],
+        "size_bytes": 25165824
+      },
+      {
+        "base_sha256": "418f957c811db3d6bbc839438859b74312034234eea15a881f12b9b27622e08a",
+        "dtype": "BF16",
+        "merged_sha256": "0434f79987b038cbea6b5a6949b680ccb2ded7b9d63fac9dcbbcc90ec1c4baac",
+        "metadata_equal": true,
+        "name": "model.layers.6.conv.out_proj.weight",
+        "shape": [
+          2048,
+          2048
+        ],
+        "size_bytes": 8388608
+      },
+      {
+        "base_sha256": "210287e7e3e580b78e98a9671cb538da5e259ad8b2c0d46b5d72912758966010",
+        "dtype": "BF16",
+        "merged_sha256": "6b0f748426e9755c147959d4bbe3d9cac26b965e80e0f6af005d908955afaff8",
+        "metadata_equal": true,
+        "name": "model.layers.6.feed_forward.w1.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "e7f285dc858d0bcd6f03f77f7dc7a7f860b522cfc1d60281a8938d32e6f6ab29",
+        "dtype": "BF16",
+        "merged_sha256": "5af9bfab6f6f31dd584ebeeb914fe5e985cfdec5563f6a57219bb2ffde47ade6",
+        "metadata_equal": true,
+        "name": "model.layers.6.feed_forward.w2.weight",
+        "shape": [
+          2048,
+          8192
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "594530bcde1904d0e31c4a11c993203fc4f99be0e8184525b0ea4c44ca5d58a3",
+        "dtype": "BF16",
+        "merged_sha256": "61339b7f422ac53f0f07081e22210bc3d921351fd007411791c5fa063b5b9004",
+        "metadata_equal": true,
+        "name": "model.layers.6.feed_forward.w3.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "c57f718c6053bd7c949b985c88460519f2c7d69629b2597ccd00e73439c7fa8c",
+        "dtype": "BF16",
+        "merged_sha256": "5eb4d08ff341540af09e43a10e5b556dfef039b6b95c6bde162b1487ce712c0d",
+        "metadata_equal": true,
+        "name": "model.layers.7.conv.in_proj.weight",
+        "shape": [
+          6144,
+          2048
+        ],
+        "size_bytes": 25165824
+      },
+      {
+        "base_sha256": "d4ff914d732a8f2d1906189ea985b38e3cedbaec9f59e0101f30b67057b2b4d4",
+        "dtype": "BF16",
+        "merged_sha256": "7b9d14861c77368ccc9ed2f95e0d56870d7a540657583ab85820609ea1e5bd87",
+        "metadata_equal": true,
+        "name": "model.layers.7.conv.out_proj.weight",
+        "shape": [
+          2048,
+          2048
+        ],
+        "size_bytes": 8388608
+      },
+      {
+        "base_sha256": "e491aaa9382e35a6e22bbb481e09a732340fa4682b69195c93384e776939c7cb",
+        "dtype": "BF16",
+        "merged_sha256": "dd4c05fda96c60e24eb231896a5f91f8bcc1bb5fcf55a9b3ee5754bee4890836",
+        "metadata_equal": true,
+        "name": "model.layers.7.feed_forward.w1.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "bfb967b1751e9dc389af97f4b3abf0411b5864f9c1e9c27b7b65f9842cea45c5",
+        "dtype": "BF16",
+        "merged_sha256": "8e330024dc6684d89a5468824512d0ab300201e54ada8f0d8e9a116840d970b6",
+        "metadata_equal": true,
+        "name": "model.layers.7.feed_forward.w2.weight",
+        "shape": [
+          2048,
+          8192
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "e9b3da2fd601dc8fc69df03ff9632f83587659b766424ddcfc4cc05ba6e8506f",
+        "dtype": "BF16",
+        "merged_sha256": "42d0faa77b551481e8c8f0612c4199169bd26823218db7c9f088b87195233718",
+        "metadata_equal": true,
+        "name": "model.layers.7.feed_forward.w3.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "b30f8fbc7906711dd25be9442c5ff0ff07b9f27cc54a42321b33741f9c445a0e",
+        "dtype": "BF16",
+        "merged_sha256": "f6d41ec633502c6d58decc05f6d3123c85d56d8989d79b507c574dc45c4a12ee",
+        "metadata_equal": true,
+        "name": "model.layers.8.feed_forward.w1.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "89217627bede1ad4c734f9e927677405a1911a443b35cdec927f18c229a16fb9",
+        "dtype": "BF16",
+        "merged_sha256": "a7d4a5fde11f8ecc01b5036bf2c96ece11fe92614ae93256c8e8314a5df80ef8",
+        "metadata_equal": true,
+        "name": "model.layers.8.feed_forward.w2.weight",
+        "shape": [
+          2048,
+          8192
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "bff9112bfa39c8a2a15aacf7a52cd3313bdb0c56d2b72489bd92bde1ff41ba80",
+        "dtype": "BF16",
+        "merged_sha256": "dcea3647ad7d6d54e43b338bd3767b3cefdfd91d59dece9e475559e1a1f194bf",
+        "metadata_equal": true,
+        "name": "model.layers.8.feed_forward.w3.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "d382f72987cbda3cba24e9c6899a81d326e2c5452732de8f8e1ac4a4d66beec2",
+        "dtype": "BF16",
+        "merged_sha256": "3ff554c2c7c9fac04d919c4188ae5b746003e9c119f176f4c60d1e9a6307a9b2",
+        "metadata_equal": true,
+        "name": "model.layers.8.self_attn.k_proj.weight",
+        "shape": [
+          512,
+          2048
+        ],
+        "size_bytes": 2097152
+      },
+      {
+        "base_sha256": "d174b584910a99f2c699e064099640d8d70df113b51d58c0fb0875eec6f1673f",
+        "dtype": "BF16",
+        "merged_sha256": "085f34fd05dda69d29479003d5248a4b5b737187c762f45f40b0bca432339d53",
+        "metadata_equal": true,
+        "name": "model.layers.8.self_attn.out_proj.weight",
+        "shape": [
+          2048,
+          2048
+        ],
+        "size_bytes": 8388608
+      },
+      {
+        "base_sha256": "fc923043ba65f3c320c5597d1ecbc3007159f5f06da501691c2a1e6b2b874dea",
+        "dtype": "BF16",
+        "merged_sha256": "473617742d5074e7c5c1f8a31d0950c841b25cc038b8d253eae57f3eaf34b7e5",
+        "metadata_equal": true,
+        "name": "model.layers.8.self_attn.q_proj.weight",
+        "shape": [
+          2048,
+          2048
+        ],
+        "size_bytes": 8388608
+      },
+      {
+        "base_sha256": "1056f3a0fb7ed0874357ec01d0b21caa17e5f158692fefbf5e1ba2abceb73e79",
+        "dtype": "BF16",
+        "merged_sha256": "822405e246ed6ea2add6eb07b6152e8f57c16e475d474e61b6c9d8ad21698ef4",
+        "metadata_equal": true,
+        "name": "model.layers.8.self_attn.v_proj.weight",
+        "shape": [
+          512,
+          2048
+        ],
+        "size_bytes": 2097152
+      },
+      {
+        "base_sha256": "3ea7dff69ec08e638c4c1be86ab3d70c644e9a5252a04017b0cd82f946276afc",
+        "dtype": "BF16",
+        "merged_sha256": "395a4fc58ea7ebc9e323b01370107fa42a6d96e7e37dfff5a9afdb818bcdcb93",
+        "metadata_equal": true,
+        "name": "model.layers.9.conv.in_proj.weight",
+        "shape": [
+          6144,
+          2048
+        ],
+        "size_bytes": 25165824
+      },
+      {
+        "base_sha256": "509d6fa6c4574cd333b8198064486e6b4128527a14252b3cfa3efbcf1aae42b4",
+        "dtype": "BF16",
+        "merged_sha256": "f0996420a6960e4761811f302fd16296ef23d96145a6518230c2fd4549e5523c",
+        "metadata_equal": true,
+        "name": "model.layers.9.conv.out_proj.weight",
+        "shape": [
+          2048,
+          2048
+        ],
+        "size_bytes": 8388608
+      },
+      {
+        "base_sha256": "4d7f83997c4e2fd3e0ee7fc24c645e17b636fa50eb6e5aebb6de8f37862ad28f",
+        "dtype": "BF16",
+        "merged_sha256": "2a97edce2c94d8b2a5f1105270fd4b2420110299586e03f003827fd1e7f635e0",
+        "metadata_equal": true,
+        "name": "model.layers.9.feed_forward.w1.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "60570a969c82c42151706e492500eb6835c61cf1b13b0f78a8d32acddffdb220",
+        "dtype": "BF16",
+        "merged_sha256": "a75fecc0e45f00a34258f43e22815c12569aade152f028e811a7254c11688ef7",
+        "metadata_equal": true,
+        "name": "model.layers.9.feed_forward.w2.weight",
+        "shape": [
+          2048,
+          8192
+        ],
+        "size_bytes": 33554432
+      },
+      {
+        "base_sha256": "e5155856febe50add6b161ad1cbeae1533aeac0ac352d78e9dbb3eed9ee0c4a1",
+        "dtype": "BF16",
+        "merged_sha256": "a21e704af87de892a06f4a20eb74514847fd70ba4998a67ebc71fab278536157",
+        "metadata_equal": true,
+        "name": "model.layers.9.feed_forward.w3.weight",
+        "shape": [
+          8192,
+          2048
+        ],
+        "size_bytes": 33554432
+      }
+    ],
+    "merged_file": "D:\\code\\model_training\\lfm2.5-finetune\\lfm2.5-model-merged\\model.safetensors",
+    "merged_file_sha256": "c6c7a52c48e14a4b3185f8df6a17afb51908a31e41d07568b3027504039b3616",
+    "merged_only_tensors": [],
+    "merged_tensor_count": 148,
+    "proves_merge_not_noop": true,
+    "shared_tensor_count": 148,
+    "unchanged_tensor_count": 56
+  },
+  "tokenizer_validation": {
+    "all_rendered_templates_equal": true,
+    "all_token_ids_equal": true,
+    "base_special_tokens": {
+      "bos_token": "<|startoftext|>",
+      "bos_token_id": 1,
+      "eos_token": "<|im_end|>",
+      "eos_token_id": 7,
+      "pad_token": "<|pad|>",
+      "pad_token_id": 0,
+      "unk_token": null,
+      "unk_token_id": null
+    },
+    "base_tokenizer_class": "TokenizersBackend",
+    "base_vocab_size": 64402,
+    "cases": [
+      {
+        "base_token_count": 33,
+        "base_token_ids_sha256": "9250ce13a15f5742fad0091af0dc3d77fd6d2baff106387e1b968e2081edbdf3",
+        "merged_token_count": 33,
+        "merged_token_ids_sha256": "9250ce13a15f5742fad0091af0dc3d77fd6d2baff106387e1b968e2081edbdf3",
+        "prompt": "Write a Python function `two_sum(nums, target)` that returns the two indices. Return only code.",
+        "rendered_template_equal": true,
+        "token_ids_equal": true
+      },
+      {
+        "base_token_count": 35,
+        "base_token_ids_sha256": "53070cce9d1566d97bd8423a1b82bfbc43ffc3ae9917692abb2aaf5a24757546",
+        "merged_token_count": 35,
+        "merged_token_ids_sha256": "53070cce9d1566d97bd8423a1b82bfbc43ffc3ae9917692abb2aaf5a24757546",
+        "prompt": "Fix this Python function and explain the bug briefly:\n\ndef is_even(n):\n    return n % 2 == 1",
+        "rendered_template_equal": true,
+        "token_ids_equal": true
+      },
+      {
+        "base_token_count": 24,
+        "base_token_ids_sha256": "e694d3c10cfc04f797c06ef10b20d2912d80faef4a27ab342778f295d9e9467f",
+        "merged_token_count": 24,
+        "merged_token_ids_sha256": "e694d3c10cfc04f797c06ef10b20d2912d80faef4a27ab342778f295d9e9467f",
+        "prompt": "Implement binary search in Python. Return -1 when the target is absent.",
+        "rendered_template_equal": true,
+        "token_ids_equal": true
+      },
+      {
+        "base_token_count": 24,
+        "base_token_ids_sha256": "c29610ce13e0fd8448de8d1a0caeafc47e9778976850e307f2f4fb787e54f9ff",
+        "merged_token_count": 24,
+        "merged_token_ids_sha256": "c29610ce13e0fd8448de8d1a0caeafc47e9778976850e307f2f4fb787e54f9ff",
+        "prompt": "Write a Python function that returns the length of the longest increasing subsequence.",
+        "rendered_template_equal": true,
+        "token_ids_equal": true
+      },
+      {
+        "base_token_count": 26,
+        "base_token_ids_sha256": "7304348b249b8f078faecdf447b6ae3348b402788a6372d932dd6658b33f0167",
+        "merged_token_count": 26,
+        "merged_token_ids_sha256": "7304348b249b8f078faecdf447b6ae3348b402788a6372d932dd6658b33f0167",
+        "prompt": "Given a directed graph, explain how to detect a cycle and provide a Python implementation.",
+        "rendered_template_equal": true,
+        "token_ids_equal": true
+      },
+      {
+        "base_token_count": 30,
+        "base_token_ids_sha256": "1c2840c2386b856a1294a63231d5b1b39d4e15530a71a6d90885f73e8f9ca425",
+        "merged_token_count": 30,
+        "merged_token_ids_sha256": "1c2840c2386b856a1294a63231d5b1b39d4e15530a71a6d90885f73e8f9ca425",
+        "prompt": "Return only Python code for a function `is_prime(n)` that handles all integer edge cases.",
+        "rendered_template_equal": true,
+        "token_ids_equal": true
+      }
+    ],
+    "duration_seconds": 0.524,
+    "merged_special_tokens": {
+      "bos_token": "<|startoftext|>",
+      "bos_token_id": 1,
+      "eos_token": "<|im_end|>",
+      "eos_token_id": 7,
+      "pad_token": "<|pad|>",
+      "pad_token_id": 0,
+      "unk_token": null,
+      "unk_token_id": null
+    },
+    "merged_tokenizer_class": "TokenizersBackend",
+    "merged_vocab_size": 64402,
+    "passed": true
+  }
+}

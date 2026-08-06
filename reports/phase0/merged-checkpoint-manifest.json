@@ -1,0 +1,84 @@
+{
+  "config_summary": {
+    "architectures": [
+      "Lfm2ForCausalLM"
+    ],
+    "dtype": "bfloat16",
+    "hidden_size": 2048,
+    "layer_types": [
+      "conv",
+      "conv",
+      "full_attention",
+      "conv",
+      "conv",
+      "full_attention",
+      "conv",
+      "conv",
+      "full_attention",
+      "conv",
+      "full_attention",
+      "conv",
+      "full_attention",
+      "conv",
+      "full_attention",
+      "conv"
+    ],
+    "max_position_embeddings": 128000,
+    "model_type": "lfm2",
+    "num_attention_heads": 32,
+    "num_hidden_layers": 16,
+    "num_key_value_heads": 8,
+    "rope_parameters": {
+      "rope_theta": 1000000.0,
+      "rope_type": "default"
+    },
+    "vocab_size": 65536
+  },
+  "file_count": 6,
+  "files": [
+    {
+      "path": "chat_template.jinja",
+      "sha256": "65fc3846d705a68ecd96d59c52023e961e5e839434a341b0b94b516294744f41",
+      "size_bytes": 1827
+    },
+    {
+      "path": "config.json",
+      "sha256": "d507c06eff9e3b50a2e4815deeb619e5ed3eb17b77b4c49f1f5cfda5cff07624",
+      "size_bytes": 1348
+    },
+    {
+      "path": "generation_config.json",
+      "sha256": "2d6d28e8ce69bab774098f6f01575a7106e585910aed786043483fc3cc43246b",
+      "size_bytes": 139
+    },
+    {
+      "path": "model.safetensors",
+      "safetensors": {
+        "parameter_count": 1170340608,
+        "parameters_by_dtype": {
+          "BF16": 1170340608
+        },
+        "tensor_count": 148
+      },
+      "sha256": "c6c7a52c48e14a4b3185f8df6a17afb51908a31e41d07568b3027504039b3616",
+      "size_bytes": 2340697936
+    },
+    {
+      "path": "tokenizer.json",
+      "sha256": "df1d8d5ec5d091b460562ffd545e4a5e91d17d4a0db7ebe733be34ed374377bd",
+      "size_bytes": 4733389
+    },
+    {
+      "path": "tokenizer_config.json",
+      "sha256": "b46b39c2ea3d30af125c8fa810f3dcac456479a58caa59f26bb7f9990a435876",
+      "size_bytes": 539
+    }
+  ],
+  "generated_at_utc": "2026-07-29T21:07:46.652647+00:00",
+  "logical_name": "merged_finetune",
+  "repo_id": null,
+  "revision": null,
+  "schema_version": 1,
+  "source_directory": "D:\\code\\model_training\\lfm2.5-finetune\\lfm2.5-model-merged",
+  "total_size_bytes": 2345435178
+}

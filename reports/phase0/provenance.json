@@ -1,0 +1,56 @@
+{
+  "adapter": {
+    "available_snapshots": [
+      "e01354fecc52e62b9ca86399da10e9e40ebf51e9"
+    ],
+    "cache_repo_dir": "D:\\hf_models\\models--enseven--lfm-2.5-think-code",
+    "evidence": "Recovered from the local Hugging Face refs/main file and matching snapshot directory; no network lookup was used.",
+    "ref_main": "e01354fecc52e62b9ca86399da10e9e40ebf51e9",
+    "repo_id": "enseven/lfm-2.5-think-code",
+    "repo_type": "model",
+    "selected_snapshot": "D:\\hf_models\\models--enseven--lfm-2.5-think-code\\snapshots\\e01354fecc52e62b9ca86399da10e9e40ebf51e9",
+    "selected_snapshot_exists": true
+  },
+  "base_model": {
+    "available_snapshots": [
+      "95053d21d8e0b7ca99421a2127ae39c64f685ff3"
+    ],
+    "cache_repo_dir": "D:\\hf_models\\models--LiquidAI--LFM2.5-1.2B-Thinking",
+    "evidence": "Recovered from the local Hugging Face refs/main file and matching snapshot directory; no network lookup was used.",
+    "ref_main": "95053d21d8e0b7ca99421a2127ae39c64f685ff3",
+    "repo_id": "LiquidAI/LFM2.5-1.2B-Thinking",
+    "repo_type": "model",
+    "selected_snapshot": "D:\\hf_models\\models--LiquidAI--LFM2.5-1.2B-Thinking\\snapshots\\95053d21d8e0b7ca99421a2127ae39c64f685ff3",
+    "selected_snapshot_exists": true
+  },
+  "generated_at_utc": "2026-07-29T21:07:48.244024+00:00",
+  "merge_script": {
+    "declared_inputs": {
+      "adapter_path": "enseven/lfm-2.5-think-code",
+      "model_name": "LiquidAI/LFM2.5-1.2B-Thinking",
+      "output_dir": "./lfm2.5-model-merged"
+    },
+    "path": "D:\\code\\model_training\\lfm2.5-finetune\\merge_model.py",
+    "sha256": "19c172e6781af0b274b46e3be7a0d99c0c6eb8a12868776c9216194fd88ab25f"
+  },
+  "recovery_assessment": {
+    "adapter_revision_recovered": true,
+    "base_revision_recovered": true,
+    "confidence": "high",
+    "limitation": "merge_model.py did not pass revision= explicitly, so this recovery depends on the retained local Hugging Face cache evidence.",
+    "reason": "Each model cache has one snapshot, refs/main selects it, the adapter snapshot predates the merged output by seconds, and adapter_config.json names the same base repository as merge_model.py."
+  },
+  "schema_version": 1,
+  "training_dataset": {
+    "available_snapshots": [
+      "e4d2d9230fe875853fa1d28cc4fd9a04d4b30cbe"
+    ],
+    "cache_repo_dir": "D:\\hf_models\\datasets--enseven--kodcode-lfm2.5",
+    "evidence": "Recovered from the local Hugging Face refs/main file and matching snapshot directory; no network lookup was used.",
+    "ref_main": "e4d2d9230fe875853fa1d28cc4fd9a04d4b30cbe",
+    "repo_id": "enseven/kodcode-lfm2.5",
+    "repo_type": "dataset",
+    "selected_snapshot": "D:\\hf_models\\datasets--enseven--kodcode-lfm2.5\\snapshots\\e4d2d9230fe875853fa1d28cc4fd9a04d4b30cbe",
+    "selected_snapshot_exists": true
+  }
+}

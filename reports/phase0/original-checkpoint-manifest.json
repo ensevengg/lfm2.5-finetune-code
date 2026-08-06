@@ -1,0 +1,101 @@
+{
+  "config_summary": {
+    "architectures": [
+      "Lfm2ForCausalLM"
+    ],
+    "dtype": "bfloat16",
+    "hidden_size": 2048,
+    "layer_types": [
+      "conv",
+      "conv",
+      "full_attention",
+      "conv",
+      "conv",
+      "full_attention",
+      "conv",
+      "conv",
+      "full_attention",
+      "conv",
+      "full_attention",
+      "conv",
+      "full_attention",
+      "conv",
+      "full_attention",
+      "conv"
+    ],
+    "max_position_embeddings": 128000,
+    "model_type": "lfm2",
+    "num_attention_heads": 32,
+    "num_hidden_layers": 16,
+    "num_key_value_heads": 8,
+    "rope_parameters": null,
+    "vocab_size": 65536
+  },
+  "file_count": 10,
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361",
+      "size_bytes": 1519
+    },
+    {
+      "path": "chat_template.jinja",
+      "sha256": "f05bf4b967dc993bdc7a2fe6e43759ee218eb0eb340d68b063e1c4f8ad148176",
+      "size_bytes": 1783
+    },
+    {
+      "path": "config.json",
+      "sha256": "15d6157fb6df3f8272e2fe90e18f57727ccf02a125c94469198b0f3281510185",
+      "size_bytes": 1224
+    },
+    {
+      "path": "generation_config.json",
+      "sha256": "5ffd97da1dec4308543894569662d96e923ed01f7a9d8c7ff5aea7f800738cbd",
+      "size_bytes": 132
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "5188f2b355da20647257a3156db5834c794e5fb5e6d8dc4d4cdbb3180e75b85b",
+      "size_bytes": 10596
+    },
+    {
+      "path": "model.safetensors",
+      "safetensors": {
+        "parameter_count": 1170340608,
+        "parameters_by_dtype": {
+          "BF16": 1170340608
+        },
+        "tensor_count": 148
+      },
+      "sha256": "112fba7db6c4544d9944002fcfe1c21e23e03d8fc0a0c7e2b6655de6c738583d",
+      "size_bytes": 2340697936
+    },
+    {
+      "path": "README.md",
+      "sha256": "0837d5f26992c7f3413f8d14ffc6092c8d1029cb21743b348fa48d14c6452f6f",
+      "size_bytes": 18919
+    },
+    {
+      "path": "special_tokens_map.json",
+      "sha256": "742aefe2b7dec496e8caffdba03a75d0c1a9925d53bd3f3e0d388c96b591b6f4",
+      "size_bytes": 434
+    },
+    {
+      "path": "tokenizer.json",
+      "sha256": "df1d8d5ec5d091b460562ffd545e4a5e91d17d4a0db7ebe733be34ed374377bd",
+      "size_bytes": 4733389
+    },
+    {
+      "path": "tokenizer_config.json",
+      "sha256": "2a52ec012d3df831ba434b081bef3726a6ee22501f062ad8353c557a0cfa0d01",
+      "size_bytes": 92225
+    }
+  ],
+  "generated_at_utc": "2026-07-29T21:07:48.181657+00:00",
+  "logical_name": "original_thinking",
+  "repo_id": "LiquidAI/LFM2.5-1.2B-Thinking",
+  "revision": "95053d21d8e0b7ca99421a2127ae39c64f685ff3",
+  "schema_version": 1,
+  "source_directory": "D:\\hf_models\\models--LiquidAI--LFM2.5-1.2B-Thinking\\snapshots\\95053d21d8e0b7ca99421a2127ae39c64f685ff3",
+  "total_size_bytes": 2345558157
+}

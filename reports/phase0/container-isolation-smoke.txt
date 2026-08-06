@@ -1,0 +1,8 @@
+uid=65534
+cap_eff=0
+no_new_privs=1
+network_interfaces=lo
+root_read_only=1
+model_mount_read_only=1
+results_mount_writable=1
+tmpfs_writable=1
