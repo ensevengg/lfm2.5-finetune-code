@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-07-29T20:45:00Z",
+  "status": "phase2-quantized-artifacts-ready-unbenchmarked",
+  "model_inputs": {
+    "base_model": {
+      "repo_id": "LiquidAI/LFM2.5-1.2B-Thinking",
+      "revision": "95053d21d8e0b7ca99421a2127ae39c64f685ff3",
+      "source": "local-hugging-face-cache"
+    },
+    "adapter": {
+      "repo_id": "enseven/lfm-2.5-think-code",
+      "revision": "e01354fecc52e62b9ca86399da10e9e40ebf51e9",
+      "source": "local-hugging-face-cache"
+    },
+    "training_dataset": {
+      "repo_id": "enseven/kodcode-lfm2.5",
+      "revision": "e4d2d9230fe875853fa1d28cc4fd9a04d4b30cbe",
+      "source": "local-hugging-face-cache"
+    }
+  },
+  "source_tooling": {
+    "llama_cpp": {
+      "repository": "ggml-org/llama.cpp",
+      "revision": "3018a11e79e489b657dbb77c95694889ccff92df",
+      "revision_date_utc": "2026-07-29T17:25:13Z",
+      "status": "phase1-build-and-bf16-parity-validated",
+      "report": "reports/phase1/toolchain-build.json"
+    },
+    "lm_evaluation_harness": {
+      "repository": "EleutherAI/lm-evaluation-harness",
+      "revision": "f4d4b3de3ee6741a7151a9fe74945ee515262f4c",
+      "revision_date_utc": "2026-07-13T20:18:15Z",
+      "status": "candidate-pin-requires-task-validation"
+    },
+    "evalplus": {
+      "repository": "evalplus/evalplus",
+      "revision": "26d6d00bb1fd0fa37f39c99d5290da67891d1c5e",
+      "revision_date_utc": "2025-10-02T22:56:38Z",
+      "status": "candidate-pin-requires-task-validation"
+    },
+    "livecodebench": {
+      "repository": "LiveCodeBench/LiveCodeBench",
+      "revision": "28fef95ea8c9f7a547c8329f2cd3d32b92c1fa24",
+      "revision_date_utc": "2025-07-16T00:58:38Z",
+      "status": "candidate-pin-requires-release-selection"
+    },
+    "ruler": {
+      "repository": "NVIDIA/RULER",
+      "revision": "c3f5e3b4f87f97e048793bb510a3a6b19a46bf3a",
+      "revision_date_utc": "2026-07-22T17:32:53Z",
+      "status": "candidate-pin-requires-task-validation"
+    }
+  },
+  "container": {
+    "status": "pinned-and-gpu-smoke-tested",
+    "platform": "linux/amd64",
+    "smoke_image": {
+      "reference": "nvidia/cuda:12.8.1-base-ubuntu24.04@sha256:133c78a0575303be34164d0b90137a042172bdf60696af01a3c424ab402d86e2",
+      "manifest_list_digest": "sha256:133c78a0575303be34164d0b90137a042172bdf60696af01a3c424ab402d86e2",
+      "linux_amd64_digest": "sha256:e711c99333fdfe8ae1e677b4972be6c5021f0128a1d31f775c7e58d88921b6a9",
+      "tested": true
+    },
+    "runtime_image": {
+      "reference": "nvidia/cuda:12.8.1-runtime-ubuntu24.04@sha256:ebef3c171eeef0298e4eb2e4be843105edf3b8b0ac45e0b43acee358e8046867",
+      "manifest_list_digest": "sha256:ebef3c171eeef0298e4eb2e4be843105edf3b8b0ac45e0b43acee358e8046867",
+      "linux_amd64_digest": "sha256:828c4d878adcaa4265d80c95d8ec877149b49bb2419a4cf3bb6aa889bbb7ca2e",
+      "tested": true
+    },
+    "build_image": {
+      "reference": "nvidia/cuda:12.8.1-devel-ubuntu24.04@sha256:520292dbb4f755fd360766059e62956e9379485d9e073bbd2f6e3c20c270ed66",
+      "manifest_list_digest": "sha256:520292dbb4f755fd360766059e62956e9379485d9e073bbd2f6e3c20c270ed66",
+      "linux_amd64_digest": "sha256:4b9ed5fa8361736996499f64ecebf25d4ec37ff56e4d11323ccde10aa36e0c43",
+      "tested": true
+    },
+    "toolchain_image": {
+      "tag": "lfm25/llama-cpp:3018a11e-cuda128-sm120",
+      "image_id": "sha256:550d53ae97c4d83a6c0fba17cd8f532aa6f775e9498d2452fa6f04e33707b4b0",
+      "size_bytes": 2548658958,
+      "cuda_architecture": "120",
+      "tested": true,
+      "report": "reports/phase1/toolchain-build.json"
+    },
+    "readiness_report": "reports/phase0/container-readiness.json"
+  },
+  "phase1_reference": {
+    "format": "GGUF",
+    "quantization": "MOSTLY_BF16",
+    "path": "artifacts/gguf/lfm2.5-1.2b-thinking-kodcode-bf16.gguf",
+    "size_bytes": 2343326048,
+    "sha256": "3e39c292be1f2b2740c3e05a2cb9081260439033e1b05f601117c72c8a73b8e6",
+    "tensor_count": 148,
+    "context_length_metadata": 128000,
+    "metadata_report": "reports/phase1/bf16-gguf-metadata.json",
+    "parity_report": "reports/phase1/bf16-gguf-validation.json",
+    "status": "validated"
+  },
+  "phase2_quantizations": {
+    "source": "artifacts/gguf/lfm2.5-1.2b-thinking-kodcode-bf16.gguf",
+    "source_sha256_before_and_after": "3e39c292be1f2b2740c3e05a2cb9081260439033e1b05f601117c72c8a73b8e6",
+    "method": "Each artifact independently quantized from BF16; no requantization and no importance matrix.",
+    "artifacts": [
+      {
+        "quantization": "Q8_0",
+        "path": "artifacts/gguf/phase2/lfm2.5-1.2b-thinking-kodcode-q8_0.gguf",
+        "size_bytes": 1246253408,
+        "sha256": "3e2223fa4baf49896f1a58d0b73e02f5143b745d8deb71a01a6038b7994ce394"
+      },
+      {
+        "quantization": "Q6_K",
+        "path": "artifacts/gguf/phase2/lfm2.5-1.2b-thinking-kodcode-q6_k.gguf",
+        "size_bytes": 962842976,
+        "sha256": "d1a14fa33fba75118c8262827bfcadc89d0c549d628ac243014df81a14d8f331"
+      },
+      {
+        "quantization": "Q5_K_M",
+        "path": "artifacts/gguf/phase2/lfm2.5-1.2b-thinking-kodcode-q5_k_m.gguf",
+        "size_bytes": 843354464,
+        "sha256": "353493ee33b842e6af3138ab250144706f4602b4240ba3eb9fdd9dce72b5b450"
+      },
+      {
+        "quantization": "Q4_K_M",
+        "path": "artifacts/gguf/phase2/lfm2.5-1.2b-thinking-kodcode-q4_k_m.gguf",
+        "size_bytes": 730894688,
+        "sha256": "64310daeb8280eb65fb01fdf9c97e497b436201a6ad226b087378c7db3473de0"
+      },
+      {
+        "quantization": "Q2_K",
+        "path": "artifacts/gguf/phase2/lfm2.5-1.2b-thinking-kodcode-q2_k.gguf",
+        "size_bytes": 483397984,
+        "sha256": "8cabe6523ed99809bd293c872672f40e0aeca3f121970ce383480fd04ee63c63"
+      }
+    ],
+    "tensor_count_each": 148,
+    "context_length_metadata_each": 128000,
+    "static_validation_report": "reports/phase2/static-gguf-validation.json",
+    "quantization_report": "reports/phase2/quantization.json",
+    "status": "generated-and-structurally-validated-unbenchmarked",
+    "winner_selected": false
+  },
+  "benchmark_datasets": {
+    "status": "not-yet-vendored",
+    "policy": "Record immutable dataset revisions and file hashes before the first scored run. No benchmark item may be used for imatrix calibration."
+  },
+  "compiler_packages": {
+    "status": "not-yet-selected",
+    "policy": "Pin by container image digest and package lock after the code-execution task set is finalized."
+  },
+  "notes": [
+    "GitHub revisions are initial immutable candidate pins captured on 2026-07-30 IST.",
+    "The llama.cpp candidate pin became final after the Phase 1 CUDA build and BF16 GGUF parity gates passed.",
+    "The CUDA build/runtime image manifests are pinned. The base, build, runtime, and final toolchain images passed their applicable restricted smoke tests.",
+    "Five merged-model quantizations were generated and structurally validated in Phase 2. No quality, speed, VRAM, long-context, or benchmark claims have been made.",
+    "Benchmark-data and compiler package locks remain pending until their exact task bundle is selected."
+  ]
+}

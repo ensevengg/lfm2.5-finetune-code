@@ -1,0 +1,145 @@
+{
+  "artifacts": [
+    {
+      "file_name": "lfm2.5-1.2b-thinking-kodcode-q8_0.gguf",
+      "gates": {
+        "contains_quantized_tensors": true,
+        "file_type_matches_requested_quantization": true,
+        "metadata_matches_bf16_source": true,
+        "nonempty_file": true,
+        "tensor_count_matches_bf16_source": true,
+        "tensor_count_matches_expected": true
+      },
+      "general_file_type": 7,
+      "passed": true,
+      "quantization": "Q8_0",
+      "size_bytes": 1246253408,
+      "tensor_count": 148,
+      "tensor_types": {
+        "F32": 55,
+        "Q8_0": 93
+      }
+    },
+    {
+      "file_name": "lfm2.5-1.2b-thinking-kodcode-q6_k.gguf",
+      "gates": {
+        "contains_quantized_tensors": true,
+        "file_type_matches_requested_quantization": true,
+        "metadata_matches_bf16_source": true,
+        "nonempty_file": true,
+        "tensor_count_matches_bf16_source": true,
+        "tensor_count_matches_expected": true
+      },
+      "general_file_type": 18,
+      "passed": true,
+      "quantization": "Q6_K",
+      "size_bytes": 962842976,
+      "tensor_count": 148,
+      "tensor_types": {
+        "F32": 55,
+        "Q6_K": 93
+      }
+    },
+    {
+      "file_name": "lfm2.5-1.2b-thinking-kodcode-q5_k_m.gguf",
+      "gates": {
+        "contains_quantized_tensors": true,
+        "file_type_matches_requested_quantization": true,
+        "metadata_matches_bf16_source": true,
+        "nonempty_file": true,
+        "tensor_count_matches_bf16_source": true,
+        "tensor_count_matches_expected": true
+      },
+      "general_file_type": 17,
+      "passed": true,
+      "quantization": "Q5_K_M",
+      "size_bytes": 843354464,
+      "tensor_count": 148,
+      "tensor_types": {
+        "F32": 55,
+        "Q5_K": 82,
+        "Q6_K": 11
+      }
+    },
+    {
+      "file_name": "lfm2.5-1.2b-thinking-kodcode-q4_k_m.gguf",
+      "gates": {
+        "contains_quantized_tensors": true,
+        "file_type_matches_requested_quantization": true,
+        "metadata_matches_bf16_source": true,
+        "nonempty_file": true,
+        "tensor_count_matches_bf16_source": true,
+        "tensor_count_matches_expected": true
+      },
+      "general_file_type": 15,
+      "passed": true,
+      "quantization": "Q4_K_M",
+      "size_bytes": 730894688,
+      "tensor_count": 148,
+      "tensor_types": {
+        "F32": 55,
+        "Q4_K": 82,
+        "Q6_K": 11
+      }
+    },
+    {
+      "file_name": "lfm2.5-1.2b-thinking-kodcode-q2_k.gguf",
+      "gates": {
+        "contains_quantized_tensors": true,
+        "file_type_matches_requested_quantization": true,
+        "metadata_matches_bf16_source": true,
+        "nonempty_file": true,
+        "tensor_count_matches_bf16_source": true,
+        "tensor_count_matches_expected": true
+      },
+      "general_file_type": 10,
+      "passed": true,
+      "quantization": "Q2_K",
+      "size_bytes": 483397984,
+      "tensor_count": 148,
+      "tensor_types": {
+        "F32": 55,
+        "Q2_K": 64,
+        "Q3_K": 28,
+        "Q6_K": 1
+      }
+    }
+  ],
+  "generated_at_utc": "2026-08-01T22:53:03.907932+00:00",
+  "passed": true,
+  "preserved_metadata": {
+    "general.architecture": "lfm2",
+    "lfm2.attention.head_count": 32,
+    "lfm2.attention.head_count_kv": [
+      0,
+      0,
+      8,
+      0,
+      0,
+      8,
+      0,
+      0,
+      8,
+      0,
+      8,
+      0,
+      8,
+      0,
+      8,
+      0
+    ],
+    "lfm2.block_count": 16,
+    "lfm2.context_length": 128000,
+    "lfm2.embedding_length": 2048,
+    "lfm2.rope.freq_base": 1000000.0,
+    "tokenizer.chat_template": "{{- bos_token -}}\n{%- set keep_past_thinking = keep_past_thinking | default(false) -%}\n{%- set ns = namespace(system_prompt=\"\") -%}\n{%- if messages[0][\"role\"] == \"system\" -%}\n    {%- set ns.system_prompt = messages[0][\"content\"] -%}\n    {%- set messages = messages[1:] -%}\n{%- endif -%}\n{%- if tools -%}\n    {%- set ns.system_prompt = ns.system_prompt + (\"\\n\" if ns.system_prompt else \"\") + \"List of tools: [\" -%}\n    {%- for tool in tools -%}\n        {%- if tool is not string -%}\n            {%- set tool = tool | tojson -%}\n        {%- endif -%}\n        {%- set ns.system_prompt = ns.system_prompt + tool -%}\n        {%- if not loop.last -%}\n            {%- set ns.system_prompt = ns.system_prompt + \", \" -%}\n        {%- endif -%}\n    {%- endfor -%}\n    {%- set ns.system_prompt = ns.system_prompt + \"]\" -%}\n{%- endif -%}\n{%- if ns.system_prompt -%}\n    {{- \"<|im_start|>system\\n\" + ns.system_prompt + \"<|im_end|>\\n\" -}}\n{%- endif -%}\n{%- set ns.last_assistant_index = -1 -%}\n{%- for message in messages -%}\n    {%- if message[\"role\"] == \"assistant\" -%}\n        {%- set ns.last_assistant_index = loop.index0 -%}\n    {%- endif -%}\n{%- endfor -%}\n{%- for message in messages -%}\n    {{- \"<|im_start|>\" + message[\"role\"] + \"\\n\" -}}\n    {%- set content = message[\"content\"] -%}\n    {%- if content is not string -%}\n        {%- set content = content | tojson -%}\n    {%- endif -%}\n    {%- if message[\"role\"] == \"assistant\" and not keep_past_thinking and loop.index0 != ns.last_assistant_index -%}\n        {%- if \"</think>\" in content -%}\n            {%- set content = content.split(\"</think>\")[-1] | trim -%}\n        {%- endif -%}\n    {%- endif -%}\n    {{- content + \"<|im_end|>\\n\" -}}\n{%- endfor -%}\n{%- if add_generation_prompt -%}\n    {{- \"<|im_start|>assistant\\n\" -}}\n{%- endif -%}",
+    "tokenizer.ggml.bos_token_id": 1,
+    "tokenizer.ggml.eos_token_id": 7,
+    "tokenizer.ggml.model": "gpt2",
+    "tokenizer.ggml.padding_token_id": 0
+  },
+  "schema_version": 1,
+  "scope": "static GGUF integrity only; no model evaluation performed",
+  "source": "/source/model-bf16.gguf",
+  "source_tensor_count": 148
+}

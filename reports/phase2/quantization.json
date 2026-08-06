@@ -1,0 +1,93 @@
+{
+    "schema_version":  1,
+    "generated_at_utc":  "2026-08-01T22:52:21.4099088Z",
+    "passed":  true,
+    "status":  "artifacts-generated-unbenchmarked",
+    "started_at_utc":  "2026-08-01T22:49:24.5895283Z",
+    "duration_seconds":  176.82,
+    "source":  {
+                   "path":  "D:\\code\\model_training\\lfm2.5-finetune\\artifacts\\gguf\\lfm2.5-1.2b-thinking-kodcode-bf16.gguf",
+                   "format":  "BF16 GGUF",
+                   "sha256_before":  "3e39c292be1f2b2740c3e05a2cb9081260439033e1b05f601117c72c8a73b8e6",
+                   "sha256_after":  "3e39c292be1f2b2740c3e05a2cb9081260439033e1b05f601117c72c8a73b8e6",
+                   "mounted_read_only":  true
+               },
+    "toolchain":  {
+                      "image_tag":  "lfm25/llama-cpp:3018a11e-cuda128-sm120",
+                      "image_id":  "sha256:550d53ae97c4d83a6c0fba17cd8f532aa6f775e9498d2452fa6f04e33707b4b0",
+                      "llama_cpp_commit":  "3018a11e79e489b657dbb77c95694889ccff92df",
+                      "executable":  "/opt/llama/bin/llama-quantize",
+                      "threads":  8
+                  },
+    "method":  {
+                   "requantized":  false,
+                   "importance_matrix":  null,
+                   "rationale":  "Every artifact was quantized independently from the verified BF16 GGUF; no validated importance matrix was available."
+               },
+    "isolation":  {
+                      "network":  "none",
+                      "root_filesystem":  "read-only",
+                      "capabilities":  "all dropped",
+                      "no_new_privileges":  true,
+                      "input_mount":  "single BF16 file, read-only",
+                      "output_mount":  "artifacts/gguf/phase2 only",
+                      "host_gpu_access":  "NVIDIA device 0; compute and utility driver capabilities only"
+                  },
+    "artifacts":  [
+                      {
+                          "quantization":  "Q8_0",
+                          "file_name":  "lfm2.5-1.2b-thinking-kodcode-q8_0.gguf",
+                          "path":  "D:\\code\\model_training\\lfm2.5-finetune\\artifacts\\gguf\\phase2\\lfm2.5-1.2b-thinking-kodcode-q8_0.gguf",
+                          "size_bytes":  1246253408,
+                          "sha256":  "3e2223fa4baf49896f1a58d0b73e02f5143b745d8deb71a01a6038b7994ce394",
+                          "started_at_utc":  "2026-08-01T22:49:24.5915943Z",
+                          "duration_seconds":  33.172,
+                          "log_path":  "D:\\code\\model_training\\lfm2.5-finetune\\reports\\phase2\\quantize-q8_0.log"
+                      },
+                      {
+                          "quantization":  "Q6_K",
+                          "file_name":  "lfm2.5-1.2b-thinking-kodcode-q6_k.gguf",
+                          "path":  "D:\\code\\model_training\\lfm2.5-finetune\\artifacts\\gguf\\phase2\\lfm2.5-1.2b-thinking-kodcode-q6_k.gguf",
+                          "size_bytes":  962842976,
+                          "sha256":  "d1a14fa33fba75118c8262827bfcadc89d0c549d628ac243014df81a14d8f331",
+                          "started_at_utc":  "2026-08-01T22:49:59.0349933Z",
+                          "duration_seconds":  30.86,
+                          "log_path":  "D:\\code\\model_training\\lfm2.5-finetune\\reports\\phase2\\quantize-q6_k.log"
+                      },
+                      {
+                          "quantization":  "Q5_K_M",
+                          "file_name":  "lfm2.5-1.2b-thinking-kodcode-q5_k_m.gguf",
+                          "path":  "D:\\code\\model_training\\lfm2.5-finetune\\artifacts\\gguf\\phase2\\lfm2.5-1.2b-thinking-kodcode-q5_k_m.gguf",
+                          "size_bytes":  843354464,
+                          "sha256":  "353493ee33b842e6af3138ab250144706f4602b4240ba3eb9fdd9dce72b5b450",
+                          "started_at_utc":  "2026-08-01T22:50:30.8357710Z",
+                          "duration_seconds":  36.87,
+                          "log_path":  "D:\\code\\model_training\\lfm2.5-finetune\\reports\\phase2\\quantize-q5_k_m.log"
+                      },
+                      {
+                          "quantization":  "Q4_K_M",
+                          "file_name":  "lfm2.5-1.2b-thinking-kodcode-q4_k_m.gguf",
+                          "path":  "D:\\code\\model_training\\lfm2.5-finetune\\artifacts\\gguf\\phase2\\lfm2.5-1.2b-thinking-kodcode-q4_k_m.gguf",
+                          "size_bytes":  730894688,
+                          "sha256":  "64310daeb8280eb65fb01fdf9c97e497b436201a6ad226b087378c7db3473de0",
+                          "started_at_utc":  "2026-08-01T22:51:08.6898676Z",
+                          "duration_seconds":  38.056,
+                          "log_path":  "D:\\code\\model_training\\lfm2.5-finetune\\reports\\phase2\\quantize-q4_k_m.log"
+                      },
+                      {
+                          "quantization":  "Q2_K",
+                          "file_name":  "lfm2.5-1.2b-thinking-kodcode-q2_k.gguf",
+                          "path":  "D:\\code\\model_training\\lfm2.5-finetune\\artifacts\\gguf\\phase2\\lfm2.5-1.2b-thinking-kodcode-q2_k.gguf",
+                          "size_bytes":  483397984,
+                          "sha256":  "8cabe6523ed99809bd293c872672f40e0aeca3f121970ce383480fd04ee63c63",
+                          "started_at_utc":  "2026-08-01T22:51:47.5578585Z",
+                          "duration_seconds":  33.347,
+                          "log_path":  "D:\\code\\model_training\\lfm2.5-finetune\\reports\\phase2\\quantize-q2_k.log"
+                      }
+                  ],
+    "evaluation":  {
+                       "performed":  false,
+                       "winner_selected":  false,
+                       "note":  "Quality, speed, VRAM, long-context, and benchmark evaluation are intentionally deferred."
+                   }
+}
