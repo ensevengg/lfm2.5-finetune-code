@@ -98,6 +98,68 @@ python train_lfm25_kaggle.py --resume-from-hub enseven/lfm-2.5-think-code
 
 The training scripts hold out 1% of data (`--eval-split 0.01`) for periodic eval during training (`eval_strategy="steps"`). No standalone evaluation script exists yet.
 
+### Phase 0 reproducibility gate
+
+The pre-quantization gate hashes the merged, original, and adapter artifacts;
+recovers their local Hugging Face revisions; inventories the machine; compares
+original and merged tensors; and runs offline deterministic smoke prompts:
+
+```bash
+python scripts/phase0_freeze_and_validate.py --device cuda
+```
+
+With Docker Desktop's Linux engine running, validate GPU passthrough and the
+restricted container boundary:
+
+```powershell
+.\scripts\run_phase0_container_smoke.ps1
+```
+
+Evidence is written to [`reports/phase0/`](reports/phase0/). The script never
+edits either checkpoint and forces Hugging Face/Transformers offline mode for
+tokenizer and model loading.
+
+### Phase 1 pinned GGUF/CUDA toolchain
+
+Phase 1 builds `llama.cpp` commit
+`3018a11e79e489b657dbb77c95694889ccff92df` for CUDA compute capability 12.0,
+then creates and validates a BF16 GGUF reference:
+
+```powershell
+.\scripts\build_phase1_toolchain.ps1
+.\scripts\convert_phase1_bf16.ps1
+.\scripts\inspect_phase1_gguf.ps1
+.\scripts\run_phase1_gguf_validation.ps1
+```
+
+The build and run containers use digest-pinned CUDA 12.8.1 images. Conversion
+and validation run with no network, a read-only root filesystem, a non-root
+user, dropped capabilities, explicit CPU/RAM/process limits, read-only model
+mounts, and narrowly scoped writable artifact or report mounts.
+
+The BF16 file is the conversion-parity reference for the later quantization
+sweep. Generated model files under `artifacts/` and the
+vendored source checkout under `vendor/` are intentionally excluded from Git;
+their immutable revisions and SHA-256 hashes are recorded in
+[`reports/phase1/`](reports/phase1/).
+
+### Phase 2 quantized GGUF artifacts
+
+Phase 2 independently quantizes the verified BF16 GGUF to Q8_0, Q6_K,
+Q5_K_M, Q4_K_M, and Q2_K, then performs static GGUF integrity checks:
+
+```powershell
+.\scripts\quantize_phase2.ps1
+.\scripts\inspect_phase2_quantizations.ps1
+```
+
+The quantizer runs offline in the pinned, restricted container. The BF16 file
+is mounted read-only and only `artifacts/gguf/phase2/` is writable. Evidence,
+hashes, exact sizes, and tensor inventories are in
+[`reports/phase2/`](reports/phase2/). These artifacts have not yet been
+benchmarked, long-context-qualified, or ranked; Q2_K is included as an
+ultra-low-memory option, not a quality-equivalent recommendation.
+
 ## Requirements
 
 - **Python** 3.12+
