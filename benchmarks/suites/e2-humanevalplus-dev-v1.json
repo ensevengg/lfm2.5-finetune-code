@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "suite_id": "e2-humanevalplus-dev-v1",
+  "status": "frozen-ready-for-manual-validation",
+  "purpose": "Score one or all three permanently development-only HumanEval+ samples inside a restricted CPU-only container.",
+  "created_at": "2026-09-02",
+  "scored": true,
+  "development_only": true,
+  "default_manual_task_id": "HumanEval/0",
+  "development_task_ids": [
+    "HumanEval/0",
+    "HumanEval/17",
+    "HumanEval/119"
+  ],
+  "source": {
+    "generation_suite_id": "e1-humanevalplus-smoke-v2",
+    "prompt_id": "lfm-code-v1",
+    "prompt_sha256": "f3d4b17279edb68261ae2a7094cfce64bd8c236397b3d0f548c7e01c15398cf6",
+    "extractor_id": "python-solution-v1",
+    "generations": {
+      "path": "reports/e1/e1-v1-smoke-20260901T200833Z/primary/generations.jsonl",
+      "sha256": "4f220e004909e30a939c74cea64275c1003d6172192fa3d02004ce0f026c4f90",
+      "size_bytes": 50854,
+      "record_count": 7
+    },
+    "extraction_report": {
+      "path": "reports/e1/e1-v1-smoke-20260901T200833Z/primary/extraction-report.json",
+      "sha256": "be96ae054aca390ae12f7514d50bed110db08aff860037a44b920d9b0e116e60",
+      "size_bytes": 2677,
+      "passed": true,
+      "selected_record_count": 3,
+      "exported_sample_count": 3
+    },
+    "samples": {
+      "path": "reports/e1/e1-v1-smoke-20260901T200833Z/primary/samples.jsonl",
+      "sha256": "3e5c50b7baea6ce91b47f19b89350cccf478714de6fb26c54626454fc6d47018",
+      "size_bytes": 1180,
+      "record_count": 3,
+      "exact_fields": [
+        "task_id",
+        "solution"
+      ]
+    }
+  },
+  "dataset": {
+    "name": "HumanEvalPlus",
+    "release": "v0.1.10",
+    "path": "HumanEvalPlus.jsonl/HumanEvalPlus.jsonl",
+    "sha256": "42526ec0e7d5f3ee0b06d6ced98f8c8bae3d76519151bfb3d36f79010645bd7f",
+    "size_bytes": 7714666,
+    "record_count": 164,
+    "unique_task_id_count": 164
+  },
+  "scorer": {
+    "repository": "evalplus/evalplus",
+    "revision": "26d6d00bb1fd0fa37f39c99d5290da67891d1c5e",
+    "source_path": "vendor/evalplus",
+    "source_tree": "1d0063f35139d70988828fd669aeb365e5030b68",
+    "package_version": "0.3.1.post44",
+    "python_version": "3.11.16",
+    "dockerfile": {
+      "path": "docker/e2-evalplus.Dockerfile",
+      "sha256": "88a94d34c49756a33ce008eee4ec26922eebe8e39723857d723783ad0144cec7",
+      "size_bytes": 898
+    },
+    "base_image": "python@sha256:9534e5a8e315485d4061ed659af0fd78a284c015f9b73661b41d6bab25604534",
+    "image_tag": "lfm25/evalplus:26d6d00-e2",
+    "image_id": "sha256:ad6fa4abab19c2e4414cb004614eff2f1240757305144e641ec12b5af6949197",
+    "image_size_bytes": 263229073
+  },
+  "preparation": {
+    "implementation_path": "scripts/prepare_e2_inputs.py",
+    "implementation_sha256": "a3b7cb88a41c68b5f726002e15e695a5559a46d4b67473af5c302d52a03e44ad",
+    "implementation_size_bytes": 7419,
+    "executes_generated_programs": false,
+    "prints_hidden_tests": false
+  },
+  "evaluation": {
+    "dataset_argument": "humaneval",
+    "parallel": 1,
+    "base_only": false,
+    "test_details": false,
+    "min_time_limit_seconds": 4.0,
+    "ground_truth_time_limit_factor": 4.0,
+    "samples_per_task": 1
+  },
+  "container": {
+    "network": "none",
+    "gpu": false,
+    "read_only_root": true,
+    "user": "65534:65534",
+    "capabilities": "drop-all",
+    "no_new_privileges": true,
+    "pids_limit": 64,
+    "memory": "2g",
+    "memory_swap": "2g",
+    "cpus": 2,
+    "shm_size": "64m",
+    "tmpfs": "/tmp:rw,nosuid,nodev,noexec,size=256m,mode=1777",
+    "evalplus_max_memory_bytes_per_process": 536870912,
+    "read_only_mounts": [
+      "selected samples",
+      "matching selected dataset"
+    ],
+    "writable_mounts": [
+      "new result directory"
+    ],
+    "forbidden_mounts": [
+      "repository",
+      "model",
+      "home directory",
+      "credentials",
+      "Docker socket"
+    ]
+  },
+  "safety": {
+    "validation_executes_generated_programs": false,
+    "scoring_executes_generated_programs": true,
+    "host_execution_allowed": false,
+    "automatic_retry_allowed": false,
+    "existing_result_overwrite_allowed": false
+  }
+}
