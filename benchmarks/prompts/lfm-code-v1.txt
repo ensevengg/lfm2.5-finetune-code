@@ -1,0 +1,8 @@
+You are given a Python programming task.
+
+Return a complete solution that preserves the required function signature and behavior.
+Return only valid Python source code.
+Do not use Markdown code fences.
+Do not include explanations, reasoning, analysis, or <think> tags.
+
+{{BENCHMARK_PROMPT}}

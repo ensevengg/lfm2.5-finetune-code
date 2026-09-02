@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "extractor_id": "python-solution-v1",
+  "status": "frozen-ready-for-e2-development",
+  "created_at": "2026-08-30",
+  "implementation": {
+    "path": "scripts/export_evalplus_samples.py",
+    "sha256": "8b102e6b64d4ec540de73fa1f49f9d16b85282a0c2674aa312eca182dbd29727",
+    "size_bytes": 9910
+  },
+  "required_prompt": {
+    "prompt_id": "lfm-code-v1",
+    "prompt_sha256": "f3d4b17279edb68261ae2a7094cfce64bd8c236397b3d0f548c7e01c15398cf6"
+  },
+  "input_selection": {
+    "source": "rich generations.jsonl evidence",
+    "case_kind_prefix": "humanevalplus",
+    "required_record_fields": [
+      "task_id",
+      "entry_point",
+      "prompt_id",
+      "prompt_sha256",
+      "raw_completion"
+    ]
+  },
+  "ordered_transformations": [
+    "Preserve raw_completion unchanged and record its SHA-256.",
+    "If present, remove exactly one complete leading <think>...</think> prefix from only the derived candidate.",
+    "If present, unwrap exactly one full Python Markdown fence from only the derived candidate.",
+    "Parse the derived candidate with Python ast.parse without importing or executing it.",
+    "Require the expected entry_point as a top-level function.",
+    "Write only task_id and solution to the scorer samples JSONL."
+  ],
+  "accepted_forms": [
+    "plain valid Python source",
+    "one closed leading reasoning prefix followed by valid Python source",
+    "one full python Markdown fence containing valid Python source",
+    "one closed leading reasoning prefix followed by one full python Markdown fence"
+  ],
+  "rejection_rules": [
+    "missing or duplicate task_id",
+    "missing entry_point",
+    "prompt identity mismatch",
+    "empty or non-string raw_completion",
+    "unclosed, repeated, or non-leading reasoning tags",
+    "incomplete or multiple Markdown fences",
+    "text outside a Markdown fence",
+    "invalid Python syntax",
+    "missing expected top-level function"
+  ],
+  "batch_policy": {
+    "all_selected_records_must_extract": true,
+    "partial_samples_file_allowed": false,
+    "overwrite_existing_evidence_allowed": false,
+    "duplicate_task_ids_allowed": false
+  },
+  "output_schema": {
+    "format": "jsonl",
+    "exact_fields": [
+      "task_id",
+      "solution"
+    ],
+    "separate_extraction_report_required": true
+  },
+  "safety": {
+    "parses_generated_programs": true,
+    "imports_generated_programs": false,
+    "executes_generated_programs": false,
+    "mutates_source_generations": false
+  }
+}

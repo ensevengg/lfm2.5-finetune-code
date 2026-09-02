@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "status": "frozen-ready-for-prompt-v1-generation",
+  "suite_id": "e1-humanevalplus-smoke-v2",
+  "supersedes_for_future_runs": "e0-humanevalplus-smoke-v1",
+  "purpose": "Generate fresh prompt-v1 evidence and deterministically export three development-only HumanEval+ samples without executing them.",
+  "scored": false,
+  "development_only": true,
+  "created_at": "2026-09-02",
+  "frozen_at": "2026-09-02",
+  "prompt_integrity_cases": [
+    {
+      "case_id": "integrity-greeting",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Hi"
+        }
+      ],
+      "diagnostic": "Detect invented conversation state or irrelevant role behavior.",
+      "behavior_expectation": {
+        "allowed_finish_reasons": [
+          "eos"
+        ],
+        "max_completion_tokens": 64,
+        "forbidden_substrings_case_insensitive": [
+          "<think>",
+          "again",
+          "i responded",
+          "you sent"
+        ]
+      }
+    },
+    {
+      "case_id": "integrity-exact",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Reply with exactly the single word: Hello"
+        }
+      ],
+      "diagnostic": "Detect failure to follow a trivial exact-output constraint.",
+      "behavior_expectation": {
+        "allowed_finish_reasons": [
+          "eos"
+        ],
+        "exact_completion": "Hello"
+      }
+    },
+    {
+      "case_id": "integrity-state",
+      "messages": [
+        {
+          "role": "user",
+          "content": "What is the only message I have sent you in this conversation?"
+        }
+      ],
+      "diagnostic": "Detect imagined prior turns or stale prompt state.",
+      "behavior_expectation": {
+        "allowed_finish_reasons": [
+          "eos"
+        ],
+        "max_completion_tokens": 128,
+        "forbidden_substrings_case_insensitive": [
+          "<think>",
+          "previously asked",
+          "conversation history"
+        ],
+        "required_substrings_case_insensitive": [
+          "what is the only message i have sent you in this conversation?"
+        ]
+      }
+    },
+    {
+      "case_id": "integrity-code-fence",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Write a Python function named add that accepts two integers and returns their sum. Return only the complete Python code inside one fenced python code block."
+        }
+      ],
+      "diagnostic": "Verify code fencing, indentation preservation, and Markdown-safe output.",
+      "behavior_expectation": {
+        "allowed_finish_reasons": [
+          "eos"
+        ],
+        "single_python_fence": true,
+        "required_substrings_case_insensitive": [
+          "def add(",
+          "return a + b"
+        ]
+      }
+    }
+  ],
+  "benchmark": {
+    "name": "humanevalplus",
+    "release": "v0.1.10",
+    "release_repository": "evalplus/humanevalplus_release",
+    "release_asset": "HumanEvalPlus.jsonl.gz",
+    "extracted_path": "HumanEvalPlus.jsonl/HumanEvalPlus.jsonl",
+    "extracted_sha256": "42526ec0e7d5f3ee0b06d6ced98f8c8bae3d76519151bfb3d36f79010645bd7f",
+    "extracted_size_bytes": 7714666,
+    "record_count": 164,
+    "unique_task_id_count": 164,
+    "asset_status": "extracted-content-validated-and-frozen",
+    "evalplus_repository": "evalplus/evalplus",
+    "evalplus_revision": "26d6d00bb1fd0fa37f39c99d5290da67891d1c5e",
+    "task_ids": [
+      "HumanEval/0",
+      "HumanEval/17",
+      "HumanEval/119"
+    ],
+    "verified_tasks": [
+      {
+        "task_id": "HumanEval/0",
+        "entry_point": "has_close_elements"
+      },
+      {
+        "task_id": "HumanEval/17",
+        "entry_point": "parse_music"
+      },
+      {
+        "task_id": "HumanEval/119",
+        "entry_point": "match_parens"
+      }
+    ],
+    "generation_asset": {
+      "path": "evals/E1_smoketest.jsonl",
+      "sha256": "956c458fd7fcb6ebffecdc4cb1b38ec50b1dfb875ac6d8706a44b13fbb92ebb2",
+      "size_bytes": 2036,
+      "record_count": 3,
+      "allowed_fields": [
+        "task_id",
+        "entry_point",
+        "prompt"
+      ],
+      "status": "prompt-only-validated-and-frozen-for-e1"
+    },
+    "task_selection_status": "verified-against-frozen-extracted-content",
+    "final_score_policy": "Permanently exclude these development task IDs from sealed and headline HumanEval+ results."
+  },
+  "model": {
+    "alias": "merged-bf16",
+    "format": "GGUF",
+    "quantization": "MOSTLY_BF16",
+    "path": "artifacts/gguf/lfm2.5-1.2b-thinking-kodcode-bf16.gguf",
+    "size_bytes": 2343326048,
+    "sha256": "3e39c292be1f2b2740c3e05a2cb9081260439033e1b05f601117c72c8a73b8e6"
+  },
+  "runtime": {
+    "implementation": "llama.cpp",
+    "revision": "3018a11e79e489b657dbb77c95694889ccff92df",
+    "toolchain_image": "lfm25/llama-cpp:3018a11e-cuda128-sm120",
+    "toolchain_image_id": "sha256:550d53ae97c4d83a6c0fba17cd8f532aa6f775e9498d2452fa6f04e33707b4b0",
+    "context_size": 4096,
+    "gpu_layers": "all",
+    "flash_attention": true,
+    "cache_type_k": "f16",
+    "cache_type_v": "f16",
+    "automatic_fit": false,
+    "parallel_slots": 1,
+    "offline": true
+  },
+  "prompt": {
+    "prompt_id": "lfm-code-v1",
+    "version": "lfm-code-v1",
+    "path": "benchmarks/prompts/lfm-code-v1.txt",
+    "sha256": "f3d4b17279edb68261ae2a7094cfce64bd8c236397b3d0f548c7e01c15398cf6",
+    "size_bytes": 290,
+    "manifest_path": "benchmarks/prompts/lfm-code-v1.json",
+    "manifest_sha256": "35acbdda228acc373e802345a98cdf4ee2616274a6be73db9108db7c7ba314ed",
+    "manifest_size_bytes": 939,
+    "bos_token_id": 1,
+    "bos_policy": "Every tokenized request begins with exactly one BOS token.",
+    "chat_template_source": "embedded-gguf-tokenizer-chat-template",
+    "benchmark_prompt_policy": "Insert the unmodified public prompt into {{BENCHMARK_PROMPT}}. Never include hidden tests or canonical solutions."
+  },
+  "extractor": {
+    "extractor_id": "python-solution-v1",
+    "manifest_path": "benchmarks/extractors/python-solution-v1.json",
+    "manifest_sha256": "92746a005f33bd375b48261e4e43089ed77e66aa3377bb75fdc79b1a4342c59b",
+    "manifest_size_bytes": 2480,
+    "implementation_path": "scripts/export_evalplus_samples.py",
+    "implementation_sha256": "8b102e6b64d4ec540de73fa1f49f9d16b85282a0c2674aa312eca182dbd29727",
+    "implementation_size_bytes": 9910,
+    "output_schema": {
+      "format": "jsonl",
+      "exact_fields": [
+        "task_id",
+        "solution"
+      ]
+    },
+    "all_selected_records_must_extract": true,
+    "generated_program_execution_allowed": false
+  },
+  "generation": {
+    "track": "deterministic-development",
+    "temperature": 0.0,
+    "seed": 42,
+    "max_output_tokens": 3072,
+    "samples_per_case": 1,
+    "automatic_retries": 0,
+    "stream": false
+  },
+  "execution": {
+    "generated_code_execution_allowed": false,
+    "scoring_allowed": false,
+    "syntax_parsing_allowed": true,
+    "deferred_to_phase": "E2"
+  },
+  "required_artifacts": [
+    "run-manifest.json",
+    "server-command.json",
+    "environment.json",
+    "generations.jsonl",
+    "behavior-review.json",
+    "extraction-report.json",
+    "samples.jsonl when extraction passes",
+    "logs/server.stdout.log",
+    "logs/server.stderr.log"
+  ],
+  "acceptance_gate": {
+    "terminal_prompt_integrity_records": 4,
+    "terminal_humanevalplus_records": 3,
+    "selected_extraction_records": 3,
+    "unique_exported_samples": 3,
+    "partial_samples_allowed": false,
+    "silent_truncations_allowed": 0,
+    "automatic_retries_allowed": 0,
+    "generated_programs_executed": 0,
+    "determinism_replay_cases": 1,
+    "requires_user_record_walkthrough": true
+  }
+}

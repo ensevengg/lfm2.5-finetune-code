@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "prompt_id": "lfm-code-v1",
+  "status": "frozen-ready-for-extractor-development",
+  "created_at": "2026-08-30",
+  "path": "benchmarks/prompts/lfm-code-v1.txt",
+  "sha256": "f3d4b17279edb68261ae2a7094cfce64bd8c236397b3d0f548c7e01c15398cf6",
+  "size_bytes": 290,
+  "placeholder": "{{BENCHMARK_PROMPT}}",
+  "placeholder_count": 1,
+  "benchmark_prompt_policy": "Replace the one placeholder with the unmodified public benchmark prompt. Never add hidden tests or canonical solutions.",
+  "output_contract": {
+    "format": "plain-python-source",
+    "markdown_code_fences_allowed": false,
+    "outside_explanation_allowed": false,
+    "reasoning_or_analysis_allowed": false,
+    "think_tags_allowed": false,
+    "raw_completion_must_remain_unchanged": true,
+    "derived_solution_is_created_separately": true
+  },
+  "supersedes_for_future_runs": "lfm-code-v0",
+  "historical_prompt_files_must_not_be_modified": true
+}
