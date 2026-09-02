@@ -1,0 +1,7 @@
+You are given a Python programming task.
+
+Return a complete solution that preserves the required function signature and behavior.
+Return only the final Python code inside one fenced python code block.
+Do not include an explanation outside the code block.
+
+{{BENCHMARK_PROMPT}}
