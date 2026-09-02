@@ -1,0 +1,124 @@
+{
+  "gates": {
+    "extractor_identity": {
+      "detail": {
+        "all_selected_records_must_extract": true,
+        "extractor_id": "python-solution-v1",
+        "generated_program_execution_allowed": false,
+        "implementation_path": "scripts/export_evalplus_samples.py",
+        "implementation_sha256": "8b102e6b64d4ec540de73fa1f49f9d16b85282a0c2674aa312eca182dbd29727",
+        "implementation_size_bytes": 9910,
+        "manifest_path": "benchmarks/extractors/python-solution-v1.json",
+        "manifest_sha256": "92746a005f33bd375b48261e4e43089ed77e66aa3377bb75fdc79b1a4342c59b",
+        "manifest_size_bytes": 2480,
+        "output_schema": {
+          "exact_fields": [
+            "task_id",
+            "solution"
+          ],
+          "format": "jsonl"
+        }
+      },
+      "passed": true
+    },
+    "generation_only_policy": {
+      "detail": {
+        "deferred_to_phase": "E2",
+        "generated_code_execution_allowed": false,
+        "scoring_allowed": false,
+        "syntax_parsing_allowed": true
+      },
+      "passed": true
+    },
+    "model_identity": {
+      "detail": {
+        "actual_sha256": "3e39c292be1f2b2740c3e05a2cb9081260439033e1b05f601117c72c8a73b8e6",
+        "actual_size_bytes": 2343326048,
+        "expected_sha256": "3e39c292be1f2b2740c3e05a2cb9081260439033e1b05f601117c72c8a73b8e6",
+        "expected_size_bytes": 2343326048
+      },
+      "passed": true
+    },
+    "prompt_asset_hash": {
+      "detail": {
+        "actual_sha256": "956c458fd7fcb6ebffecdc4cb1b38ec50b1dfb875ac6d8706a44b13fbb92ebb2",
+        "actual_size_bytes": 2036,
+        "expected_sha256": "956c458fd7fcb6ebffecdc4cb1b38ec50b1dfb875ac6d8706a44b13fbb92ebb2",
+        "expected_size_bytes": 2036
+      },
+      "passed": true
+    },
+    "prompt_entry_points": {
+      "detail": [],
+      "passed": true
+    },
+    "prompt_fields": {
+      "detail": [],
+      "passed": true
+    },
+    "prompt_identity": {
+      "detail": {
+        "prompt_id": "lfm-code-v1",
+        "version": "lfm-code-v1"
+      },
+      "passed": true
+    },
+    "prompt_record_count": {
+      "detail": {
+        "actual": 3,
+        "asset_expected": 3,
+        "suite_expected": 3
+      },
+      "passed": true
+    },
+    "prompt_task_ids": {
+      "detail": {
+        "actual": [
+          "HumanEval/0",
+          "HumanEval/17",
+          "HumanEval/119"
+        ],
+        "duplicates": [],
+        "expected": [
+          "HumanEval/0",
+          "HumanEval/17",
+          "HumanEval/119"
+        ]
+      },
+      "passed": true
+    },
+    "prompt_template": {
+      "detail": {
+        "actual_sha256": "f3d4b17279edb68261ae2a7094cfce64bd8c236397b3d0f548c7e01c15398cf6",
+        "expected_sha256": "f3d4b17279edb68261ae2a7094cfce64bd8c236397b3d0f548c7e01c15398cf6",
+        "placeholder_count": 1
+      },
+      "passed": true
+    },
+    "prompt_text_nonempty": {
+      "detail": [],
+      "passed": true
+    },
+    "suite_identity": {
+      "detail": {
+        "schema_version": 1,
+        "suite_id": "e1-humanevalplus-smoke-v2"
+      },
+      "passed": true
+    }
+  },
+  "generated_at_utc": "2026-09-01T20:09:22.099961+00:00",
+  "mode": "replay",
+  "passed": true,
+  "run_id": "e1-v1-smoke-20260901T200833Z-replay",
+  "schema_version": 1,
+  "summary": {
+    "extractor_id": "python-solution-v1",
+    "model_sha256": "3e39c292be1f2b2740c3e05a2cb9081260439033e1b05f601117c72c8a73b8e6",
+    "prompt_asset_sha256": "956c458fd7fcb6ebffecdc4cb1b38ec50b1dfb875ac6d8706a44b13fbb92ebb2",
+    "prompt_id": "lfm-code-v1",
+    "prompt_integrity_case_count": 4,
+    "prompt_record_count": 3,
+    "prompt_template_sha256": "f3d4b17279edb68261ae2a7094cfce64bd8c236397b3d0f548c7e01c15398cf6"
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "actual_case_count": 4,
+  "cases": [
+    {
+      "case_id": "integrity-greeting",
+      "checks": {
+        "finish_reason": {
+          "actual": "eos",
+          "expected": [
+            "eos"
+          ],
+          "passed": true
+        },
+        "forbidden_substrings": {
+          "forbidden": [
+            "<think>",
+            "again",
+            "i responded",
+            "you sent"
+          ],
+          "found": [
+            "<think>"
+          ],
+          "passed": false
+        },
+        "max_completion_tokens": {
+          "actual": 88,
+          "expected_maximum": 64,
+          "passed": false
+        }
+      },
+      "completion_preview": "<think>\nOkay, the user just said \"Hi\". I should respond in a friendly and welcoming manner. Maybe ask how I can assist them today. Keep it simple and open-ended so they feel comfortable to ask anything. Make sure the tone is positive and helpful.\n</think>\n\nHello! How can I assist you today? Feel free to ask me anything, whether it's about information, solutions, or just a chat. 😊",
+      "completion_sha256": "0236626065e23ec1c9246ebc218e0c45275e142f8c8426d6f410f3c231456345",
+      "passed": false
+    },
+    {
+      "case_id": "integrity-exact",
+      "checks": {
+        "exact_completion": {
+          "actual": "<think>\nOkay, the user wants me to reply with exactly one word: \"Hello\". I need to make sure I don't add anything else. Let me check the instructions again. They said to reply with exactly the single word, so I should just type \"Hello\" without any extra characters. I'll make sure there are no typos and that it's just the word. Alright, that's straightforward.\n</think>\n\nHello",
+          "expected": "Hello",
+          "passed": false
+        },
+        "finish_reason": {
+          "actual": "eos",
+          "expected": [
+            "eos"
+          ],
+          "passed": true
+        }
+      },
+      "completion_preview": "<think>\nOkay, the user wants me to reply with exactly one word: \"Hello\". I need to make sure I don't add anything else. Let me check the instructions again. They said to reply with exactly the single word, so I should just type \"Hello\" without any extra characters. I'll make sure there are no typos and that it's just the word. Alright, that's straightforward.\n</think>\n\nHello",
+      "completion_sha256": "b6a93fbc32032eb25102439efc22b44045ba3049c92aaaf79ed74188dae30697",
+      "passed": false
+    },
+    {
+      "case_id": "integrity-state",
+      "checks": {
+        "finish_reason": {
+          "actual": "eos",
+          "expected": [
+            "eos"
+          ],
+          "passed": true
+        },
+        "forbidden_substrings": {
+          "forbidden": [
+            "<think>",
+            "previously asked",
+            "conversation history"
+          ],
+          "found": [
+            "<think>",
+            "conversation history"
+          ],
+          "passed": false
+        },
+        "max_completion_tokens": {
+          "actual": 286,
+          "expected_maximum": 128,
+          "passed": false
+        },
+        "required_substrings": {
+          "missing": [],
+          "passed": true,
+          "required": [
+            "what is the only message i have sent you in this conversation?"
+          ]
+        }
+      },
+      "completion_preview": "<think>\nOkay, so I need to figure out what the only message I sent in this conversation is. Let me start by looking back at the conversation history.\n\nThe user started by asking, \"What is the only message I have sent you in this conversation?\" So, I should check the messages I've sent to the user.\n\nLooking at the history, the first message from the user is: \"Hello! How can I assist you today?\" Then, the assistant responds with: \"I'm here to help you with any questions or tasks you have. Feel fre",
+      "completion_sha256": "2c0042a46ae33d3a89ca0cc7c9c6f715754ba1182760224a8208939c888eb375",
+      "passed": false
+    },
+    {
+      "case_id": "integrity-code-fence",
+      "checks": {
+        "finish_reason": {
+          "actual": "eos",
+          "expected": [
+            "eos"
+          ],
+          "passed": true
+        },
+        "required_substrings": {
+          "missing": [],
+          "passed": true,
+          "required": [
+            "def add(",
+            "return a + b"
+          ]
+        },
+        "single_python_fence": {
+          "expected": "exactly one complete ```python fenced block and no outside text",
+          "passed": false
+        }
+      },
+      "completion_preview": "def add(a, b):\n    return a + b",
+      "completion_sha256": "8f75a68646c879fd0cff5c02708c010fb1c01d67ef9930d4e419106feb7897aa",
+      "passed": false
+    }
+  ],
+  "duplicate_case_ids": [],
+  "expected_case_count": 4,
+  "failed_case_count": 4,
+  "generated_at_utc": "2026-09-01T20:09:07.690544+00:00",
+  "generated_programs_executed": 0,
+  "passed": false,
+  "prompt_encoding": {
+    "expected_bos_count_per_prompt": 1,
+    "expected_bos_token_id": 1,
+    "failures": [],
+    "passed": true
+  },
+  "schema_version": 1,
+  "suite_id": "e1-humanevalplus-smoke-v2",
+  "unexpected_case_ids": []
+}

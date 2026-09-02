@@ -1,0 +1,70 @@
+{
+  "cases": [
+    {
+      "entry_point": "has_close_elements",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "41475b709990d4a16637d7dea0df74a501ba5cdcb07f109e01ede9f39581c6e6",
+      "raw_completion_size_bytes": 277,
+      "solution_sha256": "41475b709990d4a16637d7dea0df74a501ba5cdcb07f109e01ede9f39581c6e6",
+      "solution_size_bytes": 277,
+      "status": "extracted",
+      "strategy": "plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/0",
+      "warnings": []
+    },
+    {
+      "entry_point": "parse_music",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "3f40b54813ae46dfb71aa9c0fe3dca55dbb731d8be3b180f153cd1dc2f48032b",
+      "raw_completion_size_bytes": 328,
+      "solution_sha256": "3f40b54813ae46dfb71aa9c0fe3dca55dbb731d8be3b180f153cd1dc2f48032b",
+      "solution_size_bytes": 328,
+      "status": "extracted",
+      "strategy": "plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/17",
+      "warnings": []
+    },
+    {
+      "entry_point": "match_parens",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "4211e518e8268e0646f12f051341b83788109233cfe9030e59e86baa42cc9230",
+      "raw_completion_size_bytes": 419,
+      "solution_sha256": "4211e518e8268e0646f12f051341b83788109233cfe9030e59e86baa42cc9230",
+      "solution_size_bytes": 419,
+      "status": "extracted",
+      "strategy": "plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/119",
+      "warnings": []
+    }
+  ],
+  "duplicate_task_ids": [],
+  "exported_sample_count": 3,
+  "failed_extraction_count": 0,
+  "generated_at_utc": "2026-09-01T20:09:09.725432+00:00",
+  "generated_programs_executed": false,
+  "ignored_record_count": 4,
+  "passed": true,
+  "prompt_id": "lfm-code-v1",
+  "prompt_sha256": "f3d4b17279edb68261ae2a7094cfce64bd8c236397b3d0f548c7e01c15398cf6",
+  "samples_output": {
+    "path": "D:\\code\\model_training\\lfm2.5-finetune\\reports\\e1\\e1-v1-smoke-20260901T200833Z\\primary\\samples.jsonl",
+    "sha256": "3e5c50b7baea6ce91b47f19b89350cccf478714de6fb26c54626454fc6d47018",
+    "size_bytes": 1180
+  },
+  "schema_version": 1,
+  "selected_record_count": 3,
+  "source_generations": {
+    "path": "D:\\code\\model_training\\lfm2.5-finetune\\reports\\e1\\e1-v1-smoke-20260901T200833Z\\primary\\generations.jsonl",
+    "record_count": 7,
+    "sha256": "4f220e004909e30a939c74cea64275c1003d6172192fa3d02004ce0f026c4f90",
+    "size_bytes": 50854
+  },
+  "started_at_utc": "2026-09-01T20:09:09.722433+00:00",
+  "successful_extraction_count": 3
+}
