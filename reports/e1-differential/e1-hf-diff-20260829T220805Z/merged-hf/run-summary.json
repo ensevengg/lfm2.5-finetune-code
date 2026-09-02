@@ -1,0 +1,13 @@
+{
+  "behavior_review_passed": false,
+  "checkpoint": "D:\\code\\model_training\\lfm2.5-finetune\\lfm2.5-model-merged",
+  "generated_at_utc": "2026-08-29T22:10:49.786659+00:00",
+  "generated_programs_executed": 0,
+  "generation_count": 7,
+  "load_seconds": 1.212,
+  "logical_model": "merged_finetune",
+  "peak_cuda_allocated_bytes": 2381502464,
+  "peak_cuda_reserved_bytes": 2405433344,
+  "schema_version": 1,
+  "scores_computed": 0
+}

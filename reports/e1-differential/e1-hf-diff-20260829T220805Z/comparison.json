@@ -1,0 +1,155 @@
+{
+  "base_behavior_review_passed": false,
+  "cases": [
+    {
+      "base": {
+        "completion_sha256": "dac8f20ffb3770c7e163294d4939c5846e7e9b05090fc37ea6a029eb1c1bca10",
+        "finish_reason": "eos",
+        "tokens": 221
+      },
+      "case_id": "integrity-greeting",
+      "completion_equal_base_vs_merged_hf": false,
+      "completion_equal_merged_hf_vs_merged_gguf": false,
+      "merged_gguf": {
+        "completion_sha256": "8bdac729def2e04ebe1f0539fd8d07f52f0c5b7343860c3f1b9ab55ff8e4d870",
+        "finish_reason": "eos",
+        "tokens": 114
+      },
+      "merged_hf": {
+        "completion_sha256": "0236626065e23ec1c9246ebc218e0c45275e142f8c8426d6f410f3c231456345",
+        "finish_reason": "eos",
+        "tokens": 87
+      },
+      "prompt_token_ids_equal_base_vs_merged_hf": true
+    },
+    {
+      "base": {
+        "completion_sha256": "7373561861c3d73800d699a7cb94f69f0559052de8ef455a01636e5af85fcac2",
+        "finish_reason": "eos",
+        "tokens": 252
+      },
+      "case_id": "integrity-exact",
+      "completion_equal_base_vs_merged_hf": false,
+      "completion_equal_merged_hf_vs_merged_gguf": false,
+      "merged_gguf": {
+        "completion_sha256": "470a351718982ad3f06d1e4263156f4d9d7eb87b8f6f912c0227d05feddb0ced",
+        "finish_reason": "eos",
+        "tokens": 90
+      },
+      "merged_hf": {
+        "completion_sha256": "8d5219b871190711fdfcf8898240d406cbb7986bd1be616f517fdd2ad7a450db",
+        "finish_reason": "eos",
+        "tokens": 76
+      },
+      "prompt_token_ids_equal_base_vs_merged_hf": true
+    },
+    {
+      "base": {
+        "completion_sha256": "bb8a028676e578f74f04f819108e5270cbc82ac4aaab76d571fb2091a771f219",
+        "finish_reason": "eos",
+        "tokens": 825
+      },
+      "case_id": "integrity-state",
+      "completion_equal_base_vs_merged_hf": false,
+      "completion_equal_merged_hf_vs_merged_gguf": false,
+      "merged_gguf": {
+        "completion_sha256": "91891ac3026d843176e1d218495a6e6f97d6683c5e59a33e746dd9134680a3c7",
+        "finish_reason": "limit",
+        "tokens": 3072
+      },
+      "merged_hf": {
+        "completion_sha256": "e66e2c0df2575ada80c1c7877bae404617b2fbca58c7c76f0e4ebbcbf1c5aeb2",
+        "finish_reason": "eos",
+        "tokens": 330
+      },
+      "prompt_token_ids_equal_base_vs_merged_hf": true
+    },
+    {
+      "base": {
+        "completion_sha256": "a41ef083ccea2cce83f729429a853a238a2b61d8f0882057df269fb5eb922058",
+        "finish_reason": "eos",
+        "tokens": 446
+      },
+      "case_id": "integrity-code-fence",
+      "completion_equal_base_vs_merged_hf": false,
+      "completion_equal_merged_hf_vs_merged_gguf": true,
+      "merged_gguf": {
+        "completion_sha256": "8f75a68646c879fd0cff5c02708c010fb1c01d67ef9930d4e419106feb7897aa",
+        "finish_reason": "eos",
+        "tokens": 12
+      },
+      "merged_hf": {
+        "completion_sha256": "8f75a68646c879fd0cff5c02708c010fb1c01d67ef9930d4e419106feb7897aa",
+        "finish_reason": "eos",
+        "tokens": 11
+      },
+      "prompt_token_ids_equal_base_vs_merged_hf": true
+    },
+    {
+      "base": {
+        "completion_sha256": "f1b9f7e954b82358169b9c0f2ae44519219cc10f84afc81f20052c0d4360d083",
+        "finish_reason": "eos",
+        "tokens": 1433
+      },
+      "case_id": "humanevalplus-HumanEval-0",
+      "completion_equal_base_vs_merged_hf": false,
+      "completion_equal_merged_hf_vs_merged_gguf": true,
+      "merged_gguf": {
+        "completion_sha256": "cb78a3d5cfa85bd40aa2cac8bd628654cf942be72109bc31cbc317dd9f85d745",
+        "finish_reason": "eos",
+        "tokens": 98
+      },
+      "merged_hf": {
+        "completion_sha256": "cb78a3d5cfa85bd40aa2cac8bd628654cf942be72109bc31cbc317dd9f85d745",
+        "finish_reason": "eos",
+        "tokens": 97
+      },
+      "prompt_token_ids_equal_base_vs_merged_hf": true
+    },
+    {
+      "base": {
+        "completion_sha256": "44629cf3e6e5b068d7a55b4929c648547fd787e3e84bfa0eb0189e4793a08a2b",
+        "finish_reason": "eos",
+        "tokens": 1748
+      },
+      "case_id": "humanevalplus-HumanEval-17",
+      "completion_equal_base_vs_merged_hf": false,
+      "completion_equal_merged_hf_vs_merged_gguf": true,
+      "merged_gguf": {
+        "completion_sha256": "3f40b54813ae46dfb71aa9c0fe3dca55dbb731d8be3b180f153cd1dc2f48032b",
+        "finish_reason": "eos",
+        "tokens": 84
+      },
+      "merged_hf": {
+        "completion_sha256": "3f40b54813ae46dfb71aa9c0fe3dca55dbb731d8be3b180f153cd1dc2f48032b",
+        "finish_reason": "eos",
+        "tokens": 83
+      },
+      "prompt_token_ids_equal_base_vs_merged_hf": true
+    },
+    {
+      "base": {
+        "completion_sha256": "9a08a6e55ce0a6c6ab523defed2774e999f455e66a34243af8cfb8a22fc36daa",
+        "finish_reason": "limit",
+        "tokens": 3072
+      },
+      "case_id": "humanevalplus-HumanEval-119",
+      "completion_equal_base_vs_merged_hf": false,
+      "completion_equal_merged_hf_vs_merged_gguf": false,
+      "merged_gguf": {
+        "completion_sha256": "bc032a6836881debb29a98ec61911ebc8ae458260c3186eb034d7df52943506b",
+        "finish_reason": "eos",
+        "tokens": 64
+      },
+      "merged_hf": {
+        "completion_sha256": "4211e518e8268e0646f12f051341b83788109233cfe9030e59e86baa42cc9230",
+        "finish_reason": "eos",
+        "tokens": 116
+      },
+      "prompt_token_ids_equal_base_vs_merged_hf": true
+    }
+  ],
+  "generated_at_utc": "2026-08-29T22:10:49.934567+00:00",
+  "merged_hf_behavior_review_passed": false,
+  "schema_version": 1
+}

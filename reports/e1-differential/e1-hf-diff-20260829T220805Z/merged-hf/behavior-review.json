@@ -1,0 +1,132 @@
+{
+  "actual_case_count": 4,
+  "cases": [
+    {
+      "case_id": "integrity-greeting",
+      "checks": {
+        "finish_reason": {
+          "actual": "eos",
+          "expected": [
+            "eos"
+          ],
+          "passed": true
+        },
+        "forbidden_substrings": {
+          "forbidden": [
+            "<think>",
+            "again",
+            "i responded",
+            "you sent"
+          ],
+          "found": [
+            "<think>"
+          ],
+          "passed": false
+        },
+        "max_completion_tokens": {
+          "actual": 87,
+          "expected_maximum": 64,
+          "passed": false
+        }
+      },
+      "completion_preview": "<think>\nOkay, the user just said \"Hi\". I should respond in a friendly and welcoming manner. Maybe ask how I can assist them today. Keep it simple and open-ended so they feel comfortable to ask anything. Make sure the tone is positive and helpful.\n</think>\n\nHello! How can I assist you today? Feel free to ask me anything, whether it's about information, solutions, or just a chat. 😊",
+      "completion_sha256": "0236626065e23ec1c9246ebc218e0c45275e142f8c8426d6f410f3c231456345",
+      "passed": false
+    },
+    {
+      "case_id": "integrity-exact",
+      "checks": {
+        "exact_completion": {
+          "actual": "<think>\nOkay, the user wants me to reply with exactly one word: \"Hello\". I need to make sure I don't add anything else. Let me check the instructions again. They said to reply with the single word \"Hello\". So I should just output that. No extra spaces or punctuation. Alright, I'll make sure to format it correctly.\n</think>\n\nHello",
+          "expected": "Hello",
+          "passed": false
+        },
+        "finish_reason": {
+          "actual": "eos",
+          "expected": [
+            "eos"
+          ],
+          "passed": true
+        }
+      },
+      "completion_preview": "<think>\nOkay, the user wants me to reply with exactly one word: \"Hello\". I need to make sure I don't add anything else. Let me check the instructions again. They said to reply with the single word \"Hello\". So I should just output that. No extra spaces or punctuation. Alright, I'll make sure to format it correctly.\n</think>\n\nHello",
+      "completion_sha256": "8d5219b871190711fdfcf8898240d406cbb7986bd1be616f517fdd2ad7a450db",
+      "passed": false
+    },
+    {
+      "case_id": "integrity-state",
+      "checks": {
+        "finish_reason": {
+          "actual": "eos",
+          "expected": [
+            "eos"
+          ],
+          "passed": true
+        },
+        "forbidden_substrings": {
+          "forbidden": [
+            "<think>",
+            "previously asked",
+            "conversation history"
+          ],
+          "found": [
+            "<think>",
+            "conversation history"
+          ],
+          "passed": false
+        },
+        "max_completion_tokens": {
+          "actual": 330,
+          "expected_maximum": 128,
+          "passed": false
+        },
+        "required_substrings": {
+          "missing": [],
+          "passed": true,
+          "required": [
+            "what is the only message i have sent you in this conversation?"
+          ]
+        }
+      },
+      "completion_preview": "<think>\nOkay, so I need to figure out what the only message I sent in this conversation is. Let me start by looking back at the conversation history.\n\nThe user's first message was: \"What is the only message I have sent you in this conversation?\" \n\nHmm, that's a bit meta because it's asking about the message I sent. But wait, in the conversation, I don't actually send any messages. I'm just responding to the user's question. So maybe the user is referring to the message I sent in my response.\n\nIn",
+      "completion_sha256": "e66e2c0df2575ada80c1c7877bae404617b2fbca58c7c76f0e4ebbcbf1c5aeb2",
+      "passed": false
+    },
+    {
+      "case_id": "integrity-code-fence",
+      "checks": {
+        "finish_reason": {
+          "actual": "eos",
+          "expected": [
+            "eos"
+          ],
+          "passed": true
+        },
+        "required_substrings": {
+          "missing": [],
+          "passed": true,
+          "required": [
+            "def add(",
+            "return a + b"
+          ]
+        },
+        "single_python_fence": {
+          "expected": "exactly one complete ```python fenced block and no outside text",
+          "passed": false
+        }
+      },
+      "completion_preview": "def add(a, b):\n    return a + b",
+      "completion_sha256": "8f75a68646c879fd0cff5c02708c010fb1c01d67ef9930d4e419106feb7897aa",
+      "passed": false
+    }
+  ],
+  "duplicate_case_ids": [],
+  "expected_case_count": 4,
+  "failed_case_count": 4,
+  "generated_at_utc": "2026-08-29T22:10:49.785501+00:00",
+  "generated_programs_executed": 0,
+  "passed": false,
+  "schema_version": 1,
+  "suite_id": "e0-humanevalplus-smoke-v1",
+  "unexpected_case_ids": []
+}

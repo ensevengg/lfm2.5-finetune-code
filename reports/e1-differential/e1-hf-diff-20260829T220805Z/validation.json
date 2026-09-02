@@ -1,0 +1,30 @@
+{
+  "base": {
+    "actual_sha256": "112fba7db6c4544d9944002fcfe1c21e23e03d8fc0a0c7e2b6655de6c738583d",
+    "actual_size_bytes": 2340697936,
+    "checkpoint": "D:\\hf_models\\models--LiquidAI--LFM2.5-1.2B-Thinking\\snapshots\\95053d21d8e0b7ca99421a2127ae39c64f685ff3",
+    "expected_sha256": "112fba7db6c4544d9944002fcfe1c21e23e03d8fc0a0c7e2b6655de6c738583d",
+    "expected_size_bytes": 2340697936,
+    "logical_name": "original_thinking",
+    "manifest": "D:\\code\\model_training\\lfm2.5-finetune\\reports\\phase0\\original-checkpoint-manifest.json",
+    "passed": true
+  },
+  "environment": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.10"
+  },
+  "generated_at_utc": "2026-08-29T22:08:06.488262+00:00",
+  "merged": {
+    "actual_sha256": "c6c7a52c48e14a4b3185f8df6a17afb51908a31e41d07568b3027504039b3616",
+    "actual_size_bytes": 2340697936,
+    "checkpoint": "D:\\code\\model_training\\lfm2.5-finetune\\lfm2.5-model-merged",
+    "expected_sha256": "c6c7a52c48e14a4b3185f8df6a17afb51908a31e41d07568b3027504039b3616",
+    "expected_size_bytes": 2340697936,
+    "logical_name": "merged_finetune",
+    "manifest": "D:\\code\\model_training\\lfm2.5-finetune\\reports\\phase0\\merged-checkpoint-manifest.json",
+    "passed": true
+  },
+  "offline": true,
+  "passed": true,
+  "schema_version": 1
+}

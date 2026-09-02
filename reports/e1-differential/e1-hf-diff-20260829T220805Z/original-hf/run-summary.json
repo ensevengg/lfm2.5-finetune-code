@@ -1,0 +1,13 @@
+{
+  "behavior_review_passed": false,
+  "checkpoint": "D:\\hf_models\\models--LiquidAI--LFM2.5-1.2B-Thinking\\snapshots\\95053d21d8e0b7ca99421a2127ae39c64f685ff3",
+  "generated_at_utc": "2026-08-29T22:10:32.691498+00:00",
+  "generated_programs_executed": 0,
+  "generation_count": 7,
+  "load_seconds": 1.225,
+  "logical_model": "original_thinking",
+  "peak_cuda_allocated_bytes": 2486141952,
+  "peak_cuda_reserved_bytes": 2722103296,
+  "schema_version": 1,
+  "scores_computed": 0
+}

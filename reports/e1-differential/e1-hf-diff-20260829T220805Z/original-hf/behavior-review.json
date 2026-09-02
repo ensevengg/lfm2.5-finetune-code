@@ -1,0 +1,132 @@
+{
+  "actual_case_count": 4,
+  "cases": [
+    {
+      "case_id": "integrity-greeting",
+      "checks": {
+        "finish_reason": {
+          "actual": "eos",
+          "expected": [
+            "eos"
+          ],
+          "passed": true
+        },
+        "forbidden_substrings": {
+          "forbidden": [
+            "<think>",
+            "again",
+            "i responded",
+            "you sent"
+          ],
+          "found": [
+            "<think>"
+          ],
+          "passed": false
+        },
+        "max_completion_tokens": {
+          "actual": 221,
+          "expected_maximum": 64,
+          "passed": false
+        }
+      },
+      "completion_preview": "<think> Okay, let's see what the user just said. They wrote \"Hi\". That's pretty simple. I need to respond appropriately. Since the user just said \"Hi\", maybe they want a friendly greeting. But since I'm supposed to act as an assistant, perhaps I should offer help. The instructions say to provide clear, accurate, and helpful responses. So I should greet them back and ask how I can assist. Maybe something like \"Hello! How can I assist you today?\" That should work. Wait, but maybe they just want a ",
+      "completion_sha256": "dac8f20ffb3770c7e163294d4939c5846e7e9b05090fc37ea6a029eb1c1bca10",
+      "passed": false
+    },
+    {
+      "case_id": "integrity-exact",
+      "checks": {
+        "exact_completion": {
+          "actual": "<think> Okay, let's see what the user is asking here. They want me to reply with exactly the single word \"Hello\", but they specified to reply with just that single word. Wait, the instruction says \"Reply with exactly the single word: Hello\". Wait, maybe I need to make sure I follow that precisely. The user says \"Reply with exactly the single word: Hello\". Hmm, perhaps they want me to just say \"Hello\" as the response. But wait, the instruction says \"exactly the single word: Hello\", so maybe the answer is just \"Hello\". But the user says \"Reply with exactly the single word: Hello\", so perhaps the assistant is supposed to output only \"Hello\". But wait, maybe I'm overcomplicating. The user wants the response to be exactly one word, which is \"Hello\". Since the user wrote \"Reply with exactly the single word: Hello\", perhaps the correct response is simply \"Hello\". Alternatively, maybe they want me to confirm by just saying \"Hello\". Since the user says \"exactly the single word: Hello\", I should just output \"Hello\". I need to make sure I don't add anything else. So the answer is \"Hello\".\n</think>\n\nHello",
+          "expected": "Hello",
+          "passed": false
+        },
+        "finish_reason": {
+          "actual": "eos",
+          "expected": [
+            "eos"
+          ],
+          "passed": true
+        }
+      },
+      "completion_preview": "<think> Okay, let's see what the user is asking here. They want me to reply with exactly the single word \"Hello\", but they specified to reply with just that single word. Wait, the instruction says \"Reply with exactly the single word: Hello\". Wait, maybe I need to make sure I follow that precisely. The user says \"Reply with exactly the single word: Hello\". Hmm, perhaps they want me to just say \"Hello\" as the response. But wait, the instruction says \"exactly the single word: Hello\", so maybe the a",
+      "completion_sha256": "7373561861c3d73800d699a7cb94f69f0559052de8ef455a01636e5af85fcac2",
+      "passed": false
+    },
+    {
+      "case_id": "integrity-state",
+      "checks": {
+        "finish_reason": {
+          "actual": "eos",
+          "expected": [
+            "eos"
+          ],
+          "passed": true
+        },
+        "forbidden_substrings": {
+          "forbidden": [
+            "<think>",
+            "previously asked",
+            "conversation history"
+          ],
+          "found": [
+            "<think>",
+            "conversation history"
+          ],
+          "passed": false
+        },
+        "max_completion_tokens": {
+          "actual": 825,
+          "expected_maximum": 128,
+          "passed": false
+        },
+        "required_substrings": {
+          "missing": [],
+          "passed": true,
+          "required": [
+            "what is the only message i have sent you in this conversation?"
+          ]
+        }
+      },
+      "completion_preview": "<think> Okay, let me think through this. The user is asking, \"What is the only message I have sent you in this conversation?\" Hmm, so they want to know what the sole message I've sent here is. Wait, but how does that work? Since I'm an AI, I don't actually send messages outside of this conversation. The user is probably referring to the conversation history they've had. But the question says \"the only message I have sent you,\" which might be a bit confusing because in this context, the only mess",
+      "completion_sha256": "bb8a028676e578f74f04f819108e5270cbc82ac4aaab76d571fb2091a771f219",
+      "passed": false
+    },
+    {
+      "case_id": "integrity-code-fence",
+      "checks": {
+        "finish_reason": {
+          "actual": "eos",
+          "expected": [
+            "eos"
+          ],
+          "passed": true
+        },
+        "required_substrings": {
+          "missing": [],
+          "passed": true,
+          "required": [
+            "def add(",
+            "return a + b"
+          ]
+        },
+        "single_python_fence": {
+          "expected": "exactly one complete ```python fenced block and no outside text",
+          "passed": false
+        }
+      },
+      "completion_preview": "<think> Okay, I need to write a Python function called add that takes two integers and returns their sum. The user wants only the complete code inside one fenced block, and they specified to return only the code. Also, they want the response in a single fenced code block. Wait, the user said to put only the complete Python code inside one fenced block. Since they want just the function, maybe I should just write the function definition and ensure it's all within one code block.\n\nWait, the functi",
+      "completion_sha256": "a41ef083ccea2cce83f729429a853a238a2b61d8f0882057df269fb5eb922058",
+      "passed": false
+    }
+  ],
+  "duplicate_case_ids": [],
+  "expected_case_count": 4,
+  "failed_case_count": 4,
+  "generated_at_utc": "2026-08-29T22:10:32.689995+00:00",
+  "generated_programs_executed": 0,
+  "passed": false,
+  "schema_version": 1,
+  "suite_id": "e0-humanevalplus-smoke-v1",
+  "unexpected_case_ids": []
+}

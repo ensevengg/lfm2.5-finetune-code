@@ -1,0 +1,93 @@
+{
+  "gates": {
+    "generation_only_policy": {
+      "detail": {
+        "deferred_to_phase": "E2",
+        "generated_code_execution_allowed": false,
+        "scoring_allowed": false
+      },
+      "passed": true
+    },
+    "model_identity": {
+      "detail": {
+        "actual_sha256": "3e39c292be1f2b2740c3e05a2cb9081260439033e1b05f601117c72c8a73b8e6",
+        "actual_size_bytes": 2343326048,
+        "expected_sha256": "3e39c292be1f2b2740c3e05a2cb9081260439033e1b05f601117c72c8a73b8e6",
+        "expected_size_bytes": 2343326048
+      },
+      "passed": true
+    },
+    "prompt_asset_hash": {
+      "detail": {
+        "actual_sha256": "956c458fd7fcb6ebffecdc4cb1b38ec50b1dfb875ac6d8706a44b13fbb92ebb2",
+        "actual_size_bytes": 2036,
+        "expected_sha256": "956c458fd7fcb6ebffecdc4cb1b38ec50b1dfb875ac6d8706a44b13fbb92ebb2",
+        "expected_size_bytes": 2036
+      },
+      "passed": true
+    },
+    "prompt_entry_points": {
+      "detail": [],
+      "passed": true
+    },
+    "prompt_fields": {
+      "detail": [],
+      "passed": true
+    },
+    "prompt_record_count": {
+      "detail": {
+        "actual": 3,
+        "asset_expected": 3,
+        "suite_expected": 3
+      },
+      "passed": true
+    },
+    "prompt_task_ids": {
+      "detail": {
+        "actual": [
+          "HumanEval/0",
+          "HumanEval/17",
+          "HumanEval/119"
+        ],
+        "duplicates": [],
+        "expected": [
+          "HumanEval/0",
+          "HumanEval/17",
+          "HumanEval/119"
+        ]
+      },
+      "passed": true
+    },
+    "prompt_template": {
+      "detail": {
+        "actual_sha256": "bd97a6ce8e0a574a4426815d9e73ecea2a42beaea9f82ebdfcbbf04a88a8a788",
+        "expected_sha256": "bd97a6ce8e0a574a4426815d9e73ecea2a42beaea9f82ebdfcbbf04a88a8a788",
+        "placeholder_count": 1
+      },
+      "passed": true
+    },
+    "prompt_text_nonempty": {
+      "detail": [],
+      "passed": true
+    },
+    "suite_identity": {
+      "detail": {
+        "schema_version": 1,
+        "suite_id": "e0-humanevalplus-smoke-v1"
+      },
+      "passed": true
+    }
+  },
+  "generated_at_utc": "2026-08-29T22:14:03.156587+00:00",
+  "mode": "primary",
+  "passed": true,
+  "run_id": "e1-smoke-20260829T221352Z-primary",
+  "schema_version": 1,
+  "summary": {
+    "model_sha256": "3e39c292be1f2b2740c3e05a2cb9081260439033e1b05f601117c72c8a73b8e6",
+    "prompt_asset_sha256": "956c458fd7fcb6ebffecdc4cb1b38ec50b1dfb875ac6d8706a44b13fbb92ebb2",
+    "prompt_integrity_case_count": 4,
+    "prompt_record_count": 3,
+    "prompt_template_sha256": "bd97a6ce8e0a574a4426815d9e73ecea2a42beaea9f82ebdfcbbf04a88a8a788"
+  }
+}

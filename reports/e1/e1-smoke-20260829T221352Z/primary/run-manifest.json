@@ -1,0 +1,108 @@
+{
+  "artifacts": [
+    "validation.json",
+    "run-manifest.json",
+    "server-command.json",
+    "environment.json",
+    "generations.jsonl",
+    "logs/server.stdout.log",
+    "logs/server.stderr.log",
+    "behavior-review.json"
+  ],
+  "expected_record_count": 7,
+  "failure": null,
+  "finished_at_utc": "2026-08-29T22:14:23.601977+00:00",
+  "gates": {
+    "asset_validation": {
+      "detail": "/results/validation.json",
+      "passed": true
+    },
+    "container_image": {
+      "detail": {
+        "actual_id": "sha256:550d53ae97c4d83a6c0fba17cd8f532aa6f775e9498d2452fa6f04e33707b4b0",
+        "actual_tag": "lfm25/llama-cpp:3018a11e-cuda128-sm120",
+        "expected_id": "sha256:550d53ae97c4d83a6c0fba17cd8f532aa6f775e9498d2452fa6f04e33707b4b0",
+        "expected_tag": "lfm25/llama-cpp:3018a11e-cuda128-sm120"
+      },
+      "passed": true
+    },
+    "context_size": {
+      "detail": {
+        "actual": 4096,
+        "expected": 4096
+      },
+      "passed": true
+    },
+    "humanevalplus_count": {
+      "detail": {
+        "actual": 3,
+        "expected": 3
+      },
+      "passed": true
+    },
+    "no_execution_or_scoring": {
+      "detail": {
+        "executed": 0,
+        "scored": 0
+      },
+      "passed": true
+    },
+    "no_infrastructure_failure": {
+      "detail": null,
+      "passed": true
+    },
+    "parallel_slots": {
+      "detail": {
+        "actual": 1,
+        "expected": 1
+      },
+      "passed": true
+    },
+    "prompt_integrity_behavior": {
+      "detail": "/results/behavior-review.json",
+      "passed": false
+    },
+    "prompt_integrity_count": {
+      "detail": {
+        "actual": 4,
+        "expected": 4
+      },
+      "passed": true
+    },
+    "request_count": {
+      "detail": {
+        "actual": 7,
+        "expected": 7
+      },
+      "passed": true
+    },
+    "runtime_revision": {
+      "detail": {
+        "build_info": "b0-3018a11e79e489b657dbb77c95694889ccff92df",
+        "expected_revision": "3018a11e79e489b657dbb77c95694889ccff92df"
+      },
+      "passed": true
+    },
+    "server_cli": {
+      "detail": "/results/server-command.json",
+      "passed": true
+    },
+    "silent_truncation": {
+      "detail": [],
+      "passed": true
+    },
+    "terminal_records": {
+      "detail": 7,
+      "passed": true
+    }
+  },
+  "generated_programs_executed": 0,
+  "mode": "primary",
+  "passed": false,
+  "record_count": 7,
+  "run_id": "e1-smoke-20260829T221352Z-primary",
+  "schema_version": 1,
+  "scores_computed": 0,
+  "started_at_utc": "2026-08-29T22:14:03.940090+00:00",
+  "suite_id": "e0-humanevalplus-smoke-v1"
+}

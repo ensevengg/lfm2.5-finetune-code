@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-08-29T22:17:17.1455925Z",
+  "diagnosis": "Corrected E1 prompts include exactly one BOS token.",
+  "merged_hf_run": "reports/e1-differential/e1-hf-diff-20260829T220805Z/merged-hf/generations.jsonl",
+  "merged_gguf_run": "reports/e1/e1-smoke-20260829T221352Z/primary/generations.jsonl",
+  "all_prompt_token_ids_equal": true,
+  "raw_completion_equal_count": 5,
+  "case_count": 7,
+  "cases": [
+    {
+      "case_id": "integrity-greeting",
+      "prompt_token_ids_equal": true,
+      "raw_completion_equal": true,
+      "completion_token_ids_equal_ignoring_terminal_eos": true,
+      "common_completion_prefix_tokens": 87,
+      "merged_hf_completion_tokens": 87,
+      "merged_gguf_completion_tokens_including_eos": 88
+    },
+    {
+      "case_id": "integrity-exact",
+      "prompt_token_ids_equal": true,
+      "raw_completion_equal": false,
+      "completion_token_ids_equal_ignoring_terminal_eos": false,
+      "common_completion_prefix_tokens": 42,
+      "merged_hf_completion_tokens": 76,
+      "merged_gguf_completion_tokens_including_eos": 89
+    },
+    {
+      "case_id": "integrity-state",
+      "prompt_token_ids_equal": true,
+      "raw_completion_equal": false,
+      "completion_token_ids_equal_ignoring_terminal_eos": false,
+      "common_completion_prefix_tokens": 35,
+      "merged_hf_completion_tokens": 330,
+      "merged_gguf_completion_tokens_including_eos": 286
+    },
+    {
+      "case_id": "integrity-code-fence",
+      "prompt_token_ids_equal": true,
+      "raw_completion_equal": true,
+      "completion_token_ids_equal_ignoring_terminal_eos": true,
+      "common_completion_prefix_tokens": 11,
+      "merged_hf_completion_tokens": 11,
+      "merged_gguf_completion_tokens_including_eos": 12
+    },
+    {
+      "case_id": "humanevalplus-HumanEval-0",
+      "prompt_token_ids_equal": true,
+      "raw_completion_equal": true,
+      "completion_token_ids_equal_ignoring_terminal_eos": true,
+      "common_completion_prefix_tokens": 97,
+      "merged_hf_completion_tokens": 97,
+      "merged_gguf_completion_tokens_including_eos": 98
+    },
+    {
+      "case_id": "humanevalplus-HumanEval-17",
+      "prompt_token_ids_equal": true,
+      "raw_completion_equal": true,
+      "completion_token_ids_equal_ignoring_terminal_eos": true,
+      "common_completion_prefix_tokens": 83,
+      "merged_hf_completion_tokens": 83,
+      "merged_gguf_completion_tokens_including_eos": 84
+    },
+    {
+      "case_id": "humanevalplus-HumanEval-119",
+      "prompt_token_ids_equal": true,
+      "raw_completion_equal": true,
+      "completion_token_ids_equal_ignoring_terminal_eos": true,
+      "common_completion_prefix_tokens": 116,
+      "merged_hf_completion_tokens": 116,
+      "merged_gguf_completion_tokens_including_eos": 117
+    }
+  ]
+}

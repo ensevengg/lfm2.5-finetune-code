@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>E1 smoke-test report</title>
+  <style>
+    :root { color-scheme: dark; --bg:#101318; --panel:#191f27; --line:#303947; --text:#edf2f7; --muted:#aeb9c7; --green:#56d39b; --amber:#ffca62; --red:#ff7b86; --blue:#72b7ff; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif; }
+    main { width:min(980px,calc(100% - 32px)); margin:42px auto 80px; }
+    h1,h2 { line-height:1.15; } h1 { margin-bottom:8px; font-size:clamp(2rem,5vw,3.4rem); } h2 { margin-top:36px; }
+    p { max-width:78ch; } code { color:#b9dcff; } a { color:var(--blue); }
+    .muted { color:var(--muted); }
+    .banner,.card { border:1px solid var(--line); border-radius:14px; background:var(--panel); padding:20px; }
+    .banner { border-left:6px solid var(--amber); margin:26px 0; }
+    .banner strong { color:var(--amber); font-size:1.25rem; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; }
+    .metric { font-size:1.7rem; font-weight:750; }
+    .pass { color:var(--green); } .warn { color:var(--amber); } .fail { color:var(--red); }
+    table { width:100%; border-collapse:collapse; background:var(--panel); border:1px solid var(--line); }
+    th,td { padding:12px 14px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    th { color:var(--muted); font-size:.85rem; text-transform:uppercase; letter-spacing:.04em; }
+    ol,ul { padding-left:24px; } li { margin:.55rem 0; }
+    .command { padding:13px 15px; overflow:auto; background:#0b0e12; border:1px solid var(--line); border-radius:9px; }
+    .small { font-size:.9rem; }
+  </style>
+</head>
+<body>
+<main>
+  <p class="muted">LFM2.5 fine-tune evaluation · E1 · 30 August 2026 IST</p>
+  <h1>Smoke test: evaluator fixed, model result is mixed</h1>
+  <p>Corrected run <code>e1-smoke-20260829T221352Z</code> used the merged fine-tune BF16 GGUF in the pinned CUDA llama.cpp container. It generated evidence only: no model-produced program was executed or scored.</p>
+
+  <div class="banner">
+    <strong>Recommendation: do not start the full benchmark yet.</strong>
+    <p>The catastrophic 3,072-token loop was largely caused by a missing BOS token in the first E1 runner and is fixed. Strict instruction adherence remains weak. Freeze a scorer-ready output policy and build the separate E2 execution/scoring smoke before scaling.</p>
+  </div>
+
+  <div class="grid">
+    <div class="card"><div class="metric pass">7 / 7</div><div>primary records saved</div></div>
+    <div class="card"><div class="metric pass">Exact</div><div>HumanEval/0 replay match</div></div>
+    <div class="card"><div class="metric pass">0</div><div>programs executed or scored</div></div>
+    <div class="card"><div class="metric fail">4 / 4</div><div>integrity prompts with visible adherence problems</div></div>
+  </div>
+
+  <h2>What passed</h2>
+  <ul>
+    <li>Docker Desktop 29.7.2 responded and GPU inference worked through WSL2.</li>
+    <li>The exact local image ID and llama.cpp revision <code>3018a11e…</code> matched the frozen suite.</li>
+    <li>The 2.34 GB merged BF16 model, prompt template, and three-record JSONL matched their SHA-256 locks.</li>
+    <li>Every corrected request begins with exactly one BOS token. A regression test now prevents this bug from returning.</li>
+    <li>The server reported one slot and a 4,096-token context. All three HumanEval+ prompts fit without prompt truncation.</li>
+    <li>A second fresh container reproduced HumanEval/0 exactly: rendered-prompt tokens, completion tokens, raw text, counts, and stop reason all matched.</li>
+  </ul>
+
+  <h2>What the manual output review found</h2>
+  <table>
+    <thead><tr><th>Case</th><th>Result</th><th>Observation</th></tr></thead>
+    <tbody>
+      <tr><td>Greeting</td><td class="fail">Fail</td><td>Friendly final answer, but an 88-token reasoning trace violates the strict short-response gate.</td></tr>
+      <tr><td>Exact “Hello”</td><td class="fail">Fail</td><td>The visible final answer was Hello, but a long <code>&lt;think&gt;</code> trace violated “exactly one word.”</td></tr>
+      <tr><td>Conversation state</td><td class="fail">Fail</td><td>Still invents prior turns, but now stops normally at 286 tokens instead of looping to 3,072.</td></tr>
+      <tr><td>Code fence</td><td class="fail">Fail</td><td>Returned concise Python, but omitted the required fenced code block.</td></tr>
+      <tr><td>HumanEval/0</td><td class="warn">Unscored</td><td>Produced complete raw Python and ended normally. Exact replay passed.</td></tr>
+      <tr><td>HumanEval/17</td><td class="warn">Unscored</td><td>Produced complete raw Python and ended normally.</td></tr>
+      <tr><td>HumanEval/119</td><td class="warn">Unscored</td><td>BOS restoration changed the narrow 64-token answer into the same structured 116-token solution produced by merged Hugging Face, plus terminal EOS. E1 still made no correctness claim.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Why this is still useful</h2>
+  <p>The original runner tokenized the string returned by llama.cpp's <code>/apply-template</code> with <code>add_special=false</code>. That endpoint omits BOS because a later string-based completion normally adds it; E1 instead sent token IDs, so BOS was never restored. With <code>add_special=true</code>, all seven prompt-token sequences match merged Hugging Face. Five of seven raw completions then match byte-for-byte; the two longer reasoning responses diverge after 42 and 35 common tokens but fail the same strict requirements.</p>
+
+  <h2>Original versus fine-tuned model</h2>
+  <p>The original upstream model also failed all four strict integrity checks and was much more verbose: 221, 252, 825, and 446 tokens versus the corrected fine-tune's 88, 89, 286, and 12. On the three code prompts, the original generated 1,433, 1,748, and 3,072 tokens; the fine-tune generated 98, 84, and 117 including EOS. The fine-tune is not simply “broken”: it substantially improved coding concision, while conversation-state hallucination and reasoning leakage remain real weaknesses.</p>
+
+  <h2>Fix before scaling</h2>
+  <ol>
+    <li><strong>Plain-Python prompt created.</strong> <code>lfm-code-v1</code> now requests raw Python only, without Markdown fences, outside explanation, or reasoning tags. V0 remains unchanged; the next suite version will adopt V1 before rerunning E1.</li>
+    <li><strong>Add a derived solution extractor.</strong> Preserve <code>raw_completion</code> unchanged. Separately derive <code>solution</code> by handling one closed <code>&lt;think&gt;</code> section, one Python fence, or plain Python. Reject ambiguous/malformed output. Parsing Python is allowed here; executing it is not.</li>
+    <li><strong>Keep the new behavioral and BOS gates.</strong> They now make the command exit non-zero for exact-output, invented-state, length, format, or prompt-encoding failures.</li>
+    <li><strong>Build E2 as a separate scoring container.</strong> It should have no network or GPU, run non-root with strict CPU/RAM/PID/time limits, mount only EvalPlus assets and derived samples read-only, and expose only a results directory as writable. Never mount the model, repository, Docker socket, credentials, or home directory into the scorer.</li>
+    <li><strong>Run E2 only on these three development tasks.</strong> Inspect extraction and scorer output. Once stable, keep HumanEval/0, 17, and 119 out of the sealed headline set as your frozen contract requires.</li>
+    <li><strong>Keep the A/B baseline in the benchmark plan.</strong> The frozen upstream and merged Hugging Face checkpoints were compared successfully. A separate original upstream GGUF is still needed if the final A/B must use exactly the same llama.cpp runtime.</li>
+  </ol>
+
+  <h2>Commands and evidence</h2>
+  <p>Repeat this exact generation smoke with:</p>
+  <pre class="command">.\scripts\run_e1.ps1</pre>
+  <ul class="small">
+    <li><a href="eval_process_step_by_step.html">Step-by-step evaluation runbook</a></li>
+    <li><a href="reports/e1/e1-smoke-20260829T221352Z/primary/run-manifest.json">Corrected primary gate manifest</a></li>
+    <li><a href="reports/e1/e1-smoke-20260829T221352Z/primary/behavior-review.json">Automated behavior review</a></li>
+    <li><a href="reports/e1/e1-smoke-20260829T221352Z/primary/generations.jsonl">Seven corrected raw generation records</a></li>
+    <li><a href="reports/e1/e1-smoke-20260829T221352Z/replay/replay-comparison.json">Exact corrected replay comparison</a></li>
+    <li><a href="reports/e1-differential/e1-hf-diff-20260829T220805Z/comparison-corrected-bos.json">Merged HF versus corrected GGUF comparison</a></li>
+    <li><a href="reports/e1-differential/e1-hf-diff-20260829T220805Z/original-hf/generations.jsonl">Original upstream HF generations</a></li>
+    <li><a href="docs/evaluation/e0-contract.md">Frozen E0/E1 contract</a></li>
+  </ul>
+
+  <p class="muted small">Infrastructure and replay: PASS. Prompt encoding: PASS after BOS fix. Strict behavior gate: FAIL/HOLD. No correctness claim is made for the three generated programs because E1 forbids execution and scoring.</p>
+</main>
+</body>
+</html>
