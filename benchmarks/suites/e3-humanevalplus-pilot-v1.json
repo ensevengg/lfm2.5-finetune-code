@@ -1,0 +1,165 @@
+{
+  "acceptance_gate": {
+    "extraction_yield_min": 0.95,
+    "infra_failure_rate_max": 0.02,
+    "report_required": "pilot report with per-row yield, failures, timing",
+    "terminal_record_per_task_per_row": true,
+    "thresholds_frozen_after": "pilot report, before any sealed request"
+  },
+  "burned_task_ids": [
+    "HumanEval/0",
+    "HumanEval/17",
+    "HumanEval/119"
+  ],
+  "created_at": "2026-09-12",
+  "dataset": {
+    "name": "HumanEvalPlus",
+    "path": "HumanEvalPlus.jsonl/HumanEvalPlus.jsonl",
+    "record_count": 164,
+    "release": "v0.1.10",
+    "sha256": "42526ec0e7d5f3ee0b06d6ced98f8c8bae3d76519151bfb3d36f79010645bd7f",
+    "size_bytes": 7714666
+  },
+  "development_only": true,
+  "extraction_policy": {
+    "batch_continues_after_task_failure": true,
+    "executes_generated_programs": false,
+    "failure_scores_as": "incorrect",
+    "per_task_failure_record": "extraction_failure",
+    "raw_output_preserved": true,
+    "repair_allowed": false
+  },
+  "extractor": {
+    "extractor_id": "python-solution-v1",
+    "implementation_path": "scripts/export_evalplus_samples.py",
+    "manifest_path": "benchmarks/extractors/python-solution-v1.json"
+  },
+  "generation": {
+    "samples_per_task": 1,
+    "sampling": "greedy",
+    "seed": 42,
+    "server_per_row": true,
+    "temperature": 0
+  },
+  "model_rows": [
+    {
+      "alias": "original-bf16",
+      "evidence_report": "reports/phase5/original-baseline-conversion.json",
+      "path": "artifacts/gguf/phase5/lfm2.5-1.2b-thinking-original-bf16.gguf",
+      "role": "upstream baseline",
+      "sha256": "2e948214bc4f2af1990039946cee14ad1525ed41108d3fb77a4ec06c7ceec781",
+      "size_bytes": 2343326656
+    },
+    {
+      "alias": "merged-bf16",
+      "evidence_report": "reports/phase1/bf16-conversion.json",
+      "path": "artifacts/gguf/lfm2.5-1.2b-thinking-kodcode-bf16.gguf",
+      "role": "fine-tuned reference",
+      "sha256": "3e39c292be1f2b2740c3e05a2cb9081260439033e1b05f601117c72c8a73b8e6",
+      "size_bytes": 2343326048
+    },
+    {
+      "alias": "q8_0",
+      "evidence_report": "reports/phase2/quantization.json",
+      "path": "artifacts/gguf/phase2/lfm2.5-1.2b-thinking-kodcode-q8_0.gguf",
+      "role": "pilot candidate",
+      "sha256": "3e2223fa4baf49896f1a58d0b73e02f5143b745d8deb71a01a6038b7994ce394",
+      "size_bytes": 1246253408
+    },
+    {
+      "alias": "q6_k",
+      "evidence_report": "reports/phase2/quantization.json",
+      "path": "artifacts/gguf/phase2/lfm2.5-1.2b-thinking-kodcode-q6_k.gguf",
+      "role": "pilot candidate",
+      "sha256": "d1a14fa33fba75118c8262827bfcadc89d0c549d628ac243014df81a14d8f331",
+      "size_bytes": 962842976
+    }
+  ],
+  "pilot_task_count": 33,
+  "pilot_task_ids": [
+    "HumanEval/1",
+    "HumanEval/6",
+    "HumanEval/11",
+    "HumanEval/16",
+    "HumanEval/22",
+    "HumanEval/27",
+    "HumanEval/32",
+    "HumanEval/37",
+    "HumanEval/42",
+    "HumanEval/47",
+    "HumanEval/52",
+    "HumanEval/57",
+    "HumanEval/62",
+    "HumanEval/67",
+    "HumanEval/72",
+    "HumanEval/77",
+    "HumanEval/82",
+    "HumanEval/87",
+    "HumanEval/92",
+    "HumanEval/97",
+    "HumanEval/102",
+    "HumanEval/107",
+    "HumanEval/112",
+    "HumanEval/117",
+    "HumanEval/123",
+    "HumanEval/128",
+    "HumanEval/133",
+    "HumanEval/138",
+    "HumanEval/143",
+    "HumanEval/148",
+    "HumanEval/153",
+    "HumanEval/158",
+    "HumanEval/163"
+  ],
+  "plan": "docs/evaluation/step5-pilot-and-sealed-benchmark-plan.md",
+  "prompt": {
+    "bos_policy": "Every tokenized request begins with exactly one BOS token.",
+    "bos_token_id": 1,
+    "manifest_path": "benchmarks/prompts/lfm-code-v1.json",
+    "manifest_sha256": "35acbdda228acc373e802345a98cdf4ee2616274a6be73db9108db7c7ba314ed",
+    "manifest_size_bytes": 939,
+    "placeholder": "{{BENCHMARK_PROMPT}}",
+    "prompt_id": "lfm-code-v1",
+    "template_path": "benchmarks/prompts/lfm-code-v1.txt",
+    "template_sha256": "f3d4b17279edb68261ae2a7094cfce64bd8c236397b3d0f548c7e01c15398cf6",
+    "template_size_bytes": 290
+  },
+  "purpose": "Validate the E3 harness at scale, implement the frozen retry policy, measure extraction yield, and size the predeclared sealed gates. Scores from this suite are tuning evidence and are never headline results; pilot task IDs become burned after E3.",
+  "retry_policy": {
+    "duplicate_generation_key": "reject unless explicit resume",
+    "infrastructure_retry_allowed": 1,
+    "infrastructure_retry_requires": "fresh server process for the row",
+    "model_identity_mismatch": "abort before first request",
+    "model_outcome_retry_allowed": false,
+    "second_consecutive_infra_failure": "abort the row"
+  },
+  "runtime": {
+    "cache_type_k": "f16",
+    "cache_type_v": "f16",
+    "context_tokens": 4096,
+    "fit": "off",
+    "flash_attention": true,
+    "gpu_layers": "all",
+    "llama_cpp_commit": "3018a11e79e489b657dbb77c95694889ccff92df",
+    "max_output_tokens": 3072,
+    "parallel_slots": 1,
+    "toolchain_image": "lfm25/llama-cpp:3018a11e-cuda128-sm120",
+    "toolchain_image_id": "sha256:550d53ae97c4d83a6c0fba17cd8f532aa6f775e9498d2452fa6f04e33707b4b0"
+  },
+  "schema_version": 1,
+  "scoring": {
+    "executes_generated_programs": true,
+    "host_execution_allowed": false,
+    "scorer_suite": "e2-humanevalplus-dev-v1 (same restricted container boundary)"
+  },
+  "sealed_task_count_removable": 128,
+  "selection_rule": {
+    "canonical_list_sha256": "d22bef9489c7643b6f61a4b8e0404cdf3499e9be57f0ac7d0dd4c39d7a4119c2",
+    "offset": 0,
+    "ordering": "ascending numeric HumanEval task id",
+    "rule": "stride",
+    "stride": 5
+  },
+  "status": "frozen-ready-for-runner-implementation",
+  "suite_id": "e3-humanevalplus-pilot-v1"
+}
