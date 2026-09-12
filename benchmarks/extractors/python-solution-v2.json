@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "extractor_id": "python-solution-v2",
+  "status": "frozen-ready-for-e3-pilot",
+  "created_at": "2026-09-12",
+  "supersedes_for": "e3-humanevalplus-pilot-v1 and later multi-task suites",
+  "supersedes_reason": "v1's all-or-nothing batch policy voids a whole row when one output at 33-128 task scale is unextractable; the E3 suite freezes per-task failure records scored as zero. v1 files remain byte-identical for E1/E2 evidence.",
+  "implementation": {
+    "path": "scripts/export_evalplus_samples_v2.py",
+    "sha256": "d16b5f4e5a490c8f9657f462d56cd5125f5b13087cae4d7a09937e823536ef66",
+    "size_bytes": 6138,
+    "imports_frozen_v1_logic": true,
+    "v1_implementation_path": "scripts/export_evalplus_samples.py",
+    "v1_implementation_sha256": "8b102e6b64d4ec540de73fa1f49f9d16b85282a0c2674aa312eca182dbd29727"
+  },
+  "required_prompt": {
+    "prompt_id": "lfm-code-v1",
+    "prompt_sha256": "f3d4b17279edb68261ae2a7094cfce64bd8c236397b3d0f548c7e01c15398cf6"
+  },
+  "input_selection": {
+    "source": "rich generations.jsonl evidence",
+    "case_kind_prefix": "humanevalplus",
+    "required_record_fields": [
+      "task_id",
+      "entry_point",
+      "prompt_id",
+      "prompt_sha256",
+      "raw_completion"
+    ]
+  },
+  "ordered_transformations": [
+    "Reuse the frozen v1 extraction logic unchanged, including its ordered transformations, accepted forms, and rejection rules.",
+    "Record one terminal case per selected record: extracted, with strategy and hashes, or extraction_failure, with error type and raw hash.",
+    "Publish a samples file containing only the extracted tasks; failed tasks are absent by design and score zero at scoring time."
+  ],
+  "batch_policy": {
+    "per_task_failure_record": "extraction_failure",
+    "batch_continues_after_task_failure": true,
+    "partial_samples_file_allowed": true,
+    "failed_tasks_score_as": "incorrect",
+    "overwrite_existing_evidence_allowed": false,
+    "duplicate_task_ids_allowed": false,
+    "duplicate_task_ids_are_batch_fatal": true
+  },
+  "output_schema": {
+    "format": "jsonl",
+    "exact_fields": [
+      "task_id",
+      "solution"
+    ],
+    "separate_extraction_report_required": true,
+    "report_schema_version": 2,
+    "report_extra_fields": [
+      "failed_task_ids",
+      "extraction_yield",
+      "policy",
+      "extractor_id"
+    ]
+  },
+  "safety": {
+    "parses_generated_programs": true,
+    "imports_generated_programs": false,
+    "executes_generated_programs": false,
+    "mutates_source_generations": false
+  }
+}
