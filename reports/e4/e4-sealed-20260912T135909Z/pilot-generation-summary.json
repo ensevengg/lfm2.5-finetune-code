@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "run_id": "e4-sealed-20260912T135909Z",
+  "mode": "pilot-generation",
+  "suite_id": "e4-humanevalplus-sealed-v1",
+  "generated_at_utc": "2026-09-12T14:34:46.6846188Z",
+  "skipped_extraction": false,
+  "overall_passed": true,
+  "rows": [
+    {
+      "row_alias": "original-bf16",
+      "model_sha256": "2e948214bc4f2af1990039946cee14ad1525ed41108d3fb77a4ec06c7ceec781",
+      "exit_code": 0,
+      "passed": true,
+      "extraction_passed": true,
+      "extraction_yield": 0.789062,
+      "summary": {
+        "task_count": 128,
+        "generation_record_count": 128,
+        "terminal_record_count": 128,
+        "retried_task_count": 0,
+        "infrastructure_failure_count": 0,
+        "duplicate_generation_keys": 0,
+        "total_completion_tokens": 211732,
+        "generated_programs_executed": 0
+      },
+      "evidence_directory": "D:\\code\\model_training\\lfm2.5-finetune\\reports\\e4\\e4-sealed-20260912T135909Z\\original-bf16"
+    }
+  ],
+  "generated_programs_executed": 0
+}

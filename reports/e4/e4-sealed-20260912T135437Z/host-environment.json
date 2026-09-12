@@ -1,0 +1,10 @@
+{
+  "captured_at_utc": "2026-09-12T13:54:37.2460174Z",
+  "operating_system": "Microsoft Windows NT 10.0.26200.0",
+  "powershell": "7.6.6",
+  "machine": "NERVE",
+  "processor_count": 16,
+  "docker_server_version": "29.7.2",
+  "docker_image_tag": "lfm25/llama-cpp:3018a11e-cuda128-sm120",
+  "docker_image_id": "sha256:550d53ae97c4d83a6c0fba17cd8f532aa6f775e9498d2452fa6f04e33707b4b0"
+}

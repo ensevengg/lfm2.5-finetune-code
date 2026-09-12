@@ -1,0 +1,536 @@
+{
+  "cases": [
+    {
+      "entry_point": "separate_paren_groups",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "54c9ca053ba5f3f8b6e2a13830a337980d79f4993a913c29c11e014bc5eca3ad",
+      "raw_completion_size_bytes": 10823,
+      "solution_sha256": "1b3fcadbd9dc572fa077648d56a065d008c697cfc1e0db8d8eb00b03195c2e43",
+      "solution_size_bytes": 408,
+      "status": "extracted",
+      "strategy": "reasoning_prefix_then_plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/1",
+      "warnings": [
+        "reasoning_tags_present"
+      ]
+    },
+    {
+      "entry_point": "parse_nested_parens",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "121113fe9da6c9b83d32543e7f13d45775d028c43139c8c7ee05719b24667289",
+      "raw_completion_size_bytes": 5971,
+      "solution_sha256": "21bebada265ff68e61f9d1ba7ac3192b5c2fd1e385de2e68f3107169c439d3bc",
+      "solution_size_bytes": 306,
+      "status": "extracted",
+      "strategy": "reasoning_prefix_then_plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/6",
+      "warnings": [
+        "reasoning_tags_present"
+      ]
+    },
+    {
+      "entry_point": "string_xor",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "1e4665a43ca08a9ba7b0cc521e2245e0e8f4a8e20d6cf84af30cb9a11dee1c5b",
+      "raw_completion_size_bytes": 5359,
+      "solution_sha256": "24b18ff8cd28e8b83d516a4e5d4972599fe3ffdf7bc6506762ad18be2eff6753",
+      "solution_size_bytes": 256,
+      "status": "extracted",
+      "strategy": "reasoning_prefix_then_plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/11",
+      "warnings": [
+        "reasoning_tags_present"
+      ]
+    },
+    {
+      "entry_point": "count_distinct_characters",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "80122eb3a43ae318b6853d467699783fcbb88c5c8d5c55ee10e309f3b127447c",
+      "raw_completion_size_bytes": 4659,
+      "solution_sha256": "745716dd90c3869324d79f7fc44ce7a14889f115b32f56be3546a5812e6582d9",
+      "solution_size_bytes": 86,
+      "status": "extracted",
+      "strategy": "reasoning_prefix_then_plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/16",
+      "warnings": [
+        "reasoning_tags_present"
+      ]
+    },
+    {
+      "entry_point": "filter_integers",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "a7a14404ea01f5dcbb9be1f9962178afbd303ae950a216cae5d73d49e7f7aaf7",
+      "raw_completion_size_bytes": 3156,
+      "solution_sha256": "46bc4a52d9bc3c909c8e82c651aff719ef321aeb8862042ae009842c0e62d4e7",
+      "solution_size_bytes": 266,
+      "status": "extracted",
+      "strategy": "reasoning_prefix_then_plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/22",
+      "warnings": [
+        "reasoning_tags_present"
+      ]
+    },
+    {
+      "entry_point": "flip_case",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "547cdf7ea8a9ef1877da4472479aa9e289f1352be9916d4cbec935eb6ca6b876",
+      "raw_completion_size_bytes": 2925,
+      "solution_sha256": "3de9faf93ded89149043f03e01cf82ee83e9621a783a8861644fe79a892a3c92",
+      "solution_size_bytes": 184,
+      "status": "extracted",
+      "strategy": "reasoning_prefix_then_plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/27",
+      "warnings": [
+        "reasoning_tags_present"
+      ]
+    },
+    {
+      "entry_point": "find_zero",
+      "error_message": "'(' was never closed (<HumanEval/32-derived-solution>, line 3)",
+      "error_type": "SyntaxError",
+      "generated_program_executed": false,
+      "raw_completion_sha256": "096ac0eebdea09747cd96d73eed09d770bd95da62db8ed33d757d8ad041747a0",
+      "raw_completion_size_bytes": 2301,
+      "status": "extraction_failure",
+      "task_id": "HumanEval/32"
+    },
+    {
+      "entry_point": "sort_even",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "7ff7dae63ef0b51e60cd19e02918537fef6e6d58bdef855c3440faa46a36e18f",
+      "raw_completion_size_bytes": 6878,
+      "solution_sha256": "3aa02d0c4e8d6bbc08251932a7b3460a82fe0c0a5a38b62aba044b5f61f0fa94",
+      "solution_size_bytes": 151,
+      "status": "extracted",
+      "strategy": "reasoning_prefix_then_plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/37",
+      "warnings": [
+        "reasoning_tags_present"
+      ]
+    },
+    {
+      "entry_point": "incr_list",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "9aab82e076ba154aa2acb9c6a9a11e28a75273f48b2b9e87694243996502bbe4",
+      "raw_completion_size_bytes": 4116,
+      "solution_sha256": "9e5fdd74e6c199c6fd1101827ac6d7f958f11a6b114b5b4c24798567b15bb378",
+      "solution_size_bytes": 107,
+      "status": "extracted",
+      "strategy": "reasoning_prefix_then_plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/42",
+      "warnings": [
+        "reasoning_tags_present"
+      ]
+    },
+    {
+      "entry_point": "median",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "bedd1b145fd4f91e231a34317d02c20f5116fb91effdf10e70bbe19c55834ba0",
+      "raw_completion_size_bytes": 6506,
+      "solution_sha256": "0a5f887fdb151d4338d046fc2abda90fa5cc355ed233ea6a53659f9bf7ab6e6a",
+      "solution_size_bytes": 197,
+      "status": "extracted",
+      "strategy": "reasoning_prefix_then_plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/47",
+      "warnings": [
+        "reasoning_tags_present"
+      ]
+    },
+    {
+      "entry_point": "below_threshold",
+      "error_message": "invalid syntax (<HumanEval/52-derived-solution>, line 7)",
+      "error_type": "SyntaxError",
+      "generated_program_executed": false,
+      "raw_completion_sha256": "03fc4fbceeab9e1da8374452f5c2979703a41198a52898f318812f66d41531bb",
+      "raw_completion_size_bytes": 4347,
+      "status": "extraction_failure",
+      "task_id": "HumanEval/52"
+    },
+    {
+      "entry_point": "monotonic",
+      "error_message": "'(' was never closed (<HumanEval/57-derived-solution>, line 10)",
+      "error_type": "SyntaxError",
+      "generated_program_executed": false,
+      "raw_completion_sha256": "e500f23cf54214390f4b1f389800e1b6e87ed371c3c72ea31b89e6b351dfa51d",
+      "raw_completion_size_bytes": 7475,
+      "status": "extraction_failure",
+      "task_id": "HumanEval/57"
+    },
+    {
+      "entry_point": "derivative",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "dddc84479b21e7c279716c6c68a6c16c3f9ea287958c018b18b4682f9da3f28c",
+      "raw_completion_size_bytes": 7997,
+      "solution_sha256": "5a123d1f05156bb90637ff781c5a2aa2d4b29da981345219bb82fc34364ce220",
+      "solution_size_bytes": 77,
+      "status": "extracted",
+      "strategy": "reasoning_prefix_then_plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/62",
+      "warnings": [
+        "reasoning_tags_present"
+      ]
+    },
+    {
+      "entry_point": "fruit_distribution",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "b95e6de47fa1d5a93ece851c3d2ab0020ecbe3555358bf62af84f6627cc0458f",
+      "raw_completion_size_bytes": 5747,
+      "solution_sha256": "8921c873d0762a00df17a493cb2cbeef5f498a6e280544614d3c2fb37038cfab",
+      "solution_size_bytes": 89,
+      "status": "extracted",
+      "strategy": "reasoning_prefix_then_plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/67",
+      "warnings": [
+        "reasoning_tags_present"
+      ]
+    },
+    {
+      "entry_point": "will_it_fly",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "4c876199fd319c14d712347c67779757278f38c8dad9c391bd4e4e2575295ee8",
+      "raw_completion_size_bytes": 2237,
+      "solution_sha256": "31edd31181fb310f408d412b2aa93df75522a25754086a63411bd73336aa24b6",
+      "solution_size_bytes": 63,
+      "status": "extracted",
+      "strategy": "reasoning_prefix_then_plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/72",
+      "warnings": [
+        "reasoning_tags_present"
+      ]
+    },
+    {
+      "entry_point": "iscube",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "73f0ebd15905003222099b207ec32004d3b3b8e85c58250acb92afc1fe06a439",
+      "raw_completion_size_bytes": 6962,
+      "solution_sha256": "99699e9eca3fe9cd4d0e8a5a4d8015e578e3f65ee6ef9a5d57214a7849834f98",
+      "solution_size_bytes": 53,
+      "status": "extracted",
+      "strategy": "reasoning_prefix_then_plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/77",
+      "warnings": [
+        "reasoning_tags_present"
+      ]
+    },
+    {
+      "entry_point": "prime_length",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "ba91ac979c7c58a321c8bf7179b6132fda3c44e307749f6e6770f75849a5024d",
+      "raw_completion_size_bytes": 6154,
+      "solution_sha256": "11170004f4f75827e1301bed0cbd6b50688e324b24df79dd0b246bdeb79afafd",
+      "solution_size_bytes": 182,
+      "status": "extracted",
+      "strategy": "reasoning_prefix_then_plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/82",
+      "warnings": [
+        "reasoning_tags_present"
+      ]
+    },
+    {
+      "entry_point": "get_row",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "7a9d367fd98dac3df0a0fb3313ca47b265b1c6a6270d4a26398ef28c74dd9b0a",
+      "raw_completion_size_bytes": 7551,
+      "solution_sha256": "21f767ffc7ac8b928f0a89c5eb55b8364186bda5b36479e115224228b9a28185",
+      "solution_size_bytes": 235,
+      "status": "extracted",
+      "strategy": "reasoning_prefix_then_plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/87",
+      "warnings": [
+        "reasoning_tags_present"
+      ]
+    },
+    {
+      "entry_point": "any_int",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "0b5d271983da62e4fff924f3024ef2b15f5d6356cb847ce68b99bd7c3b75000f",
+      "raw_completion_size_bytes": 3711,
+      "solution_sha256": "9836484228cf3571ca56e74b9f046e59f4c0a5aa92156bd8a15f5a8c603bc251",
+      "solution_size_bytes": 147,
+      "status": "extracted",
+      "strategy": "reasoning_prefix_then_plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/92",
+      "warnings": [
+        "reasoning_tags_present"
+      ]
+    },
+    {
+      "entry_point": "multiply",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "5b74c498da18fcfbe312362d9757f2d61ab44c4eb823dd909a1e2284f59274c6",
+      "raw_completion_size_bytes": 5477,
+      "solution_sha256": "cf5584cb624fb54dffe5ba6d63638cddd9d7002b10b597d719bf887f646eb1dc",
+      "solution_size_bytes": 157,
+      "status": "extracted",
+      "strategy": "reasoning_prefix_then_plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/97",
+      "warnings": [
+        "reasoning_tags_present"
+      ]
+    },
+    {
+      "entry_point": "choose_num",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "386ea7e6aefd9ae092750e3454eeabb5d1b211f9eb83a82854ebe6c4e9869275",
+      "raw_completion_size_bytes": 3690,
+      "solution_sha256": "a4a71ac2050c959b03ddfc4d0e22c526dbffc790d8fd8629eae3cd61262fbc2a",
+      "solution_size_bytes": 259,
+      "status": "extracted",
+      "strategy": "reasoning_prefix_then_plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/102",
+      "warnings": [
+        "reasoning_tags_present"
+      ]
+    },
+    {
+      "entry_point": "even_odd_palindrome",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "db4d1463b171207b316c66ce9d54c6d9654b0dffb51e9b10cd9e29e79f758fa2",
+      "raw_completion_size_bytes": 5241,
+      "solution_sha256": "c64a49db0ce8cf89bc9f00bc38b28c6a04c0b0ee787e45413d7d821e496203c5",
+      "solution_size_bytes": 268,
+      "status": "extracted",
+      "strategy": "reasoning_prefix_then_plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/107",
+      "warnings": [
+        "reasoning_tags_present"
+      ]
+    },
+    {
+      "entry_point": "reverse_delete",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "5cd5919e877d29c1570e84a40e4f63ed0e1a3ce071ff943b7567cb3e05635ce8",
+      "raw_completion_size_bytes": 3837,
+      "solution_sha256": "fe4af686ebace0e81225bab00ff74483ea4f1d05f4e6ad7d2617a4586764275e",
+      "solution_size_bytes": 150,
+      "status": "extracted",
+      "strategy": "reasoning_prefix_then_plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/112",
+      "warnings": [
+        "reasoning_tags_present"
+      ]
+    },
+    {
+      "entry_point": "select_words",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "c8134d08131b7763bc18e330ca0b4eea3d44e155d622c53d5f5992002d27aeca",
+      "raw_completion_size_bytes": 6283,
+      "solution_sha256": "d25ed257bd0607780052022be33dc2f49f04cda6fc0b69b46ee90956dd62bde2",
+      "solution_size_bytes": 260,
+      "status": "extracted",
+      "strategy": "reasoning_prefix_then_plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/117",
+      "warnings": [
+        "reasoning_tags_present"
+      ]
+    },
+    {
+      "entry_point": "get_odd_collatz",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "dd5eafed3883879a523aba845f4f688e13d5e4c3b44b24e157ff43c2ada75d2e",
+      "raw_completion_size_bytes": 3990,
+      "solution_sha256": "08b7b49d4d551f299b5717980df514a79416d1726c9693b37b1894eb788ff991",
+      "solution_size_bytes": 242,
+      "status": "extracted",
+      "strategy": "reasoning_prefix_then_plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/123",
+      "warnings": [
+        "reasoning_tags_present"
+      ]
+    },
+    {
+      "entry_point": "prod_signs",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "ccdf0d162c3b41bf0f38c32b9f6c8208e1389b82802054f7f933333503170b99",
+      "raw_completion_size_bytes": 6361,
+      "solution_sha256": "3541f149122538d0f792cac81ea25d123c15252adf1371b69b4ab6f333d7ce3c",
+      "solution_size_bytes": 266,
+      "status": "extracted",
+      "strategy": "reasoning_prefix_then_plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/128",
+      "warnings": [
+        "reasoning_tags_present"
+      ]
+    },
+    {
+      "entry_point": "sum_squares",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "16daf306d5d95c3b2569e6410d91f05cb09d019cb492f75999fabddbb2610d8b",
+      "raw_completion_size_bytes": 3651,
+      "solution_sha256": "58ae956e8317ac445048d0c0756fc5b4eb7e75554dd0fe5d5b3e513b3f65202a",
+      "solution_size_bytes": 78,
+      "status": "extracted",
+      "strategy": "reasoning_prefix_then_plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/133",
+      "warnings": [
+        "reasoning_tags_present"
+      ]
+    },
+    {
+      "entry_point": "is_equal_to_sum_even",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "f183b8bc62b825819a46860ad7a4d5670442f37877f162bac7fe75738a4add36",
+      "raw_completion_size_bytes": 3311,
+      "solution_sha256": "f7a2065d075c203d7d2ea12cd8733b7a034ac1894fef63733bfe5553d1b3814d",
+      "solution_size_bytes": 63,
+      "status": "extracted",
+      "strategy": "reasoning_prefix_then_plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/138",
+      "warnings": [
+        "reasoning_tags_present"
+      ]
+    },
+    {
+      "entry_point": "words_in_sentence",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "60deccd4b2c259c1b72fccb6c02b912e72ebceaab7bea68cca42f7c35fc07f24",
+      "raw_completion_size_bytes": 5121,
+      "solution_sha256": "57e7f995b2df446aeff0c92d502782881e6a05613344324c9654be95a5ef9c57",
+      "solution_size_bytes": 292,
+      "status": "extracted",
+      "strategy": "reasoning_prefix_then_plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/143",
+      "warnings": [
+        "reasoning_tags_present"
+      ]
+    },
+    {
+      "entry_point": "bf",
+      "error_message": "HumanEval/148: expected exactly one closed reasoning prefix",
+      "error_type": "ValueError",
+      "generated_program_executed": false,
+      "raw_completion_sha256": "aa90f67a7196c4da4ad2bfe1571c2af796fd1d203fc7b19086ce18e2845db605",
+      "raw_completion_size_bytes": 11493,
+      "status": "extraction_failure",
+      "task_id": "HumanEval/148"
+    },
+    {
+      "entry_point": "Strongest_Extension",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "06e7c876a25c46bc6a26d1cd17ebd0223038ea2ee34726d0fb4cb8305aa42a59",
+      "raw_completion_size_bytes": 6799,
+      "solution_sha256": "a19485013051e1f53ae77c3a402fd38c93484f0b4d29a27cad6fe78a5052c7ac",
+      "solution_size_bytes": 387,
+      "status": "extracted",
+      "strategy": "reasoning_prefix_then_plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/153",
+      "warnings": [
+        "reasoning_tags_present"
+      ]
+    },
+    {
+      "entry_point": "find_max",
+      "entry_point_found": true,
+      "generated_program_executed": false,
+      "raw_completion_sha256": "b3a7cf20770849aa08319a79594220d003374c201a2fefe5e3eaf7796c401cce",
+      "raw_completion_size_bytes": 9220,
+      "solution_sha256": "5ab865b44b5d0e0a02b97fd78454464c7b5dedce3968414279f40fa3de47d275",
+      "solution_size_bytes": 294,
+      "status": "extracted",
+      "strategy": "reasoning_prefix_then_plain_python",
+      "syntax_valid": true,
+      "task_id": "HumanEval/158",
+      "warnings": [
+        "reasoning_tags_present"
+      ]
+    },
+    {
+      "entry_point": "generate_integers",
+      "error_message": "HumanEval/163: expected exactly one closed reasoning prefix",
+      "error_type": "ValueError",
+      "generated_program_executed": false,
+      "raw_completion_sha256": "9edd82c80f64c6a5e7898ba07aab26e7b7a144ee3c6c46c31093e1f4008e1629",
+      "raw_completion_size_bytes": 10793,
+      "status": "extraction_failure",
+      "task_id": "HumanEval/163"
+    }
+  ],
+  "duplicate_task_ids": [],
+  "exported_sample_count": 28,
+  "extraction_yield": 0.848485,
+  "extractor_id": "python-solution-v2",
+  "failed_extraction_count": 5,
+  "failed_task_ids": [
+    "HumanEval/148",
+    "HumanEval/163",
+    "HumanEval/32",
+    "HumanEval/52",
+    "HumanEval/57"
+  ],
+  "generated_at_utc": "2026-09-12T13:26:15.842941+00:00",
+  "generated_programs_executed": false,
+  "ignored_record_count": 0,
+  "passed": true,
+  "policy": "per_task_failure_records_score_zero",
+  "prompt_id": "lfm-code-v1",
+  "prompt_sha256": "f3d4b17279edb68261ae2a7094cfce64bd8c236397b3d0f548c7e01c15398cf6",
+  "samples_output": {
+    "path": "D:\\code\\model_training\\lfm2.5-finetune\\reports\\e3\\e3-pilot-20260912T131807Z\\original-bf16\\samples.jsonl",
+    "sha256": "ef1f415de42aa42f4ca3c4495d79c9074ec88c26e4e0833378a09cadc2623ea2",
+    "size_bytes": 6880
+  },
+  "schema_version": 2,
+  "selected_record_count": 33,
+  "source_generations": {
+    "path": "D:\\code\\model_training\\lfm2.5-finetune\\reports\\e3\\e3-pilot-20260912T131807Z\\original-bf16\\results\\generations.jsonl",
+    "record_count": 33,
+    "sha256": "1b7d480d5806225e367e59c7ab9de5ee90723d4152eb8b0c961b2c7fb58a908c",
+    "size_bytes": 621535
+  },
+  "started_at_utc": "2026-09-12T13:26:15.831671+00:00",
+  "successful_extraction_count": 28
+}

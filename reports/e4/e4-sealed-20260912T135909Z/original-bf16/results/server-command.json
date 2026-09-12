@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "command": [
+    "/opt/llama/bin/llama-server",
+    "--model",
+    "/model/model.gguf",
+    "--alias",
+    "original-bf16",
+    "--ctx-size",
+    "4096",
+    "--n-gpu-layers",
+    "all",
+    "--flash-attn",
+    "on",
+    "--cache-type-k",
+    "f16",
+    "--cache-type-v",
+    "f16",
+    "--fit",
+    "off",
+    "--parallel",
+    "1",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "8080",
+    "--offline",
+    "--no-warmup"
+  ],
+  "row_alias": "original-bf16"
+}

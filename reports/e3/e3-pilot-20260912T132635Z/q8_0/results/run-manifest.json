@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "run_id": "e3-pilot-20260912T132635Z-q8_0",
+  "suite_id": "e3-humanevalplus-pilot-v1",
+  "mode": "pilot-generation",
+  "row_alias": "q8_0",
+  "model_sha256": "3e2223fa4baf49896f1a58d0b73e02f5143b745d8deb71a01a6038b7994ce394",
+  "generated_at_utc": "2026-09-12T13:27:06.024259+00:00",
+  "server_restarts": 0,
+  "aborted_reason": null,
+  "summary": {
+    "task_count": 33,
+    "generation_record_count": 33,
+    "terminal_record_count": 33,
+    "retried_task_count": 0,
+    "infrastructure_failure_count": 0,
+    "duplicate_generation_keys": 0,
+    "total_completion_tokens": 3582,
+    "generated_programs_executed": 0
+  },
+  "gates": {
+    "all_pilot_tasks_have_terminal_record": true,
+    "no_duplicate_generation_keys": true,
+    "generated_programs_executed": true,
+    "row_not_aborted": true
+  },
+  "passed": true,
+  "results_dir": "/results"
+}

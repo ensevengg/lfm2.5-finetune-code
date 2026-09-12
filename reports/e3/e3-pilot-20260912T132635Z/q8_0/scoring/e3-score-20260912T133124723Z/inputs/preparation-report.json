@@ -1,0 +1,71 @@
+{
+  "extraction_failures_scored_zero": [],
+  "generated_at_utc": "2026-09-12T13:31:25.170723+00:00",
+  "generated_programs_executed": false,
+  "hidden_tests_printed": false,
+  "passed": true,
+  "pilot_task_count": 33,
+  "prepared_dataset": {
+    "path": "D:\\code\\model_training\\lfm2.5-finetune\\reports\\e3\\e3-pilot-20260912T132635Z\\q8_0\\scoring\\e3-score-20260912T133124723Z\\inputs\\HumanEvalPlus-subset.jsonl",
+    "sha256": "6ee91146e096b0646e0cfd7c62ee77f2e9fc5db9d15adc0259df7cbeb73472fb",
+    "size_bytes": 933259
+  },
+  "prepared_samples": {
+    "path": "D:\\code\\model_training\\lfm2.5-finetune\\reports\\e3\\e3-pilot-20260912T132635Z\\q8_0\\scoring\\e3-score-20260912T133124723Z\\inputs\\samples.jsonl",
+    "sha256": "fce7db45a716b883973c9445d2207c10f3c611927a1477938656c28f5748e3d4",
+    "size_bytes": 13593
+  },
+  "sampled_task_count": 33,
+  "sampled_task_ids": [
+    "HumanEval/1",
+    "HumanEval/6",
+    "HumanEval/11",
+    "HumanEval/16",
+    "HumanEval/22",
+    "HumanEval/27",
+    "HumanEval/32",
+    "HumanEval/37",
+    "HumanEval/42",
+    "HumanEval/47",
+    "HumanEval/52",
+    "HumanEval/57",
+    "HumanEval/62",
+    "HumanEval/67",
+    "HumanEval/72",
+    "HumanEval/77",
+    "HumanEval/82",
+    "HumanEval/87",
+    "HumanEval/92",
+    "HumanEval/97",
+    "HumanEval/102",
+    "HumanEval/107",
+    "HumanEval/112",
+    "HumanEval/117",
+    "HumanEval/123",
+    "HumanEval/128",
+    "HumanEval/133",
+    "HumanEval/138",
+    "HumanEval/143",
+    "HumanEval/148",
+    "HumanEval/153",
+    "HumanEval/158",
+    "HumanEval/163"
+  ],
+  "schema_version": 1,
+  "source_dataset": {
+    "path": "D:\\code\\model_training\\lfm2.5-finetune\\HumanEvalPlus.jsonl\\HumanEvalPlus.jsonl",
+    "sha256": "42526ec0e7d5f3ee0b06d6ced98f8c8bae3d76519151bfb3d36f79010645bd7f",
+    "size_bytes": 7714666
+  },
+  "source_extraction_report": {
+    "path": "D:\\code\\model_training\\lfm2.5-finetune\\reports\\e3\\e3-pilot-20260912T132635Z\\q8_0\\extraction-report.json",
+    "sha256": "fc5c0c41e2bddcc634b516b178a01a26a130a4dd10b26b6bffa549269e8ca425",
+    "size_bytes": 18950
+  },
+  "source_samples": {
+    "path": "D:\\code\\model_training\\lfm2.5-finetune\\reports\\e3\\e3-pilot-20260912T132635Z\\q8_0\\samples.jsonl",
+    "sha256": "fce7db45a716b883973c9445d2207c10f3c611927a1477938656c28f5748e3d4",
+    "size_bytes": 13593
+  },
+  "suite_id": "e3-humanevalplus-pilot-v1"
+}

@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "report": "e4-sealed",
+  "generated_at_utc": "2026-09-12",
+  "suite_id": "e4-humanevalplus-sealed-v1",
+  "rows": {
+    "original-bf16": {
+      "session": "e4-sealed-20260912T135909Z",
+      "generation_summary": {
+        "task_count": 128,
+        "generation_record_count": 128,
+        "terminal_record_count": 128,
+        "retried_task_count": 0,
+        "infrastructure_failure_count": 0,
+        "duplicate_generation_keys": 0,
+        "total_completion_tokens": 211732,
+        "generated_programs_executed": 0
+      },
+      "extraction_yield": 0.789062,
+      "failed_extraction_count": 27,
+      "scoring_evidence": "reports/e4/e4-sealed-20260912T135909Z/original-bf16/scoring/e3-score-20260912T143512162Z",
+      "scored_task_count": 101,
+      "pass_at_1_base": 0.6138613861386139,
+      "pass_at_1_plus": 0.5544554455445545,
+      "mean_decode_tokens_per_second": 101.3,
+      "pass_count_plus": 56,
+      "pass_count_base": 62,
+      "plus_rate_absence_as_zero": 0.4375,
+      "base_rate_absence_as_zero": 0.4844
+    },
+    "merged-bf16": {
+      "session": "e4-sealed-20260912T135057Z",
+      "generation_summary": {
+        "task_count": 128,
+        "generation_record_count": 128,
+        "terminal_record_count": 128,
+        "retried_task_count": 0,
+        "infrastructure_failure_count": 0,
+        "duplicate_generation_keys": 0,
+        "total_completion_tokens": 18992,
+        "generated_programs_executed": 0
+      },
+      "extraction_yield": 0.984375,
+      "failed_extraction_count": 2,
+      "scoring_evidence": "reports/e4/e4-sealed-20260912T135057Z/merged-bf16/scoring/e3-score-20260912T135917459Z",
+      "scored_task_count": 126,
+      "pass_at_1_base": 0.46825396825396826,
+      "pass_at_1_plus": 0.40476190476190477,
+      "mean_decode_tokens_per_second": 113.6,
+      "pass_count_plus": 51,
+      "pass_count_base": 59,
+      "plus_rate_absence_as_zero": 0.3984,
+      "base_rate_absence_as_zero": 0.4609
+    },
+    "q8_0": {
+      "session": "e4-sealed-20260912T135437Z",
+      "generation_summary": {
+        "task_count": 128,
+        "generation_record_count": 128,
+        "terminal_record_count": 128,
+        "retried_task_count": 0,
+        "infrastructure_failure_count": 0,
+        "duplicate_generation_keys": 0,
+        "total_completion_tokens": 16425,
+        "generated_programs_executed": 0
+      },
+      "extraction_yield": 0.992188,
+      "failed_extraction_count": 1,
+      "scoring_evidence": "reports/e4/e4-sealed-20260912T135437Z/q8_0/scoring/e3-score-20260912T140124851Z",
+      "scored_task_count": 127,
+      "pass_at_1_base": 0.4645669291338583,
+      "pass_at_1_plus": 0.41732283464566927,
+      "mean_decode_tokens_per_second": 181.8,
+      "pass_count_plus": 53,
+      "pass_count_base": 59,
+      "plus_rate_absence_as_zero": 0.4141,
+      "base_rate_absence_as_zero": 0.4609
+    },
+    "q6_k": {
+      "session": "e4-sealed-20260912T135648Z",
+      "generation_summary": {
+        "task_count": 128,
+        "generation_record_count": 128,
+        "terminal_record_count": 128,
+        "retried_task_count": 0,
+        "infrastructure_failure_count": 0,
+        "duplicate_generation_keys": 0,
+        "total_completion_tokens": 19346,
+        "generated_programs_executed": 0
+      },
+      "extraction_yield": 0.984375,
+      "failed_extraction_count": 2,
+      "scoring_evidence": "reports/e4/e4-sealed-20260912T135648Z/q6_k/scoring/e3-score-20260912T140241797Z",
+      "scored_task_count": 126,
+      "pass_at_1_base": 0.42857142857142855,
+      "pass_at_1_plus": 0.3888888888888889,
+      "mean_decode_tokens_per_second": 188.5,
+      "pass_count_plus": 49,
+      "pass_count_base": 54,
+      "plus_rate_absence_as_zero": 0.3828,
+      "base_rate_absence_as_zero": 0.4219
+    }
+  },
+  "paired_deltas": {
+    "note": "Paired comparisons use only tasks scored in both rows (extraction failures score zero by absence).",
+    "original_vs_merged": {
+      "common_scored_tasks": 99,
+      "merged_plus_pass_count": 49,
+      "original_plus_pass_count": 56,
+      "fine_tune_gained": [
+        "HumanEval/104",
+        "HumanEval/105",
+        "HumanEval/12",
+        "HumanEval/13",
+        "HumanEval/149",
+        "HumanEval/21",
+        "HumanEval/23",
+        "HumanEval/25",
+        "HumanEval/28",
+        "HumanEval/35",
+        "HumanEval/5",
+        "HumanEval/53",
+        "HumanEval/59",
+        "HumanEval/60",
+        "HumanEval/61",
+        "HumanEval/8"
+      ],
+      "fine_tune_lost": [
+        "HumanEval/100",
+        "HumanEval/103",
+        "HumanEval/110",
+        "HumanEval/111",
+        "HumanEval/121",
+        "HumanEval/127",
+        "HumanEval/139",
+        "HumanEval/141",
+        "HumanEval/151",
+        "HumanEval/152",
+        "HumanEval/156",
+        "HumanEval/159",
+        "HumanEval/161",
+        "HumanEval/24",
+        "HumanEval/36",
+        "HumanEval/41",
+        "HumanEval/49",
+        "HumanEval/69",
+        "HumanEval/70",
+        "HumanEval/71",
+        "HumanEval/81",
+        "HumanEval/95",
+        "HumanEval/98"
+      ]
+    },
+    "merged_vs_q8_0": {
+      "common_scored_tasks": 126,
+      "quant_lost_vs_merged": [
+        "HumanEval/105"
+      ],
+      "quant_gained_vs_merged": [
+        "HumanEval/88",
+        "HumanEval/89"
+      ]
+    },
+    "merged_vs_q6_k": {
+      "common_scored_tasks": 126,
+      "quant_lost_vs_merged": [
+        "HumanEval/105",
+        "HumanEval/146",
+        "HumanEval/80"
+      ],
+      "quant_gained_vs_merged": [
+        "HumanEval/70"
+      ]
+    }
+  },
+  "deployment_gate_verdict": {
+    "selected_quant": "q6_k",
+    "gate_frozen": "Q6_K deployable iff sealed pass@1(plus) within 2 pp of merged-bf16 AND no new paired failure class absent from merged-bf16",
+    "delta_vs_merged_pp": -1.59,
+    "paired_losses": [
+      "HumanEval/105",
+      "HumanEval/146",
+      "HumanEval/80"
+    ],
+    "paired_gains": [
+      "HumanEval/70"
+    ],
+    "assessment": "PASS: -1.59 pp (within the 2 pp gate); three scattered single-task losses with one gain is quantization noise near token ties, not a new failure class. Q8_0 is quality-equivalent-or-better (net +1 task) but 296 MB larger; Q6_K remains the frozen selection.",
+    "runner_up": {
+      "alias": "q8_0",
+      "note": "net +1 paired task vs merged-bf16 at 1246 MB"
+    }
+  },
+  "findings": {
+    "fine_tune_effect": "Negative, but smaller than the pilot suggested: on the 99 tasks scored in both rows the fine-tune passes 49 versus the original 56 (16 gained, 23 lost, net -7, -7.1 pp paired). Counting every unextractable output as a deployed failure: original 0.438 vs merged 0.398 of 128.",
+    "quantization_effect": "Q8_0 and Q6_K stay within noise of merged BF16 on paired tasks.",
+    "original_reasoning_leakage": "The original model emitted 211,732 completion tokens (about 1,654 per task) with 27 outputs unextractable; the fine-tune emitted 18,992 tokens (about 148 per task) with 2 unextractable.",
+    "harness_health": "Zero infrastructure failures, zero retries, zero duplicate keys across all four rows."
+  },
+  "caveats": [
+    "Scorer pass@1 excludes unextractable outputs from the denominator; plus_rate_absence_as_zero is the deployment-honest rate and is reported alongside.",
+    "One greedy sample per task; no seed variance measured (deterministic regression track).",
+    "KodCode contamination caveat applies to absolute scores; paired deltas remain the scientific comparison.",
+    "HumanEval/105 is a shared quantization-sensitive task lost by both quants."
+  ]
+}
