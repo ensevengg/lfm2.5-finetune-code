@@ -87,7 +87,13 @@ $ImageId = (docker image inspect $Suite.scorer.image_tag --format "{{.Id}}").Tri
 if ($LASTEXITCODE -ne 0 -or $ImageId -ne $Suite.scorer.image_id) {
     throw "Pinned scorer image is missing or mismatched. Expected $($Suite.scorer.image_id); got $ImageId"
 }
-$ImageRevision = (docker image inspect $Suite.scorer.image_tag --format '{{index .Config.Labels "org.opencontainers.image.revision"}}').Trim()
+# Windows PowerShell 5.1 strips embedded quotes from docker --format templates,
+# so read the label from the JSON inspection output instead of a Go template.
+$ImageInspect = docker image inspect $Suite.scorer.image_tag | ConvertFrom-Json
+if ($LASTEXITCODE -ne 0) {
+    throw "Docker image inspection failed."
+}
+$ImageRevision = $ImageInspect[0].Config.Labels.'org.opencontainers.image.revision'
 if ($ImageRevision -ne $Suite.scorer.revision) {
     throw "Scorer revision label mismatch."
 }
