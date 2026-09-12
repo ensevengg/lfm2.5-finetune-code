@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-12T12:42:42.4237785Z",
+  "passed": true,
+  "started_at_utc": "2026-09-12T12:42:15.2169664Z",
+  "duration_seconds": 27.207,
+  "source_model": {
+    "repo_id": "LiquidAI/LFM2.5-1.2B-Thinking",
+    "revision": "95053d21d8e0b7ca99421a2127ae39c64f685ff3",
+    "path": "D:\\hf_models\\models--LiquidAI--LFM2.5-1.2B-Thinking\\snapshots\\95053d21d8e0b7ca99421a2127ae39c64f685ff3",
+    "manifest_path": "D:\\code\\model_training\\lfm2.5-finetune\\reports\\phase0\\original-checkpoint-manifest.json",
+    "manifest_sha256": "071ddb1bf7980c42ae4d2de7d1e0d16525c57c7b40adb74f7a7060581576ae65",
+    "weights_size_bytes": 2340697936,
+    "weights_sha256": "112fba7db6c4544d9944002fcfe1c21e23e03d8fc0a0c7e2b6655de6c738583d"
+  },
+  "toolchain": {
+    "image_tag": "lfm25/llama-cpp:3018a11e-cuda128-sm120",
+    "image_id": "sha256:550d53ae97c4d83a6c0fba17cd8f532aa6f775e9498d2452fa6f04e33707b4b0",
+    "llama_cpp_commit": "3018a11e79e489b657dbb77c95694889ccff92df"
+  },
+  "conversion": {
+    "outtype": "bf16",
+    "model_name": "LFM2.5-1.2B-Thinking-Original",
+    "tokenizer_compatibility_override": {
+      "path": "D:\\code\\model_training\\lfm2.5-finetune\\configs\\phase1-tokenizer-config.json",
+      "sha256": "12129289404c901980b0a372cffd475adcdf59bbd9938c9a60faba984b270996",
+      "tokenizer_class": "PreTrainedTokenizerFast",
+      "reason": "Transformers 4.57.6 does not expose the Transformers 5 TokenizersBackend class name."
+    },
+    "network": "none",
+    "root_filesystem": "read-only",
+    "input_mount": "read-only",
+    "output_mount": "artifacts/gguf/phase5 only"
+  },
+  "output": {
+    "path": "D:\\code\\model_training\\lfm2.5-finetune\\artifacts\\gguf\\phase5\\lfm2.5-1.2b-thinking-original-bf16.gguf",
+    "file_name": "lfm2.5-1.2b-thinking-original-bf16.gguf",
+    "size_bytes": 2343326656,
+    "sha256": "2e948214bc4f2af1990039946cee14ad1525ed41108d3fb77a4ec06c7ceec781"
+  }
+}
