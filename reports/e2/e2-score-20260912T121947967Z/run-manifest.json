@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "run_id": "e2-score-20260912T121947967Z",
+  "mode": "score",
+  "passed": true,
+  "selected_task_ids": [
+    "HumanEval/0",
+    "HumanEval/17",
+    "HumanEval/119"
+  ],
+  "result_task_ids": [
+    "HumanEval/0",
+    "HumanEval/17",
+    "HumanEval/119"
+  ],
+  "scorer_image_id": "sha256:ad6fa4abab19c2e4414cb004614eff2f1240757305144e641ec12b5af6949197",
+  "generated_programs_executed": 3,
+  "scores_computed": 3,
+  "evalplus_pass_at_k": {
+    "base": {
+      "pass@1": 0.6666666666666666
+    },
+    "plus": {
+      "pass@1": 0.6666666666666666
+    }
+  },
+  "evidence_directory": "D:\\code\\model_training\\lfm2.5-finetune\\reports\\e2\\e2-score-20260912T121947967Z"
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "run_id": "e2-score-20260912T121554439Z",
+  "mode": "score",
+  "passed": true,
+  "selected_task_ids": [
+    "HumanEval/0"
+  ],
+  "result_task_ids": [
+    "HumanEval/0"
+  ],
+  "scorer_image_id": "sha256:ad6fa4abab19c2e4414cb004614eff2f1240757305144e641ec12b5af6949197",
+  "generated_programs_executed": 1,
+  "scores_computed": 1,
+  "evalplus_pass_at_k": {
+    "base": {
+      "pass@1": 1.0
+    },
+    "plus": {
+      "pass@1": 1.0
+    }
+  },
+  "evidence_directory": "D:\\code\\model_training\\lfm2.5-finetune\\reports\\e2\\e2-score-20260912T121554439Z"
+}

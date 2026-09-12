@@ -1,0 +1,42 @@
+{
+  "generated_at_utc": "2026-09-12T12:15:18.854737+00:00",
+  "generated_programs_executed": false,
+  "hidden_tests_printed": false,
+  "passed": true,
+  "prepared_dataset": {
+    "path": "D:\\code\\model_training\\lfm2.5-finetune\\reports\\e2\\e2-validate-20260912T121518445Z\\inputs\\HumanEvalPlus-subset.jsonl",
+    "sha256": "ae7d22c752dce12fc3b9085f43c1f6343ae01dbe9586735037ea3dece235c069",
+    "size_bytes": 63565
+  },
+  "prepared_samples": {
+    "path": "D:\\code\\model_training\\lfm2.5-finetune\\reports\\e2\\e2-validate-20260912T121518445Z\\inputs\\samples.jsonl",
+    "sha256": "a5c81137c65da72da33301557933a4cf595baf21ae1397c652afd546669806e7",
+    "size_bytes": 324
+  },
+  "schema_version": 1,
+  "selected_task_count": 1,
+  "selected_task_ids": [
+    "HumanEval/0"
+  ],
+  "source_dataset": {
+    "path": "D:\\code\\model_training\\lfm2.5-finetune\\HumanEvalPlus.jsonl\\HumanEvalPlus.jsonl",
+    "sha256": "42526ec0e7d5f3ee0b06d6ced98f8c8bae3d76519151bfb3d36f79010645bd7f",
+    "size_bytes": 7714666
+  },
+  "source_extraction_report": {
+    "path": "D:\\code\\model_training\\lfm2.5-finetune\\reports\\e1\\e1-v1-smoke-20260901T200833Z\\primary\\extraction-report.json",
+    "sha256": "be96ae054aca390ae12f7514d50bed110db08aff860037a44b920d9b0e116e60",
+    "size_bytes": 2677
+  },
+  "source_generations": {
+    "path": "D:\\code\\model_training\\lfm2.5-finetune\\reports\\e1\\e1-v1-smoke-20260901T200833Z\\primary\\generations.jsonl",
+    "sha256": "4f220e004909e30a939c74cea64275c1003d6172192fa3d02004ce0f026c4f90",
+    "size_bytes": 50854
+  },
+  "source_samples": {
+    "path": "D:\\code\\model_training\\lfm2.5-finetune\\reports\\e1\\e1-v1-smoke-20260901T200833Z\\primary\\samples.jsonl",
+    "sha256": "3e5c50b7baea6ce91b47f19b89350cccf478714de6fb26c54626454fc6d47018",
+    "size_bytes": 1180
+  },
+  "suite_id": "e2-humanevalplus-dev-v1"
+}

@@ -1,0 +1,21 @@
+{
+  "checks": {
+    "no_duplicate_sample_task_ids": true,
+    "no_non_loopback_network_routes": true,
+    "non_root_uid": true,
+    "root_write_blocked": true,
+    "sample_and_dataset_task_ids_match": true,
+    "selected_task_count_nonzero": true
+  },
+  "evalplus_version": "0.3.1.post44",
+  "generated_at_utc": "2026-09-12T12:15:19.665806+00:00",
+  "generated_programs_executed": false,
+  "hidden_tests_printed": false,
+  "passed": true,
+  "python_version": "3.11.16",
+  "schema_version": 1,
+  "selected_task_ids": [
+    "HumanEval/0"
+  ],
+  "uid": 65534
+}
