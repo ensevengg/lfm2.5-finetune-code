@@ -1,0 +1,178 @@
+{
+  "actual_case_count": 4,
+  "cases": [
+    {
+      "case_id": "integrity-greeting",
+      "checks": {
+        "finish_reason": {
+          "actual": "eos",
+          "expected": [
+            "eos"
+          ],
+          "passed": true
+        },
+        "forbidden_substrings": {
+          "forbidden": [
+            "<think>",
+            "again",
+            "i responded",
+            "you sent"
+          ],
+          "found": [
+            "<think>",
+            "again",
+            "i responded"
+          ],
+          "passed": false
+        },
+        "max_completion_tokens": {
+          "actual": 114,
+          "expected_maximum": 64,
+          "passed": false
+        }
+      },
+      "completion_preview": "<think>\nOkay, the user sent \"Hi\" and I responded with a friendly greeting. Now they're sending \"Hello\" again. I should acknowledge their greeting and offer assistance. Maybe they're testing if I respond correctly or just starting a conversation. I'll keep it simple and open-ended to encourage them to ask questions or share what's on their mind. I'll make sure my response is welcoming and helpful.\n</think>\n\nHello! How can I assist you today? Feel free to ask any questions or share what's on your ",
+      "completion_sha256": "8bdac729def2e04ebe1f0539fd8d07f52f0c5b7343860c3f1b9ab55ff8e4d870",
+      "passed": false
+    },
+    {
+      "case_id": "integrity-exact",
+      "checks": {
+        "exact_completion": {
+          "actual": "<think>\nOkay, the user wants me to reply with exactly the single word \"Hello\". Let me make sure I understand the request correctly. They said to reply with just \"Hello\", so I don't need to add anything else. I should check if there are any hidden instructions or if I need to handle multiple responses, but in this case, it's straightforward. I'll just respond with \"Hello\" as specified.\n</think>\n\nHello",
+          "expected": "Hello",
+          "passed": false
+        },
+        "finish_reason": {
+          "actual": "eos",
+          "expected": [
+            "eos"
+          ],
+          "passed": true
+        }
+      },
+      "completion_preview": "<think>\nOkay, the user wants me to reply with exactly the single word \"Hello\". Let me make sure I understand the request correctly. They said to reply with just \"Hello\", so I don't need to add anything else. I should check if there are any hidden instructions or if I need to handle multiple responses, but in this case, it's straightforward. I'll just respond with \"Hello\" as specified.\n</think>\n\nHello",
+      "completion_sha256": "470a351718982ad3f06d1e4263156f4d9d7eb87b8f6f912c0227d05feddb0ced",
+      "passed": false
+    },
+    {
+      "case_id": "integrity-state",
+      "checks": {
+        "finish_reason": {
+          "actual": "limit",
+          "expected": [
+            "eos"
+          ],
+          "passed": false
+        },
+        "forbidden_substrings": {
+          "forbidden": [
+            "<think>",
+            "previously asked",
+            "conversation history"
+          ],
+          "found": [
+            "<think>",
+            "conversation history"
+          ],
+          "passed": false
+        },
+        "max_completion_tokens": {
+          "actual": 3072,
+          "expected_maximum": 128,
+          "passed": false
+        },
+        "required_substrings": {
+          "missing": [
+            "what is the only message i have sent you in this conversation?"
+          ],
+          "passed": false,
+          "required": [
+            "what is the only message i have sent you in this conversation?"
+          ]
+        }
+      },
+      "completion_preview": "<think>\nOkay, so I need to figure out what the only message I sent to you in this conversation is. Let me start by recalling the conversation history.\n\nFirst, the user sent a message asking for the only message I've sent. I responded by saying that I don't have any messages, which is a bit confusing because I do have a history. Then the user sent a message saying \"Hello, I'm here!\" and I replied with \"Hello back!\" and \"I'm here!\" again. The user then sent \"What's your name?\" and I replied with \"",
+      "completion_sha256": "91891ac3026d843176e1d218495a6e6f97d6683c5e59a33e746dd9134680a3c7",
+      "passed": false
+    },
+    {
+      "case_id": "integrity-code-fence",
+      "checks": {
+        "finish_reason": {
+          "actual": "eos",
+          "expected": [
+            "eos"
+          ],
+          "passed": true
+        },
+        "required_substrings": {
+          "missing": [],
+          "passed": true,
+          "required": [
+            "def add(",
+            "return a + b"
+          ]
+        },
+        "single_python_fence": {
+          "expected": "exactly one complete ```python fenced block and no outside text",
+          "passed": false
+        }
+      },
+      "completion_preview": "def add(a, b):\n    return a + b",
+      "completion_sha256": "8f75a68646c879fd0cff5c02708c010fb1c01d67ef9930d4e419106feb7897aa",
+      "passed": false
+    }
+  ],
+  "duplicate_case_ids": [],
+  "expected_case_count": 4,
+  "failed_case_count": 4,
+  "generated_at_utc": "2026-08-29T22:13:07.892246+00:00",
+  "generated_programs_executed": 0,
+  "passed": false,
+  "prompt_encoding": {
+    "expected_bos_count_per_prompt": 1,
+    "expected_bos_token_id": 1,
+    "failures": [
+      {
+        "actual_bos_count": 0,
+        "actual_first_token_id": 6,
+        "case_id": "integrity-greeting"
+      },
+      {
+        "actual_bos_count": 0,
+        "actual_first_token_id": 6,
+        "case_id": "integrity-exact"
+      },
+      {
+        "actual_bos_count": 0,
+        "actual_first_token_id": 6,
+        "case_id": "integrity-state"
+      },
+      {
+        "actual_bos_count": 0,
+        "actual_first_token_id": 6,
+        "case_id": "integrity-code-fence"
+      },
+      {
+        "actual_bos_count": 0,
+        "actual_first_token_id": 6,
+        "case_id": "humanevalplus-HumanEval-0"
+      },
+      {
+        "actual_bos_count": 0,
+        "actual_first_token_id": 6,
+        "case_id": "humanevalplus-HumanEval-17"
+      },
+      {
+        "actual_bos_count": 0,
+        "actual_first_token_id": 6,
+        "case_id": "humanevalplus-HumanEval-119"
+      }
+    ],
+    "passed": false
+  },
+  "schema_version": 1,
+  "suite_id": "e0-humanevalplus-smoke-v1",
+  "unexpected_case_ids": []
+}
